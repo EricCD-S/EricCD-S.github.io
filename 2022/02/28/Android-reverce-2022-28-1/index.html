@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="记录一些 jni 中的函数使用与静态注册相关知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 逆向 - 2022.28-1">
+<meta property="og:url" content="http://example.com/2022/02/28/Android-reverce-2022-28-1/index.html">
+<meta property="og:site_name" content="Vegetable Blog">
+<meta property="og:description" content="记录一些 jni 中的函数使用与静态注册相关知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-28T01:34:57.000Z">
+<meta property="article:modified_time" content="2022-03-03T14:36:33.594Z">
+<meta property="article:author" content="EricCD">
+<meta property="article:tag" content="jni">
+<meta property="article:tag" content="ndk">
+<meta property="article:tag" content="静态注册">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/02/28/Android-reverce-2022-28-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android 逆向 - 2022.28-1 | Vegetable Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vegetable Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/28/Android-reverce-2022-28-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricCD">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vegetable Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 逆向 - 2022.28-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-28 09:34:57" itemprop="dateCreated datePublished" datetime="2022-02-28T09:34:57+08:00">2022-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-03 22:36:33" itemprop="dateModified" datetime="2022-03-03T22:36:33+08:00">2022-03-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">Android逆向知识</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>记录一些 jni 中的函数使用与静态注册相关知识。</p>
+<span id="more"></span>
+
+<h2 id="可执行程序编译"><a href="#可执行程序编译" class="headerlink" title="可执行程序编译"></a>可执行程序编译</h2><p>首先准备 Android.mk 文件，文件内容如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ LOCAL_PATH := $(call my-dir)</span><br><span class="line">$ include $(CLEAR_VARS)</span><br><span class="line">$ LOCAL_ARM_MODE := arm #确定编译后的指令集 </span><br><span class="line">$ LOCAL_MODULE := example #模块名称 </span><br><span class="line">$ LOCAL_SRC_FILES := JNI_example.c #c 源文件 </span><br><span class="line">$ LOCAL_LDLIBS += -llog #依赖库 </span><br><span class="line">$ include $(BUILD EXECUTABLE) #将.c 构建为可执行程序，使用 shared_library 则会生成动态链接库， 使用 static_library 会生成静态链接库 </span><br></pre></td></tr></table></figure>
+<p>准备 Application.mk 文件，文件内代码如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  APP_API := x86 armeabi-v7a</span><br></pre></td></tr></table></figure>
+<p>在以上文件存储处打开 cmd，执行 ndk-build 指令生成 linux 下的可执行程序。</p>
+<h2 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h2><p>jni 中的函数可以在 &#x2F;java&#x2F;include 下的 jni.h 文件中查询，以下只列举了一些可能使用到的函数。</p>
+<h3 id="调用-java-层普通方法"><a href="#调用-java-层普通方法" class="headerlink" title="调用 java 层普通方法"></a>调用 java 层普通方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ （*CallObjectMethod) (JNIEnv*, jobject, jmethodID, ...);</span><br></pre></td></tr></table></figure>
+<p>前两个为默认参数，第三个参数由以下方法获取。</p>
+<h3 id="获取-java-层实例方法的值"><a href="#获取-java-层实例方法的值" class="headerlink" title="获取 java 层实例方法的值"></a>获取 java 层实例方法的值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  jmethodID (*GetMethodID) (JNIEnv*, jclass, const char*, const char*);</span><br></pre></td></tr></table></figure>
+<p>其中，第一个 const char * 为 java 层方法名称，第二个 const char * 为 java 层方法的签名 (即方法返回类型)，而 jclass 由以下方法获取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jclass (*FindClass) (JNIEnv*, const char*)</span><br></pre></td></tr></table></figure>
+<p>其中，const char * 为目标所在 class 的路径 (使用 \ 代替.)。 </p>
+<h3 id="获取-java-层实例字段的值"><a href="#获取-java-层实例字段的值" class="headerlink" title="获取 java 层实例字段的值"></a>获取 java 层实例字段的值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jobject (*GetObjectField) (JNIEnv*, jobject , jfieldID);</span><br></pre></td></tr></table></figure>
+<p>其中，jfieldID 由以下代码获取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jfieldID (*GetFieldID) (JNIenv*, jclass, const char*, const char*);</span><br></pre></td></tr></table></figure>
+<p>第一个 const char * 为实例字段的名称，第二个 const char * 为实例字段签名 (即实例字段类型)。</p>
+<h3 id="设置-java-层实例字段的值"><a href="#设置-java-层实例字段的值" class="headerlink" title="设置 java 层实例字段的值"></a>设置 java 层实例字段的值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ void (*SetObjectField) (JNIEnv*, jobject, jfieldID, jobject);</span><br></pre></td></tr></table></figure>
+<p>第二个 jobject 为 java 层实例字段设置的值。</p>
+<h2 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h2><h3 id="生成-jni-头文件"><a href="#生成-jni-头文件" class="headerlink" title="生成 jni 头文件"></a>生成 jni 头文件</h3><p>在 class 代码中声明 native 方法，之后在 cmd 窗口中切换到源码目录处，执行以下代码生成 jni 头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javah -jni com.example.main.class</span><br></pre></td></tr></table></figure>
+<h3 id="编写-c-代码"><a href="#编写-c-代码" class="headerlink" title="编写 c 代码"></a>编写 c 代码</h3><p>在 c 文件中 include 之前生成的头文件，之后便能在 c 文件中具体实现在头文件中声明的函数。</p>
+<h3 id="生成动态链接库"><a href="#生成动态链接库" class="headerlink" title="生成动态链接库"></a>生成动态链接库</h3><p>将之前的两个.mk 文件同.c 与.h 文件放在同一文件夹下，使用 ndk-build 生成动态链接库文件。</p>
+<h3 id="调用动态链接库"><a href="#调用动态链接库" class="headerlink" title="调用动态链接库"></a>调用动态链接库</h3><p>在 java 代码中使用以下代码调用生成的动态链接库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ System.loadLibrary (&quot;Module&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将以上个部分内容相结合，即可实现在 native 层调用 java 函数或获取 java 变量值。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jni/" rel="tag"># jni</a>
+              <a href="/tags/ndk/" rel="tag"># ndk</a>
+              <a href="/tags/%E9%9D%99%E6%80%81%E6%B3%A8%E5%86%8C/" rel="tag"># 静态注册</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/27/Android-Knowledge/" rel="prev" title="Android 知识">
+      <i class="fa fa-chevron-left"></i> Android 知识
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/28/bugs/" rel="next" title="Android 逆向问题记录">
+      Android 逆向问题记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">可执行程序编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8-java-%E5%B1%82%E6%99%AE%E9%80%9A%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">调用 java 层普通方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-java-%E5%B1%82%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E7%9A%84%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">获取 java 层实例方法的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-java-%E5%B1%82%E5%AE%9E%E4%BE%8B%E5%AD%97%E6%AE%B5%E7%9A%84%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">获取 java 层实例字段的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE-java-%E5%B1%82%E5%AE%9E%E4%BE%8B%E5%AD%97%E6%AE%B5%E7%9A%84%E5%80%BC"><span class="nav-number">2.4.</span> <span class="nav-text">设置 java 层实例字段的值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%B3%A8%E5%86%8C"><span class="nav-number">3.</span> <span class="nav-text">静态注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90-jni-%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">生成 jni 头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99-c-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">编写 c 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="nav-number">3.3.</span> <span class="nav-text">生成动态链接库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="nav-number">3.4.</span> <span class="nav-text">调用动态链接库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricCD</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricCD</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Android 框架中 init 进程的相关知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 框架 - init 进程">
+<meta property="og:url" content="http://example.com/2022/03/23/AndroidFramework-init/index.html">
+<meta property="og:site_name" content="Vegetable Blog">
+<meta property="og:description" content="Android 框架中 init 进程的相关知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-23T03:25:48.000Z">
+<meta property="article:modified_time" content="2022-03-31T03:25:50.340Z">
+<meta property="article:author" content="EricCD">
+<meta property="article:tag" content="Knowledge">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/03/23/AndroidFramework-init/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android 框架 - init 进程 | Vegetable Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vegetable Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/23/AndroidFramework-init/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricCD">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vegetable Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 框架 - init 进程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-23 11:25:48" itemprop="dateCreated datePublished" datetime="2022-03-23T11:25:48+08:00">2022-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-31 11:25:50" itemprop="dateModified" datetime="2022-03-31T11:25:50+08:00">2022-03-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Android 框架中 init 进程的相关知识。</p>
+<span id="more"></span>
+<p>init 进程是 Android 启动后，由内核启动的第一个用户级进程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 内核启动过程：</span><br><span class="line">#    start_kernel ()</span><br><span class="line">#    init_post ()</span><br><span class="line">#    run_init_process ()</span><br><span class="line">#</span><br><span class="line">#     static in noinline init_post (void)</span><br><span class="line">#     &#123;</span><br><span class="line">#               if (execute_command)&#123;</span><br><span class="line">#                          run_init_process (execute_command);</span><br><span class="line">#               &#125;</span><br><span class="line">#               run_init_process (&quot;/sbin/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/etc/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/bin/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/bin/sh&quot;);</span><br><span class="line">#     &#125;</span><br></pre></td></tr></table></figure>
+<p>init_post () 函数调用 run_init_process () 函数，获取注册在 execute_command 中的进程文件路径，执行 execve () 系统调用，execve () 函数执行参数传递过来的文件路径下的进程 。<br>当跟文件系统顶层目录中不存在 init 进程或未指定启动选项 “init&#x3D;” 时，内核会到 &#x2F;sbin,&#x2F;etc,&#x2F;bin 目录下查找 init 文件，如果仍未找到，则 init 进程停止，引发 Kernel Panic。</p>
+<h2 id="init-工作流程"><a href="#init-工作流程" class="headerlink" title="init 工作流程"></a>init 工作流程</h2><h3 id="SIGCHLD-注册信号处理器"><a href="#SIGCHLD-注册信号处理器" class="headerlink" title="SIGCHLD 注册信号处理器"></a>SIGCHLD 注册信号处理器</h3><p>当子进程终止时，会产生 SIGCHLD 信号，init 进程调用信号安装函数 sigaction ()，并通过参数传递至 sigaction 结构体中，完成信号处理器安装。<br>init 进程通过相关代码注册与子进程相关的 SIGCHLD 信号处理器，并把 sigaction 结构体中的 sa_flags 设置为 SA_NOCLDSTOP，该值表示仅当进程终止时才接受 SIGCHLD 信号。sigchld_handler 函数用于通知全局变量 signal_fd，SIGCHLD 信号已经发生。</p>
+<h3 id="main-目录生成与挂载"><a href="#main-目录生成与挂载" class="headerlink" title="main () 目录生成与挂载"></a>main () 目录生成与挂载</h3><p>init 在注册完信号处理器后，创建并挂在启动所需目录。</p>
+<h3 id="初始化-log-输出设备"><a href="#初始化-log-输出设备" class="headerlink" title="初始化 log 输出设备"></a>初始化 log 输出设备</h3><p>通过调用 log_init () 函数初始化 log 输出设备。</p>
+<h3 id="解析-init-rc-文件"><a href="#解析-init-rc-文件" class="headerlink" title="解析 init.rc 文件"></a>解析 init.rc 文件</h3><p>init.rc 文件是 init 启动后执行的启动脚本，文件中记录着 init 进程执行的功能。在 Linux 系统中，它被定义在根文件系统的 &#x2F;etc&#x2F;rc.d&#x2F; 目录下，是启动时的可执行文件。<br>init.rc 文件在 Android 系统运行过程中用于通用的环境设置以及进程相关的定义，init.{hardware}.rc 用于定义 Android 在不同平台下的特定进程和环境设置等。<br>parse_config_file () 文件用于分析.rc 配置文件，参数为文件路径。读取 init.rc 文件后，生成动作列表与服务列表。根据 init.{hardware}.rc 生成的动作列表和服务列表会被添加到已生成的对应列表中去。</p>
+<h3 id="执行-early-init-动作"><a href="#执行-early-init-动作" class="headerlink" title="执行 early-init 动作"></a>执行 early-init 动作</h3><p>init 进程会依次执行 “early-init , init ,early-boot , boot” 片段中的命令。<br>通过 action_for_each_trigger () 将 early-init 中的命令保存到队列 action_add_queue_tail 中，之后通过 drain_action_queue () 函数将运行队列中的命令逐一取出执行。</p>
+<h3 id="创建定义好的设备节点文件"><a href="#创建定义好的设备节点文件" class="headerlink" title="创建定义好的设备节点文件"></a>创建定义好的设备节点文件</h3><p>通过 device_init () 生成静态设备节点。</p>
+<h3 id="初始化属性服务"><a href="#初始化属性服务" class="headerlink" title="初始化属性服务"></a>初始化属性服务</h3><p>调用 property_init () 函数，在共享内存区域中，创建并初始化属性域。而后通过执行中的进程所提供的 API，访问属性域中的设置值。但更改属性值操作只能在 init 进程中运行，当修改属性值时，要预先向 init 进程提交值变更申请，然后 init 进程处理该申请，并修改属性值。</p>
+<h3 id="显示启动-logo"><a href="#显示启动-logo" class="headerlink" title="显示启动 logo"></a>显示启动 logo</h3><p>使用 load_565rle_image () 函数将文件显示在屏幕上，只需修改 INIT_IMAGE_FILE 即可更改启动 Logo。</p>
+<h3 id="属性初始设置"><a href="#属性初始设置" class="headerlink" title="属性初始设置"></a>属性初始设置</h3><p>通过 property_set () 函数向属性域设置系统所需的一些初始值。这些设置的属性值由执行中的多种进程通过 property_get () API 来访问。</p>
+<h3 id="执行-init-动作"><a href="#执行-init-动作" class="headerlink" title="执行 init 动作"></a>执行 init 动作</h3><p>同 early-init。</p>
+<h3 id="启动属性服务"><a href="#启动属性服务" class="headerlink" title="启动属性服务"></a>启动属性服务</h3><p>除了先前设置的属性外，start_property_service () 还会读取几个设置文件，并对属性进行初始化。在根文件系统的 &#x2F;data&#x2F;property 目录下，保存着进程生成或修改的属性值。向 init 提交修改申请后，init 进程生成 &#x2F;dev&#x2F;socket&#x2F;property_service 来接受其它进程提交的申请。</p>
+<h3 id="创建套接字"><a href="#创建套接字" class="headerlink" title="创建套接字"></a>创建套接字</h3><p>用于 init 进程在收到子进程终止的信号时调用相应的 handler。</p>
+<h3 id="执行与-Action-List-的-early-boot-boot-property-相关的命令"><a href="#执行与-Action-List-的-early-boot-boot-property-相关的命令" class="headerlink" title="执行与 Action List 的 early-boot,boot,property 相关的命令"></a>执行与 Action List 的 early-boot,boot,property 相关的命令</h3><p>在 init.rc 文件的 boot 区段有一条 class_start 命令，用来逐一执行存在于服务列表中的进程列表。</p>
+<h3 id="设置事件处理循环的监视事件"><a href="#设置事件处理循环的监视事件" class="headerlink" title="设置事件处理循环的监视事件"></a>设置事件处理循环的监视事件</h3><p>注册在 POLL 中的文件描述符会在 poll () 函数中等待事件发生，若事件发生，则从 poll 函数中跳出并处理事件。<br>在确认事件发生前，先要在 action list 的命令中确认是否有尚未执行的命令，并执行这些命令。起初，在事件处理循环中，action list 与 service list 未含有需要执行的事情，但是在处理过注册的事件后，init 进程要做的事情会重新注册到 action list 与 service list 中。<br>当事件发生时，事件信息会保存在 pollfd 结构体的 udfs.revents 变量中，当 poll () 函数返回后，可以在 udfs 数组中的 revents 中查看哪些事件已经发生。<br>当子进程终止时，会产生 SIGCHLD 信号，POLLIN 事件会被注册到 udfs [2],revents 中。<br>在 Android 系统运行过程中，插入热的拔插设备时，将生成设备节点文件。<br>这部分函数还会处理属性变更请求。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Knowledge/" rel="tag"># Knowledge</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/23/Android-framework/" rel="prev" title="Android 框架概述">
+      <i class="fa fa-chevron-left"></i> Android 框架概述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/31/Android-Framework-init-rc/" rel="next" title="Android 框架 - init.rc 文件">
+      Android 框架 - init.rc 文件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#init-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">init 工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SIGCHLD-%E6%B3%A8%E5%86%8C%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">SIGCHLD 注册信号处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main-%E7%9B%AE%E5%BD%95%E7%94%9F%E6%88%90%E4%B8%8E%E6%8C%82%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">main () 目录生成与挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-log-%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="nav-number">1.3.</span> <span class="nav-text">初始化 log 输出设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90-init-rc-%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">解析 init.rc 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-early-init-%E5%8A%A8%E4%BD%9C"><span class="nav-number">1.5.</span> <span class="nav-text">执行 early-init 动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%9A%E4%B9%89%E5%A5%BD%E7%9A%84%E8%AE%BE%E5%A4%87%E8%8A%82%E7%82%B9%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">创建定义好的设备节点文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B1%9E%E6%80%A7%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.7.</span> <span class="nav-text">初始化属性服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%90%AF%E5%8A%A8-logo"><span class="nav-number">1.8.</span> <span class="nav-text">显示启动 logo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.9.</span> <span class="nav-text">属性初始设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-init-%E5%8A%A8%E4%BD%9C"><span class="nav-number">1.10.</span> <span class="nav-text">执行 init 动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%B1%9E%E6%80%A7%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.11.</span> <span class="nav-text">启动属性服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="nav-number">1.12.</span> <span class="nav-text">创建套接字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8E-Action-List-%E7%9A%84-early-boot-boot-property-%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-number">1.13.</span> <span class="nav-text">执行与 Action List 的 early-boot,boot,property 相关的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%9B%91%E8%A7%86%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.14.</span> <span class="nav-text">设置事件处理循环的监视事件</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricCD</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricCD</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
