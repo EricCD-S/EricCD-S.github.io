@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Vegetable Blog • Posts by &#34;bugs&#34; tag</title>
+        <link>http://ericcd.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 28 Feb 2022 23:15:24 +0800</pubDate>
+        <lastBuildDate>Mon, 28 Feb 2022 23:15:24 +0800</lastBuildDate>
+        <category>Knowledge</category>
+        <category>ddms</category>
+        <category>jni</category>
+        <category>ndk</category>
+        <category>静态注册</category>
+        <category>JEB</category>
+        <category>Android逆向</category>
+        <category>apktool</category>
+        <category>jarsign</category>
+        <category>010Editor</category>
+        <category>Android Studio</category>
+        <category>Frida</category>
+        <category>apk脱壳</category>
+        <category>bugs</category>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/28/bugs/</guid>
+            <title>日常遇到的 BUG 及其修复方式</title>
+            <link>http://ericcd.com/2022/02/28/bugs/</link>
+            <category>bugs</category>
+            <pubDate>Mon, 28 Feb 2022 23:15:24 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录遇到过的 bug。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打开-monitorbat-时报错an-error-occured&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打开-monitorbat-时报错an-error-occured&#34;&gt;#&lt;/a&gt; 打开 monitor.bat 时报错：An error occured。&lt;/h2&gt;
+&lt;p&gt;jdk 版本太高了，改成了 1.8 版本顺利运行。&lt;/p&gt;
+&lt;h2 id=&#34;夜神模拟器无法自动连接-android-studio&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#夜神模拟器无法自动连接-android-studio&#34;&gt;#&lt;/a&gt; 夜神模拟器无法自动连接 Android Studio。&lt;/h2&gt;
+&lt;p&gt;切换到夜神模拟器安装目录下的 bin 文件夹，执行以下指令：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ adb connect 127.0.0.1:62001&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用-android-killer-重打包失败&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-android-killer-重打包失败&#34;&gt;#&lt;/a&gt; 使用 Android Killer 重打包失败&lt;/h2&gt;
+&lt;p&gt;更换成最新的 apktool。&lt;/p&gt;
+&lt;h2 id=&#34;找不到-ddms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#找不到-ddms&#34;&gt;#&lt;/a&gt; 找不到 ddms&lt;/h2&gt;
+&lt;p&gt;ddms 已经更名成 monitor，并且使用前最好将 java 版本降为 javaSE1.8，否则可能报错。&lt;/p&gt;
+&lt;h2 id=&#34;使用-ddms-查看不了夜神模拟器的日志输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-ddms-查看不了夜神模拟器的日志输出&#34;&gt;#&lt;/a&gt; 使用 ddms 查看不了夜神模拟器的日志输出&lt;/h2&gt;
+&lt;p&gt;换成雷神模拟器。&lt;/p&gt;
+&lt;h2 id=&#34;使用-android-studio-时代码补全功能消失&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-android-studio-时代码补全功能消失&#34;&gt;#&lt;/a&gt; 使用 Android Studio 时代码补全功能消失&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;关闭省电模式。&lt;/li&gt;
+&lt;li&gt;重新进行以便 Grald Sync&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;在-android-studio-中加载动态库时提示找不到动态库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-android-studio-中加载动态库时提示找不到动态库&#34;&gt;#&lt;/a&gt; 在 Android studio 中加载动态库时提示找不到动态库&lt;/h2&gt;
+&lt;p&gt;在 build.gralde 中的 android {} 里添加以下代码。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$      sourceSets &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                             main&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                                         jniLibs.srcDirs=[&amp;#x27;src/main/libs&amp;#x27;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                                      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                           &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;提示在动态库中找不到函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#提示在动态库中找不到函数&#34;&gt;#&lt;/a&gt; 提示在动态库中找不到函数&lt;/h2&gt;
+&lt;p&gt;确定动态库已经加载，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1qdnZ4cy5zbw==&#34;&gt;检查.so&lt;/span&gt; 文件，发现其中没有我自己编写的代码。查看 ndk-build 的 log，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1waHFzM2xrNGpxMmRodmE1MDJiczdiZDRvOXdmYjRkZTY5ZG53eWIuc28=&#34;&gt;发现虽然没报错且正常生成.so&lt;/span&gt; 文件，但是没有编译.c 文件的步骤。检查 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FuZHJvaWQubWs=&#34;&gt;Android.mk&lt;/span&gt; 文件，发现 LOCAL_SRC_FILES 标签少写了最后的 S，导致 ndk-build 没有编译指定文件。&lt;/p&gt;
+&lt;h2 id=&#34;使用-ndk-build-编译时提示-jniexport-后面缺少符号&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-ndk-build-编译时提示-jniexport-后面缺少符号&#34;&gt;#&lt;/a&gt; 使用 ndk-build 编译时提示 JNIEXPORT 后面缺少；符号&lt;/h2&gt;
+&lt;p&gt;自动生成的.h 文件中，函数定义末尾少了；符号，加上就不报错了。&lt;/p&gt;
+&lt;h2 id=&#34;使用-frida-dexdump-脱壳时报错script-has-been-destroyed&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-frida-dexdump-脱壳时报错script-has-been-destroyed&#34;&gt;#&lt;/a&gt; 使用 Frida-dexdump 脱壳时报错：script has been destroyed&lt;/h2&gt;
+&lt;p&gt;可能是框架问题，但在本次实践中是由于 app 不稳定崩溃导致的。&lt;/p&gt;
+&lt;h2 id=&#34;使用-class-结构时发现该结构实际长度比其中的数据长度长&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-class-结构时发现该结构实际长度比其中的数据长度长&#34;&gt;#&lt;/a&gt; 使用 class 结构时，发现该结构实际长度比其中的数据长度长&lt;/h2&gt;
+&lt;p&gt;因为编译器按照 4 字节对 class 进行对齐，不足的补 0，可以在代码开头加上以下声明来取消对齐。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#    pragma pack (1)  // 按照 1 字节对齐，等于没对齐。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;#&lt;/a&gt; 使用 malloc 分配空间后，向其中写入 char，但是发现 cout 时后续跟了许多脏字符&lt;/h2&gt;
+&lt;p&gt;如果 malloc 申请的空间长度等于需要写入的字符长度，那么 cout 时在字符末尾找不到终止符，会继续读，直到遇见终止符为止。建议使用 calloc 来分配空间，该函数能将分配的空间初始化为 0，并且申请的空间长度应该为字符长度 + 1。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

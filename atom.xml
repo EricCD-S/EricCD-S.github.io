@@ -138,17 +138,17 @@
     <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/"/>
     
     
-    <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/"/>
-    
     <category term="ddms" scheme="http://ericcd.com/tags/ddms/"/>
     
-    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
+    <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/"/>
     
     <category term="apktool" scheme="http://ericcd.com/tags/apktool/"/>
     
     <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/"/>
     
     <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/"/>
+    
+    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
     
   </entry>
   

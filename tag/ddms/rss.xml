@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Vegetable Blog • Posts by &#34;ddms&#34; tag</title>
+        <link>http://ericcd.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
+        <lastBuildDate>Tue, 01 Mar 2022 21:09:53 +0800</lastBuildDate>
+        <category>Knowledge</category>
+        <category>ddms</category>
+        <category>jni</category>
+        <category>ndk</category>
+        <category>静态注册</category>
+        <category>JEB</category>
+        <category>Android逆向</category>
+        <category>apktool</category>
+        <category>jarsign</category>
+        <category>010Editor</category>
+        <category>Android Studio</category>
+        <category>Frida</category>
+        <category>apk脱壳</category>
+        <category>bugs</category>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</guid>
+            <title>Androidmanifest 修改实践</title>
+            <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
+            <category>ddms</category>
+            <category>Android逆向</category>
+            <category>apktool</category>
+            <category>jarsign</category>
+            <category>010Editor</category>
+            <category>Android Studio</category>
+            <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;工具准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具准备&#34;&gt;#&lt;/a&gt; 工具准备&lt;/h2&gt;
+&lt;p&gt;本次实践使用 Android Studio 编写实验代码，通过 010Editor 对 Androidmanifest 文件进行修改，使用 jarsign 对修改后的 apk 进行签名。另外，还会使用到 apktool 来对修改后的 apk 进行重打包，进而判断 apktool 是否会对 apk 造成影响。本次实践还使用到了 ddms 来查看日志输出，判断关键代码是否被触发。&lt;/p&gt;
+&lt;h2 id=&#34;实践过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实践过程&#34;&gt;#&lt;/a&gt; 实践过程&lt;/h2&gt;
+&lt;p&gt;通过 Android Studio 编写 apk，为了实施方便，代码中仅包含.MainActivity 与.appApplication。其中，.appApplication 作为 application 中的 andtoid:name 标签值，其功能为输出一段日志信息。&lt;br /&gt;
+进行第一次测试，ddms 能够准确捕获到该日志信息，确定函数顺利执行。&lt;br /&gt;
+使用 Bandizip 提取 apk 中的 Androidmanifest.xml 文件（尝试过使用 winrar，但是该工具会破坏 apk 结构，造成无法进一步实验），使用 010Editor 对 Androidmanifest 进行修改，主要是对 stringChunk 与 resourceChunk 修改，将两段中存储的变量个数对齐，并将 string 值设置为 name，resourceID 设置为 0 (因为在 Android 标签的结构体中，使用同一索引值来寻找字符串与资源 ID。并且，不要动本来就有的 name 标签与 ID，后面的其它资源可能会用到，改了会报错)。此外，还要对 filesize 等部分进行相应的修改，此处不一一讨论。&lt;br /&gt;
+将修改后的 Androidmanifest 放回 apk 中，删去 META-INF 文件，使用之前的签名文件 (keys.jks) 来对 apk 重新签名，签名使用到了 jarsign 工具，命令如下所示：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ jarsigner -keystore keys.jks -signedjar appsigned.apk appunsigned.apk key0 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;之后将重新签名完成的 apk 放入模拟器运行，ddms 没有接收到任何日志信息，可以发现.appApplication 未被执行。&lt;br /&gt;
+使用 apktool 对 apk 进行重打包，再将生成的 apk 放入模拟器运行，ddms 再次接收到日志信息。&lt;/p&gt;
+&lt;h2 id=&#34;结论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结论&#34;&gt;#&lt;/a&gt; 结论&lt;/h2&gt;
+&lt;p&gt;Android 在运行时使用 ID 来寻找资源，当资源 ID 违法时 (本次实践中值为 0)，Android 会忽略该 ID 对应的资源 (本次实践中的.appApplication)。但是一旦使用 apktool 对 apk 进行重打包，apktool 会对 Androidmanifest 进行修复，将非法 ID 改为正常 ID，使得.appApplication 能够重新运行。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</guid>
+            <title>Android 逆向学习 - 2022.2.27-2</title>
+            <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</link>
+            <category>ddms</category>
+            <pubDate>Sun, 27 Feb 2022 10:34:09 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;ddms 工具使用记录。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打开-ddms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打开-ddms&#34;&gt;#&lt;/a&gt; 打开 ddms&lt;/h2&gt;
+&lt;p&gt;在配置好 sdk 环境的前提下，通过命令行输入 ddms 直接打开。&lt;/p&gt;
+&lt;h2 id=&#34;过滤器使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#过滤器使用&#34;&gt;#&lt;/a&gt; 过滤器使用&lt;/h2&gt;
+&lt;p&gt;通 apk 报名设置过滤器。&lt;/p&gt;
+&lt;h2 id=&#34;配合插桩调试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配合插桩调试&#34;&gt;#&lt;/a&gt; 配合插桩调试&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;通过 Android Killer 在代码中插入日志输出代码。&lt;/li&gt;
+&lt;li&gt;通过 ddms 查看输出的日志信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因为需要使用寄存器存放输出的日志字符串，所以需要确定声明的寄存器数量 (.locals) 是否足够。&lt;/p&gt;
+&lt;h2 id=&#34;栈跟踪&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#栈跟踪&#34;&gt;#&lt;/a&gt; 栈跟踪&lt;/h2&gt;
+&lt;p&gt;通过插桩找到目标，之后往上分析堆栈确定调用过程。&lt;/p&gt;
+&lt;h2 id=&#34;方法刨析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法刨析&#34;&gt;#&lt;/a&gt; 方法刨析&lt;/h2&gt;
+&lt;p&gt;设置方法刨析，开始刨析后运行 app 中想要分析的功能，之后立即停止方法刨析。凭此获得方法调用表。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

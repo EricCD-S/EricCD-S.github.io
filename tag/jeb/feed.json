@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Vegetable Blog • All posts by \"jeb\" tag",
+    "description": "",
+    "home_page_url": "http://ericcd.com",
+    "items": [
+        {
+            "id": "http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/",
+            "url": "http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/",
+            "title": "Android 逆向学习 - 2022.2.27-3",
+            "date_published": "2022-02-27T03:07:59.000Z",
+            "content_html": "<p>JEB 使用记录。<br />\n<span id=\"more\"></span><br />\n1.ctrl+b 设置断点 (只能在 smali 中设置)。<br />\n2. 快捷键 q 切换代码界面。<br />\n3.Debugger-&gt;start-&gt;attach。选择 Process 附加，之后程序开始运行。</p>\n",
+            "tags": [
+                "JEB"
+            ]
+        }
+    ]
+}

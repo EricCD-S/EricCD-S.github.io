@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Vegetable Blog • Posts by &#34;android逆向工具&#34; category</title>
+        <link>http://ericcd.com</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 27 Feb 2022 11:18:05 +0800</pubDate>
+        <lastBuildDate>Sun, 27 Feb 2022 11:18:05 +0800</lastBuildDate>
+        <category>Knowledge</category>
+        <category>ddms</category>
+        <category>jni</category>
+        <category>ndk</category>
+        <category>静态注册</category>
+        <category>JEB</category>
+        <category>Android逆向</category>
+        <category>apktool</category>
+        <category>jarsign</category>
+        <category>010Editor</category>
+        <category>Android Studio</category>
+        <category>Frida</category>
+        <category>apk脱壳</category>
+        <category>bugs</category>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/27/Frida-2022-2-27-1/</guid>
+            <title>Frida-2022.2.27-1</title>
+            <link>http://ericcd.com/2022/02/27/Frida-2022-2-27-1/</link>
+            <category>Frida</category>
+            <category>apk脱壳</category>
+            <pubDate>Sun, 27 Feb 2022 11:18:05 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;利用 Frida 进行脱壳的过程记录。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;工具准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具准备&#34;&gt;#&lt;/a&gt; 工具准备&lt;/h2&gt;
+&lt;p&gt;通过以下命令安装 Frida 模块：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ pip install frida&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ pip install frida-tools&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 通过 github 下载 android 设备对应的 frida-server，通过以下命令将 frida-server 传输到 /data/local/tmp 目录下并设置可执行权限。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ adb push frida-server /data/local/tmp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ adb shell&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ cd /data/local/tmp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ chmod 777 frida-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 使用以下命令安装 frida-dexdump&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ pip install frida-dexdump&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;脱壳过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#脱壳过程&#34;&gt;#&lt;/a&gt; 脱壳过程&lt;/h2&gt;
+&lt;p&gt;首先将 apk 安装到设备中。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ adb install apk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;进入 frida-server 的存放目录，运行 frida-server。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ adb shell&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ cd /data/local/tmp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ ./frida-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 另外打开一个 cmd，执行以下命令进行脱壳：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ frida -dexdump -U -f apk.packagename distPath&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;apk.packagename 为需要脱壳的 apk 的包名，distPath 为用户指定的 dex 存放地址。&lt;br /&gt;
+Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/</guid>
+            <title>Android 逆向学习 - 2022.2.27-3</title>
+            <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/</link>
+            <category>JEB</category>
+            <pubDate>Sun, 27 Feb 2022 11:07:59 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;JEB 使用记录。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
+1.ctrl+b 设置断点 (只能在 smali 中设置)。&lt;br /&gt;
+2. 快捷键 q 切换代码界面。&lt;br /&gt;
+3.Debugger-&amp;gt;start-&amp;gt;attach。选择 Process 附加，之后程序开始运行。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</guid>
+            <title>Android 逆向学习 - 2022.2.27-2</title>
+            <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</link>
+            <category>ddms</category>
+            <pubDate>Sun, 27 Feb 2022 10:34:09 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;ddms 工具使用记录。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打开-ddms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打开-ddms&#34;&gt;#&lt;/a&gt; 打开 ddms&lt;/h2&gt;
+&lt;p&gt;在配置好 sdk 环境的前提下，通过命令行输入 ddms 直接打开。&lt;/p&gt;
+&lt;h2 id=&#34;过滤器使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#过滤器使用&#34;&gt;#&lt;/a&gt; 过滤器使用&lt;/h2&gt;
+&lt;p&gt;通 apk 报名设置过滤器。&lt;/p&gt;
+&lt;h2 id=&#34;配合插桩调试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配合插桩调试&#34;&gt;#&lt;/a&gt; 配合插桩调试&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;通过 Android Killer 在代码中插入日志输出代码。&lt;/li&gt;
+&lt;li&gt;通过 ddms 查看输出的日志信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因为需要使用寄存器存放输出的日志字符串，所以需要确定声明的寄存器数量 (.locals) 是否足够。&lt;/p&gt;
+&lt;h2 id=&#34;栈跟踪&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#栈跟踪&#34;&gt;#&lt;/a&gt; 栈跟踪&lt;/h2&gt;
+&lt;p&gt;通过插桩找到目标，之后往上分析堆栈确定调用过程。&lt;/p&gt;
+&lt;h2 id=&#34;方法刨析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法刨析&#34;&gt;#&lt;/a&gt; 方法刨析&lt;/h2&gt;
+&lt;p&gt;设置方法刨析，开始刨析后运行 app 中想要分析的功能，之后立即停止方法刨析。凭此获得方法调用表。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</guid>
+            <title>Android 逆向学习 - 2022.2.27-1</title>
+            <link>http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</link>
+            <category>Android Studio</category>
+            <pubDate>Sun, 27 Feb 2022 09:52:01 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;使用 Android Studio 进行动态调试。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
+1.File-&amp;gt;settings-&amp;gt;plugins-&amp;gt;install plugin from disk。通过以上步骤导入 smalidea。&lt;br /&gt;
+2. 使用 Android Killer 打开目标 apk，右键注册机，进入文件路径，将 Project 文件通过 AS 的 import settings 导入。&lt;br /&gt;
+3. 右键 smali 文件，选择 make directory as test sources root，赋予文件权限。&lt;br /&gt;
+4. 进入 File-&amp;gt;project structure，选择 sdk 版本。&lt;br /&gt;
+5.Run-&amp;gt;edit configurations，添加一个 Remote 调试器，设置端口号与 module。&lt;br /&gt;
+6. 使用 adb shell ps 查看进程信息。&lt;br /&gt;
+7.adb forward tcp: 调试器端口号 jdwp: 待调试进程 ID。&lt;/p&gt;
+&lt;p&gt;接下来就能开始进行动态调试。（Androidmanifest 中的 android:debuggable 需要设置为 true)&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

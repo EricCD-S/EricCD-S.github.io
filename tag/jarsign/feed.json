@@ -1,0 +1,23 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Vegetable Blog • All posts by \"jarsign\" tag",
+    "description": "",
+    "home_page_url": "http://ericcd.com",
+    "items": [
+        {
+            "id": "http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/",
+            "url": "http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/",
+            "title": "Androidmanifest 修改实践",
+            "date_published": "2022-03-01T13:09:53.000Z",
+            "content_html": "<p>在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。<br />\n<span id=\"more\"></span></p>\n<h2 id=\"工具准备\"><a class=\"anchor\" href=\"#工具准备\">#</a> 工具准备</h2>\n<p>本次实践使用 Android Studio 编写实验代码，通过 010Editor 对 Androidmanifest 文件进行修改，使用 jarsign 对修改后的 apk 进行签名。另外，还会使用到 apktool 来对修改后的 apk 进行重打包，进而判断 apktool 是否会对 apk 造成影响。本次实践还使用到了 ddms 来查看日志输出，判断关键代码是否被触发。</p>\n<h2 id=\"实践过程\"><a class=\"anchor\" href=\"#实践过程\">#</a> 实践过程</h2>\n<p>通过 Android Studio 编写 apk，为了实施方便，代码中仅包含.MainActivity 与.appApplication。其中，.appApplication 作为 application 中的 andtoid:name 标签值，其功能为输出一段日志信息。<br />\n进行第一次测试，ddms 能够准确捕获到该日志信息，确定函数顺利执行。<br />\n使用 Bandizip 提取 apk 中的 Androidmanifest.xml 文件（尝试过使用 winrar，但是该工具会破坏 apk 结构，造成无法进一步实验），使用 010Editor 对 Androidmanifest 进行修改，主要是对 stringChunk 与 resourceChunk 修改，将两段中存储的变量个数对齐，并将 string 值设置为 name，resourceID 设置为 0 (因为在 Android 标签的结构体中，使用同一索引值来寻找字符串与资源 ID。并且，不要动本来就有的 name 标签与 ID，后面的其它资源可能会用到，改了会报错)。此外，还要对 filesize 等部分进行相应的修改，此处不一一讨论。<br />\n将修改后的 Androidmanifest 放回 apk 中，删去 META-INF 文件，使用之前的签名文件 (keys.jks) 来对 apk 重新签名，签名使用到了 jarsign 工具，命令如下所示：<br />\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">$ jarsigner -keystore keys.jks -signedjar appsigned.apk appunsigned.apk key0 </span><br></pre></td></tr></table></figure></p>\n<p>之后将重新签名完成的 apk 放入模拟器运行，ddms 没有接收到任何日志信息，可以发现.appApplication 未被执行。<br />\n使用 apktool 对 apk 进行重打包，再将生成的 apk 放入模拟器运行，ddms 再次接收到日志信息。</p>\n<h2 id=\"结论\"><a class=\"anchor\" href=\"#结论\">#</a> 结论</h2>\n<p>Android 在运行时使用 ID 来寻找资源，当资源 ID 违法时 (本次实践中值为 0)，Android 会忽略该 ID 对应的资源 (本次实践中的.appApplication)。但是一旦使用 apktool 对 apk 进行重打包，apktool 会对 Androidmanifest 进行修复，将非法 ID 改为正常 ID，使得.appApplication 能够重新运行。</p>\n",
+            "tags": [
+                "ddms",
+                "Android逆向",
+                "apktool",
+                "jarsign",
+                "010Editor",
+                "Android Studio"
+            ]
+        }
+    ]
+}
