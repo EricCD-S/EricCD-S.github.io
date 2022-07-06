@@ -2,30 +2,22 @@
 <rss version="2.0">
     <channel>
         <title>Vegetable Blog</title>
+        <subtitle></subtitle>
+        <icon>http://ericcd.com/images/favicon.ico</icon>
         <link>http://ericcd.com</link>
+        <author>
+          <name>EricCD</name>
+        </author>
         <description></description>
         <language>zh-CN</language>
         <pubDate>Thu, 31 Mar 2022 11:26:29 +0800</pubDate>
         <lastBuildDate>Thu, 31 Mar 2022 11:26:29 +0800</lastBuildDate>
-        <category>Knowledge</category>
-        <category>ddms</category>
-        <category>jni</category>
-        <category>ndk</category>
-        <category>静态注册</category>
-        <category>JEB</category>
-        <category>Android逆向</category>
-        <category>apktool</category>
-        <category>jarsign</category>
-        <category>010Editor</category>
-        <category>Android Studio</category>
-        <category>Frida</category>
-        <category>apk脱壳</category>
-        <category>bugs</category>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/03/31/Android-Framework-init-rc/</guid>
             <title>Android 框架 - init.rc 文件</title>
             <link>http://ericcd.com/2022/03/31/Android-Framework-init-rc/</link>
-            <category>Knowledge</category>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
             <pubDate>Thu, 31 Mar 2022 11:26:29 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Android 框架中 init.rc 文件的相关知识。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -36,7 +28,8 @@ init.rc 文件不同于 init 进程，init 进程仅当编译完 Android 后才�
             <guid isPermalink="true">http://ericcd.com/2022/03/23/AndroidFramework-init/</guid>
             <title>Android 框架 - init 进程</title>
             <link>http://ericcd.com/2022/03/23/AndroidFramework-init/</link>
-            <category>Knowledge</category>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
             <pubDate>Wed, 23 Mar 2022 11:25:48 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Android 框架中 init 进程的相关知识。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -88,7 +81,8 @@ parse_config_file () 文件用于分析.rc 配置文件，参数为文件路径�
             <guid isPermalink="true">http://ericcd.com/2022/03/23/Android-framework/</guid>
             <title>Android 框架概述</title>
             <link>http://ericcd.com/2022/03/23/Android-framework/</link>
-            <category>Knowledge</category>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
             <pubDate>Wed, 23 Mar 2022 10:57:28 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Android 框架相关知识概述。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -115,7 +109,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/03/18/dex-structure/</guid>
             <title>dex 文件结构</title>
             <link>http://ericcd.com/2022/03/18/dex-structure/</link>
-            <category>Knowledge</category>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
             <pubDate>Fri, 18 Mar 2022 10:42:11 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;dex 文件结构学习。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -162,7 +157,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/03/04/Android-reverce-2022.3.4-1/</guid>
             <title>Android 逆向 - 2022.3.4-1</title>
             <link>http://ericcd.com/2022/03/04/Android-reverce-2022.3.4-1/</link>
-            <category>Android逆向</category>
+            <category term="Android逆向知识" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/" />
+            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <pubDate>Fri, 04 Mar 2022 09:34:29 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些常见的反调试策略。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -179,12 +175,13 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</guid>
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
-            <category>ddms</category>
-            <category>Android逆向</category>
-            <category>apktool</category>
-            <category>jarsign</category>
-            <category>010Editor</category>
-            <category>Android Studio</category>
+            <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
+            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
+            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
+            <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
+            <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
+            <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -206,7 +203,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/02/28/bugs/</guid>
             <title>日常遇到的 BUG 及其修复方式</title>
             <link>http://ericcd.com/2022/02/28/bugs/</link>
-            <category>bugs</category>
+            <category term="BUG修复" scheme="http://ericcd.com/categories/BUG%E4%BF%AE%E5%A4%8D/" />
+            <category term="bugs" scheme="http://ericcd.com/tags/bugs/" />
             <pubDate>Mon, 28 Feb 2022 23:15:24 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录遇到过的 bug。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -246,9 +244,10 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/02/28/Android-reverce-2022-28-1/</guid>
             <title>Android 逆向 - 2022.28-1</title>
             <link>http://ericcd.com/2022/02/28/Android-reverce-2022-28-1/</link>
-            <category>jni</category>
-            <category>ndk</category>
-            <category>静态注册</category>
+            <category term="Android逆向知识" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/" />
+            <category term="jni" scheme="http://ericcd.com/tags/jni/" />
+            <category term="ndk" scheme="http://ericcd.com/tags/ndk/" />
+            <category term="静态注册" scheme="http://ericcd.com/tags/%E9%9D%99%E6%80%81%E6%B3%A8%E5%86%8C/" />
             <pubDate>Mon, 28 Feb 2022 09:34:57 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些 jni 中的函数使用与静态注册相关知识。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -303,7 +302,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-Knowledge/</guid>
             <title>Android 知识</title>
             <link>http://ericcd.com/2022/02/27/Android-Knowledge/</link>
-            <category>Knowledge</category>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
             <pubDate>Sun, 27 Feb 2022 16:26:04 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些学习到的 Android 相关知识。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -319,8 +319,9 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <guid isPermalink="true">http://ericcd.com/2022/02/27/Frida-2022-2-27-1/</guid>
             <title>Frida-2022.2.27-1</title>
             <link>http://ericcd.com/2022/02/27/Frida-2022-2-27-1/</link>
-            <category>Frida</category>
-            <category>apk脱壳</category>
+            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
+            <category term="Frida" scheme="http://ericcd.com/tags/Frida/" />
+            <category term="apk脱壳" scheme="http://ericcd.com/tags/apk%E8%84%B1%E5%A3%B3/" />
             <pubDate>Sun, 27 Feb 2022 11:18:05 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;利用 Frida 进行脱壳的过程记录。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -346,7 +347,8 @@ Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/
             <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/</guid>
             <title>Android 逆向学习 - 2022.2.27-3</title>
             <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-3/</link>
-            <category>JEB</category>
+            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
+            <category term="JEB" scheme="http://ericcd.com/tags/JEB/" />
             <pubDate>Sun, 27 Feb 2022 11:07:59 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;JEB 使用记录。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -359,7 +361,8 @@ Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/
             <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</guid>
             <title>Android 逆向学习 - 2022.2.27-2</title>
             <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</link>
-            <category>ddms</category>
+            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
+            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <pubDate>Sun, 27 Feb 2022 10:34:09 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;ddms 工具使用记录。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -383,7 +386,8 @@ Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/
             <guid isPermalink="true">http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</guid>
             <title>Android 逆向学习 - 2022.2.27-1</title>
             <link>http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</link>
-            <category>Android Studio</category>
+            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Sun, 27 Feb 2022 09:52:01 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;使用 Android Studio 进行动态调试。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
