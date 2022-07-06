@@ -102,14 +102,6 @@
             ]
         },
         {
-            "id": "http://ericcd.com/2022/02/28/test/",
-            "url": "http://ericcd.com/2022/02/28/test/",
-            "title": "test",
-            "date_published": "2022-02-28T01:34:57.000Z",
-            "content_html": "<p>test</p>\n",
-            "tags": []
-        },
-        {
             "id": "http://ericcd.com/2022/02/27/Android-Knowledge/",
             "url": "http://ericcd.com/2022/02/27/Android-Knowledge/",
             "title": "Android 知识",
