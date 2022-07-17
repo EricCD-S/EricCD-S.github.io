@@ -207,8 +207,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
+            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
@@ -334,7 +334,7 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
 2.android.intent.action.MAIN 用于决定程序最先启动的 Activity，android.intent.category.LAUNCHER 用于决定程序是否显示在程序列表（桌面）里。没有 android.intent.action.MAIN，能够安装程序，但桌面不会显示启动器，程序也无法运行。&lt;br /&gt;
 没有 android.intent.category.LAUNCHER，程序可以正常运行，但是桌面不会显示启动器。一个 apk 中有多个 activity 中存在 android.intent.action.MAIN 和 android.intent.category.LAUNCHER，桌面上会显示复数个应用图标，但是对应的为同一应用文件。&lt;br /&gt;
 3. 在 Android 中使用 android.os.build 来获取设备相关信息，而 android.os.build 通过 SystemProperties.getString 来获取静态字段值，Systemproperties 是 android.os 中标记为 hide 的类，无法直接访问，但是可以通过反射的方式获取。该类使用 native 方法 native_get 来后去系统属性值，该方法的源代码在 android_os_SystemProperties.cpp 文件中。&lt;br /&gt;
-4. 将 android.intent.category.LAUNCHER 改为 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FuZHJvaWQuaW50ZW50LmNhdGVnb3J5LklORk8=&#34;&gt;android.intent.category.INFO&lt;/span&gt; 或 android.intent.category.FRAMEWORK_INSTRUMENTATION_TEST, 能够实现在桌面上隐藏程序同时不影响程序正常运行。并且因为没有了 android.inntent.category.LAUNCHER 作为特征，一些 apk 分析工具就无法定位 MainActivity。&lt;br /&gt;
+4. 将 android.intent.category.LAUNCHER 更改为 android.intent.category.INFOo 或 android.intent.category.FRAMEWORK_INSTRUMENTATION_TEST, 能够实现在桌面上隐藏程序同时不影响程序正常运行。并且因为没有了 android.inntent.category.LAUNCHER 作为特征，一些 apk 分析工具就无法定位 MainActivity。&lt;br /&gt;
 5. 可以将 Androidmanifest 中的一些非必要标签的资源 ID 改为 0，从而屏蔽实现该标签的作用。&lt;/p&gt;
  ]]></description>
         </item>
