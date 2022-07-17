@@ -207,8 +207,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
+            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
