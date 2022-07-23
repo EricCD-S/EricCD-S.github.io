@@ -6,7 +6,7 @@
   <link href="http://ericcd.com/atom.xml" rel="self"/>
   
   <link href="http://ericcd.com/"/>
-  <updated>2022-07-17T08:09:00.416Z</updated>
+  <updated>2022-07-23T03:50:12.325Z</updated>
   <id>http://ericcd.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vulhub 相关命令</title>
+    <link href="http://ericcd.com/2022/07/23/vulhub-command/"/>
+    <id>http://ericcd.com/2022/07/23/vulhub-command/</id>
+    <published>2022-07-23T03:45:16.000Z</published>
+    <updated>2022-07-23T03:50:12.325Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用 vulhub 时会用到的命令。<br /><span id="more"></span></p><h1 id="下载-vulhub"><a class="anchor" href="#下载-vulhub">#</a> 下载 vulhub</h1><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># wget https://github.com/vulhub/vulhub/archive/master.zip -O vulhub-master.zip</span><br><span class="line"># unzip vulhub-master.zip</span><br><span class="line"># cd vulhub-master</span><br></pre></td></tr></table></figure></p><h1 id="编译环境"><a class="anchor" href="#编译环境">#</a> 编译环境</h1><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker-compose build</span><br></pre></td></tr></table></figure></p><h1 id="启动环境"><a class="anchor" href="#启动环境">#</a> 启动环境</h1><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker-compose up -d</span><br></pre></td></tr></table></figure></p><h1 id="移除环境"><a class="anchor" href="#移除环境">#</a> 移除环境</h1><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker-compose down -v</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;使用 vulhub 时会用到的命令。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="http://ericcd.com/categories/web/"/>
+    
+    
+    <category term="web" scheme="http://ericcd.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>aosp 配置</title>
+    <link href="http://ericcd.com/2022/07/19/aosp-related/"/>
+    <id>http://ericcd.com/2022/07/19/aosp-related/</id>
+    <published>2022-07-19T11:19:16.000Z</published>
+    <updated>2022-07-19T11:36:55.172Z</updated>
+    
+    <content type="html"><![CDATA[<p>AOSP 配置过程中遇到的问题。<br /><span id="more"></span><br /> 环境：Ubuntu 18.04 ， Python3.6</p><h1 id="网络问题"><a class="anchor" href="#网络问题">#</a> 网络问题</h1><p>设置 Proxy 或更换国内源</p><h1 id="repo-安装"><a class="anchor" href="#repo-安装">#</a> repo 安装</h1><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#  mkdir ~/bin</span><br><span class="line">#  PATH=~/bin:$PATH</span><br><span class="line">#  curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span><br><span class="line">#  chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure></p><h1 id="python-版本控制"><a class="anchor" href="#python-版本控制">#</a> python 版本控制</h1><ol><li><p>查看 python 版本：<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  ls /usr/bin/python*</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>添加 python 版本：<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>查看和更换 python 版本：<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  update-alternatives --config python</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;AOSP 配置过程中遇到的问题。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="Android" scheme="http://ericcd.com/categories/Android/"/>
+    
+    
+    <category term="Android" scheme="http://ericcd.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>web 安全相关网站资源记录</title>
@@ -63,7 +105,7 @@
     <link href="http://ericcd.com/2022/03/23/AndroidFramework-init/"/>
     <id>http://ericcd.com/2022/03/23/AndroidFramework-init/</id>
     <published>2022-03-23T03:25:48.000Z</published>
-    <updated>2022-07-17T08:11:03.666Z</updated>
+    <updated>2022-07-19T11:36:51.872Z</updated>
     
     <content type="html"><![CDATA[<p>Android 框架中 init 进程的相关知识。<br /><span id="more"></span><br />init 进程是 Android 启动后，由内核启动的第一个用户级进程。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 内核启动过程：</span><br><span class="line">#    start_kernel ()</span><br><span class="line">#    init_post ()</span><br><span class="line">#    run_init_process ()</span><br><span class="line">#</span><br><span class="line">#     static in noinline init_post (void)</span><br><span class="line">#     &#123;</span><br><span class="line">#               if (execute_command)&#123;</span><br><span class="line">#                          run_init_process (execute_command);</span><br><span class="line">#               &#125;</span><br><span class="line">#               run_init_process (&quot;/sbin/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/etc/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/bin/init&quot;);</span><br><span class="line">#               run_init_process (&quot;/bin/sh&quot;);</span><br><span class="line">#     &#125;</span><br></pre></td></tr></table></figure><br />init_post () 函数调用 run_init_process () 函数，获取注册在 execute_command 中的进程文件路径，执行 execve () 系统调用，execve () 函数执行参数传递过来的文件路径下的进程 。<br />当跟文件系统顶层目录中不存在 init 进程或未指定启动选项 &quot;init=&quot; 时，内核会到 /sbin,/etc,/bin 目录下查找 init 文件，如果仍未找到，则 init 进程停止，引发 Kernel Panic。</p><h1 id="init-工作流程"><a class="anchor" href="#init-工作流程">#</a> init 工作流程</h1><h2 id="sigchld-注册信号处理器"><a class="anchor" href="#sigchld-注册信号处理器">#</a> SIGCHLD 注册信号处理器</h2><p>当子进程终止时，会产生 SIGCHLD 信号，init 进程调用信号安装函数 sigaction ()，并通过参数传递至 sigaction 结构体中，完成信号处理器安装。<br />init 进程通过相关代码注册与子进程相关的 SIGCHLD 信号处理器，并把 sigaction 结构体中的 sa_flags 设置为 SA_NOCLDSTOP，该值表示仅当进程终止时才接受 SIGCHLD 信号。sigchld_handler 函数用于通知全局变量 signal_fd，SIGCHLD 信号已经发生。</p><h2 id="main-目录生成与挂载"><a class="anchor" href="#main-目录生成与挂载">#</a> main () 目录生成与挂载</h2><p>init 在注册完信号处理器后，创建并挂在启动所需目录。</p><h2 id="初始化-log-输出设备"><a class="anchor" href="#初始化-log-输出设备">#</a> 初始化 log 输出设备</h2><p>通过调用 log_init () 函数初始化 log 输出设备。</p><h2 id="解析-initrc-文件"><a class="anchor" href="#解析-initrc-文件">#</a> 解析 init.rc 文件</h2><p>init.rc 文件是 init 启动后执行的启动脚本，文件中记录着 init 进程执行的功能。在 Linux 系统中，它被定义在根文件系统的 /etc/rc.d/ 目录下，是启动时的可执行文件。<br />init.rc 文件在 Android 系统运行过程中用于通用的环境设置以及进程相关的定义，init.{hardware}.rc 用于定义 Android 在不同平台下的特定进程和环境设置等。<br />parse_config_file () 文件用于分析.rc 配置文件，参数为文件路径。读取 init.rc 文件后，生成动作列表与服务列表。根据 init.{hardware}.rc 生成的动作列表和服务列表会被添加到已生成的对应列表中去。</p><h2 id="执行-early-init-动作"><a class="anchor" href="#执行-early-init-动作">#</a> 执行 early-init 动作</h2><p>init 进程会依次执行 &quot;early-init , init ,early-boot , boot&quot; 片段中的命令。<br />通过 action_for_each_trigger () 将 early-init 中的命令保存到队列 action_add_queue_tail 中，之后通过 drain_action_queue () 函数将运行队列中的命令逐一取出执行。</p><h2 id="创建定义好的设备节点文件"><a class="anchor" href="#创建定义好的设备节点文件">#</a> 创建定义好的设备节点文件</h2><p>通过 device_init () 生成静态设备节点。</p><h2 id="初始化属性服务"><a class="anchor" href="#初始化属性服务">#</a> 初始化属性服务</h2><p>调用 property_init () 函数，在共享内存区域中，创建并初始化属性域。而后通过执行中的进程所提供的 API，访问属性域中的设置值。但更改属性值操作只能在 init 进程中运行，当修改属性值时，要预先向 init 进程提交值变更申请，然后 init 进程处理该申请，并修改属性值。</p><h2 id="显示启动-logo"><a class="anchor" href="#显示启动-logo">#</a> 显示启动 logo</h2><p>使用 load_565rle_image () 函数将文件显示在屏幕上，只需修改 INIT_IMAGE_FILE 即可更改启动 Logo。</p><h2 id="属性初始设置"><a class="anchor" href="#属性初始设置">#</a> 属性初始设置</h2><p>通过 property_set () 函数向属性域设置系统所需的一些初始值。这些设置的属性值由执行中的多种进程通过 property_get () API 来访问。</p><h2 id="执行-init-动作"><a class="anchor" href="#执行-init-动作">#</a> 执行 init 动作</h2><p>同 early-init。</p><h2 id="启动属性服务"><a class="anchor" href="#启动属性服务">#</a> 启动属性服务</h2><p>除了先前设置的属性外，start_property_service () 还会读取几个设置文件，并对属性进行初始化。在根文件系统的 /data/property 目录下，保存着进程生成或修改的属性值。向 init 提交修改申请后，init 进程生成 /dev/socket/property_service 来接受其它进程提交的申请。</p><h2 id="创建套接字"><a class="anchor" href="#创建套接字">#</a> 创建套接字</h2><p>用于 init 进程在收到子进程终止的信号时调用相应的 handler。</p><h2 id="执行与-action-list-的-early-bootbootproperty-相关的命令"><a class="anchor" href="#执行与-action-list-的-early-bootbootproperty-相关的命令">#</a> 执行与 Action List 的 early-boot,boot,property 相关的命令</h2><p>在 init.rc 文件的 boot 区段有一条 class_start 命令，用来逐一执行存在于服务列表中的进程列表。</p><h2 id="设置事件处理循环的监视事件"><a class="anchor" href="#设置事件处理循环的监视事件">#</a> 设置事件处理循环的监视事件</h2><p>注册在 POLL 中的文件描述符会在 poll () 函数中等待事件发生，若事件发生，则从 poll 函数中跳出并处理事件。<br />在确认事件发生前，先要在 action list 的命令中确认是否有尚未执行的命令，并执行这些命令。起初，在事件处理循环中，action list 与 service list 未含有需要执行的事情，但是在处理过注册的事件后，init 进程要做的事情会重新注册到 action list 与 service list 中。<br />当事件发生时，事件信息会保存在 pollfd 结构体的 udfs.revents 变量中，当 poll () 函数返回后，可以在 udfs 数组中的 revents 中查看哪些事件已经发生。<br />当子进程终止时，会产生 SIGCHLD 信号，POLLIN 事件会被注册到 udfs [2],revents 中。<br />在 Android 系统运行过程中，插入热的拔插设备时，将生成设备节点文件。<br />这部分函数还会处理属性变更请求。</p>]]></content>
     
@@ -163,13 +205,13 @@
     
     <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/"/>
     
-    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
-    
     <category term="apktool" scheme="http://ericcd.com/tags/apktool/"/>
     
     <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/"/>
     
     <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/"/>
+    
+    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
     
   </entry>
   
@@ -224,7 +266,7 @@
     <link href="http://ericcd.com/2022/02/27/Android-Knowledge/"/>
     <id>http://ericcd.com/2022/02/27/Android-Knowledge/</id>
     <published>2022-02-27T08:26:04.000Z</published>
-    <updated>2022-07-17T08:28:57.806Z</updated>
+    <updated>2022-07-17T08:30:13.618Z</updated>
     
     <content type="html"><![CDATA[<p>记录一些学习到的 Android 相关知识。<br /><span id="more"></span><br />1.application 中的 android:name 属性用来指定 app 启动时关联的 application，默认关联的为 android.app.Application。也可以将其设置为一个我们自己编辑的 class，该 class 将被 application 下的所有 activity 共享。<br />2.android.intent.action.MAIN 用于决定程序最先启动的 Activity，android.intent.category.LAUNCHER 用于决定程序是否显示在程序列表（桌面）里。没有 android.intent.action.MAIN，能够安装程序，但桌面不会显示启动器，程序也无法运行。<br />没有 android.intent.category.LAUNCHER，程序可以正常运行，但是桌面不会显示启动器。一个 apk 中有多个 activity 中存在 android.intent.action.MAIN 和 android.intent.category.LAUNCHER，桌面上会显示复数个应用图标，但是对应的为同一应用文件。<br />3. 在 Android 中使用 android.os.build 来获取设备相关信息，而 android.os.build 通过 SystemProperties.getString 来获取静态字段值，Systemproperties 是 android.os 中标记为 hide 的类，无法直接访问，但是可以通过反射的方式获取。该类使用 native 方法 native_get 来后去系统属性值，该方法的源代码在 android_os_SystemProperties.cpp 文件中。<br />4. 将 android.intent.category.LAUNCHER 更改为 -.INFO 或 -.FRAMEWORK_INSTRUMENTATION_TEST, 能够实现在桌面上隐藏程序同时不影响程序正常运行。并且因为没有了 android.inntent.category.LAUNCHER 作为特征，一些 apk 分析工具就无法定位 MainActivity。<br />5. 可以将 Androidmanifest 中的一些非必要标签的资源 ID 改为 0，从而屏蔽实现该标签的作用。</p>]]></content>
     

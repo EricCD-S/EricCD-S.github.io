@@ -7,6 +7,28 @@
     "home_page_url": "http://ericcd.com",
     "items": [
         {
+            "id": "http://ericcd.com/2022/07/23/vulhub-command/",
+            "url": "http://ericcd.com/2022/07/23/vulhub-command/",
+            "title": "vulhub 相关命令",
+            "date_published": "2022-07-23T03:45:16.000Z",
+            "content_html": "<p>使用 vulhub 时会用到的命令。<br />\n<span id=\"more\"></span></p>\n<h1 id=\"下载-vulhub\"><a class=\"anchor\" href=\"#下载-vulhub\">#</a> 下载 vulhub</h1>\n<p><figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"># wget https://github.com/vulhub/vulhub/archive/master.zip -O vulhub-master.zip</span><br><span class=\"line\"># unzip vulhub-master.zip</span><br><span class=\"line\"># cd vulhub-master</span><br></pre></td></tr></table></figure></p>\n<h1 id=\"编译环境\"><a class=\"anchor\" href=\"#编译环境\">#</a> 编译环境</h1>\n<p><figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"># docker-compose build</span><br></pre></td></tr></table></figure></p>\n<h1 id=\"启动环境\"><a class=\"anchor\" href=\"#启动环境\">#</a> 启动环境</h1>\n<p><figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"># docker-compose up -d</span><br></pre></td></tr></table></figure></p>\n<h1 id=\"移除环境\"><a class=\"anchor\" href=\"#移除环境\">#</a> 移除环境</h1>\n<p><figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"># docker-compose down -v</span><br></pre></td></tr></table></figure></p>\n",
+            "tags": [
+                "web",
+                "web"
+            ]
+        },
+        {
+            "id": "http://ericcd.com/2022/07/19/aosp-related/",
+            "url": "http://ericcd.com/2022/07/19/aosp-related/",
+            "title": "aosp 配置",
+            "date_published": "2022-07-19T11:19:16.000Z",
+            "content_html": "<p>AOSP 配置过程中遇到的问题。<br />\n<span id=\"more\"></span><br />\n 环境：Ubuntu 18.04 ， Python3.6</p>\n<h1 id=\"网络问题\"><a class=\"anchor\" href=\"#网络问题\">#</a> 网络问题</h1>\n<p>设置 Proxy 或更换国内源</p>\n<h1 id=\"repo-安装\"><a class=\"anchor\" href=\"#repo-安装\">#</a> repo 安装</h1>\n<p><figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">#  mkdir ~/bin</span><br><span class=\"line\">#  PATH=~/bin:$PATH</span><br><span class=\"line\">#  curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo</span><br><span class=\"line\">#  chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure></p>\n<h1 id=\"python-版本控制\"><a class=\"anchor\" href=\"#python-版本控制\">#</a> python 版本控制</h1>\n<ol>\n<li>\n<p>查看 python 版本：<br />\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">#  ls /usr/bin/python*</span><br><span class=\"line\"></span><br></pre></td></tr></table></figure></p>\n</li>\n<li>\n<p>添加 python 版本：<br />\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</span><br><span class=\"line\"></span><br></pre></td></tr></table></figure></p>\n</li>\n<li>\n<p>查看和更换 python 版本：<br />\n<figure class=\"highlight plaintext\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br></pre></td><td class=\"code\"><pre><span class=\"line\">#  update-alternatives --config python</span><br><span class=\"line\"></span><br></pre></td></tr></table></figure></p>\n</li>\n</ol>\n",
+            "tags": [
+                "Android",
+                "Android"
+            ]
+        },
+        {
             "id": "http://ericcd.com/2022/07/17/url-log/",
             "url": "http://ericcd.com/2022/07/17/url-log/",
             "title": "web 安全相关网站资源记录",
@@ -82,10 +104,10 @@
                 "Android逆向实践",
                 "ddms",
                 "Android逆向",
-                "Android Studio",
                 "apktool",
                 "jarsign",
-                "010Editor"
+                "010Editor",
+                "Android Studio"
             ]
         },
         {

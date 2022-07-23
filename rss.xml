@@ -10,8 +10,58 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sun, 17 Jul 2022 15:14:42 +0800</pubDate>
-        <lastBuildDate>Sun, 17 Jul 2022 15:14:42 +0800</lastBuildDate>
+        <pubDate>Sat, 23 Jul 2022 11:45:16 +0800</pubDate>
+        <lastBuildDate>Sat, 23 Jul 2022 11:45:16 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/07/23/vulhub-command/</guid>
+            <title>vulhub 相关命令</title>
+            <link>http://ericcd.com/2022/07/23/vulhub-command/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Sat, 23 Jul 2022 11:45:16 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;使用 vulhub 时会用到的命令。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;下载-vulhub&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载-vulhub&#34;&gt;#&lt;/a&gt; 下载 vulhub&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# wget https://github.com/vulhub/vulhub/archive/master.zip -O vulhub-master.zip&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# unzip vulhub-master.zip&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# cd vulhub-master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;编译环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译环境&#34;&gt;#&lt;/a&gt; 编译环境&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# docker-compose build&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;启动环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动环境&#34;&gt;#&lt;/a&gt; 启动环境&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# docker-compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;移除环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#移除环境&#34;&gt;#&lt;/a&gt; 移除环境&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# docker-compose down -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/07/19/aosp-related/</guid>
+            <title>aosp 配置</title>
+            <link>http://ericcd.com/2022/07/19/aosp-related/</link>
+            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
+            <category term="Android" scheme="http://ericcd.com/tags/Android/" />
+            <pubDate>Tue, 19 Jul 2022 19:19:16 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;AOSP 配置过程中遇到的问题。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
+ 环境：Ubuntu 18.04 ， Python3.6&lt;/p&gt;
+&lt;h1 id=&#34;网络问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络问题&#34;&gt;#&lt;/a&gt; 网络问题&lt;/h1&gt;
+&lt;p&gt;设置 Proxy 或更换国内源&lt;/p&gt;
+&lt;h1 id=&#34;repo-安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#repo-安装&#34;&gt;#&lt;/a&gt; repo 安装&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  mkdir ~/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  PATH=~/bin:$PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  curl https://storage.googleapis.com/git-repo-downloads/repo &amp;gt; ~/bin/repo&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  chmod a+x ~/bin/repo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;python-版本控制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#python-版本控制&#34;&gt;#&lt;/a&gt; python 版本控制&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;查看 python 版本：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  ls /usr/bin/python*&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加 python 版本：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看和更换 python 版本：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/07/17/url-log/</guid>
             <title>web 安全相关网站资源记录</title>
@@ -209,10 +259,10 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
