@@ -81,11 +81,13 @@
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ubWFwLm9yZy8=&#34;&gt;https://nmap.org/&lt;/span&gt;&lt;br /&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZ29sZHNuYWtlbWFuL21hc25tYXBzY2FuLVYxLjA=&#34;&gt;https://github.com/hellogoldsnakeman/masnmapscan-V1.0&lt;/span&gt;  （端口扫描器）&lt;br /&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0VuYWJsZVNlY3VyaXR5L3dhZncwMGY=&#34;&gt;https://github.com/EnableSecurity/wafw00f&lt;/span&gt;  （WAF 扫描工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2JpdDR3b28vdGVlbW8=&#34;&gt;https://github.com/bit4woo/teemo&lt;/span&gt; （域名枚举工具）&lt;/p&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2JpdDR3b28vdGVlbW8=&#34;&gt;https://github.com/bit4woo/teemo&lt;/span&gt; （域名枚举工具）&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Z1enpkYi1wcm9qZWN0L2Z1enpkYg==&#34;&gt;https://github.com/fuzzdb-project/fuzzdb&lt;/span&gt; （Fuzz 工具）&lt;/p&gt;
 &lt;h1 id=&#34;相关资源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关资源&#34;&gt;#&lt;/a&gt; 相关资源&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0x1Y2lmZXIxOTkzL2Ntc3ByaW50&#34;&gt;https://github.com/Lucifer1993/cmsprint&lt;/span&gt;  （CMS 指纹库）&lt;br /&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL000dGlyL0dpdGh1Yi1Nb25pdG9y&#34;&gt;https://github.com/M4tir/Github-Monitor&lt;/span&gt; （漏洞发布监控工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYm1qb2tlci9wLzkzMjYyNTguaHRtbA==&#34;&gt;https://www.cnblogs.com/bmjoker/p/9326258.html&lt;/span&gt; （sqlmap 思维导图）&lt;/p&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYm1qb2tlci9wLzkzMjYyNTguaHRtbA==&#34;&gt;https://www.cnblogs.com/bmjoker/p/9326258.html&lt;/span&gt; （sqlmap 思维导图）&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1RoZUtpbmdPZkR1Y2svZnV6ekRpY3Rz&#34;&gt;https://github.com/TheKingOfDuck/fuzzDicts&lt;/span&gt; （Fuzz 字典）&lt;/p&gt;
 &lt;h1 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3lvdW5neWFuZ3lhbmcwNC9Ob1NRTEF0dGFjaw==&#34;&gt;https://github.com/youngyangyang04/NoSQLAttack&lt;/span&gt;&lt;br /&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NxbG1hcHByb2plY3Qvc3FsbWFw&#34;&gt;https://github.com/sqlmapproject/sqlmap&lt;/span&gt;&lt;br /&gt;
