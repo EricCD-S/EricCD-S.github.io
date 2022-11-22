@@ -6,7 +6,7 @@
   <link href="http://ericcd.com/atom.xml" rel="self"/>
   
   <link href="http://ericcd.com/"/>
-  <updated>2022-09-20T12:39:12.613Z</updated>
+  <updated>2022-11-22T12:55:36.773Z</updated>
   <id>http://ericcd.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BurpLab</title>
+    <link href="http://ericcd.com/2022/11/22/BurpLab/"/>
+    <id>http://ericcd.com/2022/11/22/BurpLab/</id>
+    <published>2022-11-22T12:13:02.000Z</published>
+    <updated>2022-11-22T12:55:36.773Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录在做 burp lab 时学会的知识点。<br /><span id="more"></span></p><ol><li>使用 select 判断列数和获取返回值时，有时 SELECT 1,2,3 不行而 SELECT NULL,NULL,NULL 可以，可能是因为 sql 的返回值类型需要与后端接收的类型相匹配，SELECT 1,2,3 返回的都是数字，而使用 NULL 会返回不确定类型 NULL。</li><li>只能返回一条字符串语句，但是需要读取多个字符串的值时，可以使用字符串拼接。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Oracle:  &#x27;foo&#x27;||&#x27;bar&#x27;</span><br><span class="line">Microsoft:  &#x27;foo&#x27;+&#x27;bar&#x27;</span><br><span class="line">PostgreSQL:  foo&#x27;||&#x27;bar&#x27;</span><br><span class="line">MySQL:  &#x27;foo&#x27; &#x27;bar&#x27; [Note the space between the two strings],  CONCAT (&#x27;foo&#x27;,&#x27;bar&#x27;)</span><br></pre></td></tr></table></figure></li><li>在 Oracle 中，每一条 SELECT 语句后续都要跟一个 FROM，如果不确定要搜索哪个表，可以使用虚表 dual 来进行测试，例如 SELECT NULL FROM dual。</li><li>获取数据库版本信息。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Oracle:  SELECT banner FROM v$version,  SELECT version FROM v$instance</span><br><span class="line">Microsoft:  SELECT @@version</span><br><span class="line">PostgreSQL:  SELECT version ()</span><br><span class="line">MySQL:  SELECT @@version</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="http://ericcd.com/categories/web/"/>
+    
+    
+    <category term="web" scheme="http://ericcd.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>information-collection</title>
+    <link href="http://ericcd.com/2022/11/15/information-collection/"/>
+    <id>http://ericcd.com/2022/11/15/information-collection/</id>
+    <published>2022-11-15T13:57:34.000Z</published>
+    <updated>2022-11-15T14:07:42.852Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些信息搜集工具。<br /><span id="more"></span></p><h1 id="子域名收集"><a class="anchor" href="#子域名收集">#</a> 子域名收集</h1><p>1.Knockpy<br />2.Sublist3r<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Fib3VsM2xhL1N1Ymxpc3Qzcg==">https://github.com/aboul3la/Sublist3r</span><br />3.Google dorks<br />4.GoogDrker<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcGhyRmlzaC9Hb29nRDBya2Vy">https://github.com/ZephrFish/GoogD0rker</span><br />5.Amass<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL09XQVNQL0FtYXNz">https://github.com/OWASP/Amass</span><br />6.curl<br />7. 自定义脚本</p><p>#Web 指纹<br /> 1.curl<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  curl -i -X OPTIONS url</span><br></pre></td></tr></table></figure><br />2.NMAP<br />3. 自定义脚本</p><h1 id="应用识别"><a class="anchor" href="#应用识别">#</a> 应用识别</h1><p>1.Wappalyzer<br />2.Whatruns<br />3.WafW00f<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VuYWJsZVNlY3VyaXR5L3dhZncwMGY=">https://github.com/EnableSecurity/wafw00f</span></p><h1 id="目录扫描"><a class="anchor" href="#目录扫描">#</a> 目录扫描</h1><p>1.dirb<br />2.dirsearch<br />3.dir buster<br />4.nikto<br />5.Aquatone<br />6.burp intruder<br />7. 各类字典<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RhbmllbG1pZXNzbGVyL1NlY0xpc3Rz"> https://github.com/danielmiessler/SecLists</span></p><h1 id="隐藏参数发现"><a class="anchor" href="#隐藏参数发现">#</a> 隐藏参数发现</h1><p>1.Arjun<br /><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1VsdGltYXRlSGFja2Vycy9Bcmp1bg==">https://github.com/UltimateHackers/Arjun</span></p><h1 id="搜索引擎"><a class="anchor" href="#搜索引擎">#</a> 搜索引擎</h1><p>1.shodan<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># *country*: 找出指定国家的资产数据 </span><br><span class="line"></span><br><span class="line"># *hostname*: 找出指定主机名的资产数据 </span><br><span class="line"></span><br><span class="line"># *port*: 找出指定端口的资产数据 </span><br><span class="line"></span><br><span class="line"># *os*: 找出指定系统版本的资产数据 </span><br><span class="line"></span><br><span class="line"># *before/after*: 指定某个时期的资产数据 </span><br><span class="line"></span><br><span class="line"># *city*: 找出指定城市的资产数据 </span><br></pre></td></tr></table></figure><br />2.Censys</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录一些信息搜集工具。&lt;br /&gt;</summary>
+    
+    
+    
+    <category term="web" scheme="http://ericcd.com/categories/web/"/>
+    
+    
+    <category term="web" scheme="http://ericcd.com/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>pikachu</title>
@@ -42,9 +84,9 @@
     <link href="http://ericcd.com/2022/08/31/linux-command/"/>
     <id>http://ericcd.com/2022/08/31/linux-command/</id>
     <published>2022-08-31T07:02:26.000Z</published>
-    <updated>2022-09-20T12:21:25.778Z</updated>
+    <updated>2022-09-21T02:28:26.048Z</updated>
     
-    <content type="html"><![CDATA[<p>记录一些 linux 环境下会用到的命令。<br /><span id="more"></span></p><ol><li><p>设置代理。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># export http_proxy=&#x27;http://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># curl -vv google.com</span><br><span class="line"># git config --global https.proxy http://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global https.proxy https://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global http.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># git config --global https.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br></pre></td></tr></table></figure></p></li><li><p>批量添加后缀名。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find . -type f | awk -F &quot;.&quot; &#x27;&#123;print $2&#125;&#x27; | xargs -i -t mv ./&#123;&#125; ./&#123;&#125;.apk</span><br></pre></td></tr></table></figure></p></li><li><p>查看 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  ls /usr/bin/python*</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>添加 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>查看和更换 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  update-alternatives --config python</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>记录一些 linux 环境下会用到的命令。<br /><span id="more"></span></p><ol><li><p>设置代理。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># export http_proxy=&#x27;http://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># curl -vv google.com</span><br><span class="line"># git config --global https.proxy http://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global https.proxy https://windows 的 ip: 代理端口 </span><br><span class="line"># git config --global http.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br><span class="line"># git config --global https.proxy &#x27;socks5://windows 的 ip: 代理端口 &#x27;</span><br></pre></td></tr></table></figure></p></li><li><p>批量添加后缀名。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># find . -type f | awk -F &quot;.&quot; &#x27;&#123;print $2&#125;&#x27; | xargs -i -t mv ./&#123;&#125; ./&#123;&#125;.apk</span><br></pre></td></tr></table></figure></p></li><li><p>查看 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  ls /usr/bin/python*</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>添加 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>查看和更换 python 版本。<br /><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  update-alternatives --config python</span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li><li><p>解决 apt install 失败的问题<br /> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get install aptitude</span><br><span class="line"># sudo aptitude install &lt;package-name&gt;</span><br></pre></td></tr></table></figure><br /> 之后从 aptitude 提供的解决方案中选择一种使用。</p></li></ol>]]></content>
     
     
     <summary type="html">&lt;p&gt;记录一些 linux 环境下会用到的命令。&lt;br /&gt;</summary>
@@ -264,17 +306,17 @@
     <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/"/>
     
     
-    <category term="ddms" scheme="http://ericcd.com/tags/ddms/"/>
-    
     <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/"/>
     
-    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
+    <category term="ddms" scheme="http://ericcd.com/tags/ddms/"/>
     
     <category term="apktool" scheme="http://ericcd.com/tags/apktool/"/>
     
     <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/"/>
     
     <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/"/>
+    
+    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
     
   </entry>
   
@@ -407,27 +449,6 @@
     
     
     <category term="ddms" scheme="http://ericcd.com/tags/ddms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 逆向学习 - 2022.2.27-1</title>
-    <link href="http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/"/>
-    <id>http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</id>
-    <published>2022-02-27T01:52:01.000Z</published>
-    <updated>2022-02-27T08:01:17.155Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用 Android Studio 进行动态调试。<br /><span id="more"></span><br />1.File-&gt;settings-&gt;plugins-&gt;install plugin from disk。通过以上步骤导入 smalidea。<br />2. 使用 Android Killer 打开目标 apk，右键注册机，进入文件路径，将 Project 文件通过 AS 的 import settings 导入。<br />3. 右键 smali 文件，选择 make directory as test sources root，赋予文件权限。<br />4. 进入 File-&gt;project structure，选择 sdk 版本。<br />5.Run-&gt;edit configurations，添加一个 Remote 调试器，设置端口号与 module。<br />6. 使用 adb shell ps 查看进程信息。<br />7.adb forward tcp: 调试器端口号 jdwp: 待调试进程 ID。</p><p>接下来就能开始进行动态调试。（Androidmanifest 中的 android:debuggable 需要设置为 true)</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;使用 Android Studio 进行动态调试。&lt;br /&gt;</summary>
-    
-    
-    
-    <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/"/>
     
   </entry>
   

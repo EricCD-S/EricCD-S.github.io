@@ -10,8 +10,75 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Tue, 20 Sep 2022 20:21:49 +0800</pubDate>
-        <lastBuildDate>Tue, 20 Sep 2022 20:21:49 +0800</lastBuildDate>
+        <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
+        <lastBuildDate>Tue, 22 Nov 2022 20:13:02 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/11/22/BurpLab/</guid>
+            <title>BurpLab</title>
+            <link>http://ericcd.com/2022/11/22/BurpLab/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 select 判断列数和获取返回值时，有时 SELECT 1,2,3 不行而 SELECT NULL,NULL,NULL 可以，可能是因为 sql 的返回值类型需要与后端接收的类型相匹配，SELECT 1,2,3 返回的都是数字，而使用 NULL 会返回不确定类型 NULL。&lt;/li&gt;
+&lt;li&gt;只能返回一条字符串语句，但是需要读取多个字符串的值时，可以使用字符串拼接。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Oracle:  &amp;#x27;foo&amp;#x27;||&amp;#x27;bar&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft:  &amp;#x27;foo&amp;#x27;+&amp;#x27;bar&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL:  foo&amp;#x27;||&amp;#x27;bar&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL:  &amp;#x27;foo&amp;#x27; &amp;#x27;bar&amp;#x27; [Note the space between the two strings],  CONCAT (&amp;#x27;foo&amp;#x27;,&amp;#x27;bar&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;在 Oracle 中，每一条 SELECT 语句后续都要跟一个 FROM，如果不确定要搜索哪个表，可以使用虚表 dual 来进行测试，例如 SELECT NULL FROM dual。&lt;/li&gt;
+&lt;li&gt;获取数据库版本信息。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Oracle:  SELECT banner FROM v$version,  SELECT version FROM v$instance&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft:  SELECT @@version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL:  SELECT version ()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL:  SELECT @@version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/11/15/information-collection/</guid>
+            <title>information-collection</title>
+            <link>http://ericcd.com/2022/11/15/information-collection/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Tue, 15 Nov 2022 21:57:34 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录一些信息搜集工具。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;子域名收集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#子域名收集&#34;&gt;#&lt;/a&gt; 子域名收集&lt;/h1&gt;
+&lt;p&gt;1.Knockpy&lt;br /&gt;
+2.Sublist3r&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Fib3VsM2xhL1N1Ymxpc3Qzcg==&#34;&gt;https://github.com/aboul3la/Sublist3r&lt;/span&gt;&lt;br /&gt;
+3.Google dorks&lt;br /&gt;
+4.GoogDrker&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1plcGhyRmlzaC9Hb29nRDBya2Vy&#34;&gt;https://github.com/ZephrFish/GoogD0rker&lt;/span&gt;&lt;br /&gt;
+5.Amass&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL09XQVNQL0FtYXNz&#34;&gt;https://github.com/OWASP/Amass&lt;/span&gt;&lt;br /&gt;
+6.curl&lt;br /&gt;
+7. 自定义脚本&lt;/p&gt;
+&lt;p&gt;#Web 指纹&lt;br /&gt;
+ 1.curl&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  curl -i -X OPTIONS url&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+2.NMAP&lt;br /&gt;
+3. 自定义脚本&lt;/p&gt;
+&lt;h1 id=&#34;应用识别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用识别&#34;&gt;#&lt;/a&gt; 应用识别&lt;/h1&gt;
+&lt;p&gt;1.Wappalyzer&lt;br /&gt;
+2.Whatruns&lt;br /&gt;
+3.WafW00f&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0VuYWJsZVNlY3VyaXR5L3dhZncwMGY=&#34;&gt;https://github.com/EnableSecurity/wafw00f&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;目录扫描&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目录扫描&#34;&gt;#&lt;/a&gt; 目录扫描&lt;/h1&gt;
+&lt;p&gt;1.dirb&lt;br /&gt;
+2.dirsearch&lt;br /&gt;
+3.dir buster&lt;br /&gt;
+4.nikto&lt;br /&gt;
+5.Aquatone&lt;br /&gt;
+6.burp intruder&lt;br /&gt;
+7. 各类字典&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2RhbmllbG1pZXNzbGVyL1NlY0xpc3Rz&#34;&gt; https://github.com/danielmiessler/SecLists&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;隐藏参数发现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#隐藏参数发现&#34;&gt;#&lt;/a&gt; 隐藏参数发现&lt;/h1&gt;
+&lt;p&gt;1.Arjun&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1VsdGltYXRlSGFja2Vycy9Bcmp1bg==&#34;&gt;https://github.com/UltimateHackers/Arjun&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;搜索引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搜索引擎&#34;&gt;#&lt;/a&gt; 搜索引擎&lt;/h1&gt;
+&lt;p&gt;1.shodan&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# *country*: 找出指定国家的资产数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# *hostname*: 找出指定主机名的资产数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# *port*: 找出指定端口的资产数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# *os*: 找出指定系统版本的资产数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# *before/after*: 指定某个时期的资产数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# *city*: 找出指定城市的资产数据 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+2.Censys&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/09/20/pikachu/</guid>
             <title>pikachu</title>
@@ -67,6 +134,11 @@
 &lt;li&gt;
 &lt;p&gt;查看和更换 python 版本。&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决 apt install 失败的问题&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# sudo apt-get install aptitude&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# sudo aptitude install &amp;lt;package-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 之后从 aptitude 提供的解决方案中选择一种使用。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -331,12 +403,12 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
+            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -527,25 +599,6 @@ Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/
 &lt;p&gt;通过插桩找到目标，之后往上分析堆栈确定调用过程。&lt;/p&gt;
 &lt;h1 id=&#34;方法刨析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法刨析&#34;&gt;#&lt;/a&gt; 方法刨析&lt;/h1&gt;
 &lt;p&gt;设置方法刨析，开始刨析后运行 app 中想要分析的功能，之后立即停止方法刨析。凭此获得方法调用表。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</guid>
-            <title>Android 逆向学习 - 2022.2.27-1</title>
-            <link>http://ericcd.com/2022/02/27/android-reverce-2022.2.27-1/</link>
-            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
-            <pubDate>Sun, 27 Feb 2022 09:52:01 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;使用 Android Studio 进行动态调试。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
-1.File-&amp;gt;settings-&amp;gt;plugins-&amp;gt;install plugin from disk。通过以上步骤导入 smalidea。&lt;br /&gt;
-2. 使用 Android Killer 打开目标 apk，右键注册机，进入文件路径，将 Project 文件通过 AS 的 import settings 导入。&lt;br /&gt;
-3. 右键 smali 文件，选择 make directory as test sources root，赋予文件权限。&lt;br /&gt;
-4. 进入 File-&amp;gt;project structure，选择 sdk 版本。&lt;br /&gt;
-5.Run-&amp;gt;edit configurations，添加一个 Remote 调试器，设置端口号与 module。&lt;br /&gt;
-6. 使用 adb shell ps 查看进程信息。&lt;br /&gt;
-7.adb forward tcp: 调试器端口号 jdwp: 待调试进程 ID。&lt;/p&gt;
-&lt;p&gt;接下来就能开始进行动态调试。（Androidmanifest 中的 android:debuggable 需要设置为 true)&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
