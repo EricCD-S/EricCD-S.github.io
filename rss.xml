@@ -27,7 +27,12 @@
 &lt;h4 id=&#34;username-enumeration&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#username-enumeration&#34;&gt;#&lt;/a&gt; Username enumeration&lt;/h4&gt;
 &lt;p&gt;1.Status codes&lt;br /&gt;
 2.Error messages&lt;br /&gt;
-3.Response times&lt;/p&gt;
+3.Response times&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;X-Forwarded-For 是用来识别通过 HTTP 代理或负载均衡方式连接到 Web 服务器的客户端最原始的 IP 地址的 HTTP 请求头字段。，用它伪装 IP 地址来绕过对暴力破解的限制。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+####Flawed brute-force protection&lt;br /&gt;
+ 常见的暴力破解防护措施有两种：如果一个账号有太多的登录失败尝试，就封锁账号；封掉发起太多失败登录的 ip。&lt;br /&gt;
+对于锁定 ip，有的后端可能会在一个 ip 地址登陆成功后重置计时器，因此可以通过间歇登录成功账号来重置计时器。&lt;/p&gt;
+&lt;p&gt;####Account locking&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -73,7 +78,9 @@
 6.(1122) 数组的相对排序。&lt;br /&gt;
 unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;旋转数字&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
         </item>
@@ -619,8 +626,8 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <title>Androidmanifest 修改实践</title>
             <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
+            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
