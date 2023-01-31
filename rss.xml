@@ -628,10 +628,10 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
             <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
             <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
             <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
             <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
             <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
+            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
             <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
