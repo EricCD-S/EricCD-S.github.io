@@ -47,6 +47,7 @@
 &lt;p&gt;在有的 two-factor authentication 中，有的程序员由于疏忽，在第一次账户登录后就将用户标记为登录状态，而并非在第二次验证通过后才进行此操作，&lt;br /&gt;
 因此我们可以在第一次账户登陆后，直接由 url 跳转到账户页面，从而绕过第二次验证。&lt;/p&gt;
 &lt;h3 id=&#34;flawed-two-factor-verification-logic&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#flawed-two-factor-verification-logic&#34;&gt;#&lt;/a&gt; Flawed two-factor verification logic&lt;/h3&gt;
+&lt;p&gt;在第二次验证时，由于使用 account 来判断进行验证的账号，因此可以先使用自己的账号密码登录，在第二次验证时修改协议中的 account 为目标账号，并对验证进行爆破。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -93,7 +94,11 @@
 unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;旋转数字&lt;/p&gt;
+&lt;p&gt;旋转数字&lt;br /&gt;
+ 8.Lambda 表达式&lt;br /&gt;
+该表达式的使用&lt;br /&gt;
+ 9.c++ 二分查找函数&lt;br /&gt;
+ lower_bound ()、upper_bound ()、equal_range () 以及 binary_search ()。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -705,9 +710,9 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/28/Android-reverce-2022-28-1/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/02/28/Android-reverce-2022.2.8-1/</guid>
             <title>Android 逆向 - 2022.28-1</title>
-            <link>http://ericcd.com/2022/02/28/Android-reverce-2022-28-1/</link>
+            <link>http://ericcd.com/2022/02/28/Android-reverce-2022.2.8-1/</link>
             <category term="Android逆向知识" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/" />
             <category term="jni" scheme="http://ericcd.com/tags/jni/" />
             <category term="ndk" scheme="http://ericcd.com/tags/ndk/" />
