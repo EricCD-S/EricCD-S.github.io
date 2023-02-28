@@ -48,6 +48,9 @@
 因此我们可以在第一次账户登陆后，直接由 url 跳转到账户页面，从而绕过第二次验证。&lt;/p&gt;
 &lt;h3 id=&#34;flawed-two-factor-verification-logic&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#flawed-two-factor-verification-logic&#34;&gt;#&lt;/a&gt; Flawed two-factor verification logic&lt;/h3&gt;
 &lt;p&gt;在第二次验证时，由于使用 account 来判断进行验证的账号，因此可以先使用自己的账号密码登录，在第二次验证时修改协议中的 account 为目标账号，并对验证进行爆破。&lt;/p&gt;
+&lt;h3 id=&#34;brute-forcing-2fa-verification-codes&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#brute-forcing-2fa-verification-codes&#34;&gt;#&lt;/a&gt; Brute-forcing 2FA verification codes&lt;/h3&gt;
+&lt;p&gt;有的登录界面会在登陆时刷新验证码次数，所以可以使用 burp 脚本来重复登录 - 验证这一过程，达到爆破的目的。&lt;/p&gt;
+&lt;h2 id=&#34;vulnerabilities-in-other-authentication-mechanisms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vulnerabilities-in-other-authentication-mechanisms&#34;&gt;#&lt;/a&gt; Vulnerabilities in other authentication mechanisms&lt;/h2&gt;
  ]]></description>
         </item>
         <item>
@@ -76,10 +79,14 @@
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;使用单调栈求坡的最大宽度。&lt;br /&gt;
-2.（117）填充每个节点的下一个右侧节点指针 II：&lt;br /&gt;
-给定一个二叉树，填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。初始状态下，所有 next 指针都被设置为 NULL。&lt;br /&gt;
-3.（201） 数字范围按位与：&lt;br /&gt;
+&lt;p&gt;使用单调栈求坡的最大宽度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;填充每个节点的下一个右侧节点指针 II：&lt;br /&gt;
+给定一个二叉树，填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。初始状态下，所有 next 指针都被设置为 NULL。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数字范围按位与：&lt;br /&gt;
 给你两个整数 left 和 right ，表示区间 [left, right] ，返回此区间内所有数字 按位与 的结果（包含 left 、right 端点）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -89,8 +96,10 @@
 &lt;li&gt;
 &lt;p&gt;重新排列单词间的空格。&lt;br /&gt;
 使用流区分字符和空格；string 的创建方式。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;string reorderSpaces (string text) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           vector&amp;lt;string&amp;gt;  str_vec;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           int count = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           string word, ans;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           stringstream in (text);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           while (in &amp;gt;&amp;gt; word)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;               str_vec.push_back (word);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;               count += word.size (); &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           if (str_vec.size () == 1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ans = str_vec [0];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                string space ((text.size () - count)/(str_vec.size () - 1), &amp;#x27; &amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                for (int i =0; i&amp;lt; str_vec.size () - 1; i++)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                       ans += str_vec [i] + space;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                ans += str_vec.back ();        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            return ans + string (text.size () - ans.size (), &amp;#x27; &amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
-6.(1122) 数组的相对排序。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;string reorderSpaces (string text) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           vector&amp;lt;string&amp;gt;  str_vec;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           int count = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           string word, ans;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           stringstream in (text);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           while (in &amp;gt;&amp;gt; word)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;               str_vec.push_back (word);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;               count += word.size (); &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           if (str_vec.size () == 1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ans = str_vec [0];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                string space ((text.size () - count)/(str_vec.size () - 1), &amp;#x27; &amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                for (int i =0; i&amp;lt; str_vec.size () - 1; i++)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                       ans += str_vec [i] + space;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                ans += str_vec.back ();        &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            return ans + string (text.size () - ans.size (), &amp;#x27; &amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数组的相对排序。&lt;br /&gt;
 unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -99,6 +108,17 @@ unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
 该表达式的使用&lt;br /&gt;
  9.c++ 二分查找函数&lt;br /&gt;
  lower_bound ()、upper_bound ()、equal_range () 以及 binary_search ()。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前缀和矩阵&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sum = A [x1..x2][y1..y2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    = P [x2][y2] - P [x1 - 1][y2] - P [x2][y1 - 1] + P [x1 - 1][y1 - 1]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;差分数组&lt;br /&gt;
+有利于对固定数组大量做区间加减并查询&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前缀和&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
