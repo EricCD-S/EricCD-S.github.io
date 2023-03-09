@@ -66,7 +66,13 @@
 &lt;h3 id=&#34;vulnerabilities-in-the-oauth-service&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vulnerabilities-in-the-oauth-service&#34;&gt;#&lt;/a&gt; Vulnerabilities in the OAuth service&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;使用 CSRF 获取他人 code，并用得到的 code 进行登录认证。&lt;br /&gt;
-有的服务器会使用白名单来筛选 redirect_uri，可以尝试绕过。&lt;/li&gt;
+有的服务器会使用白名单来筛选 redirect_uri，可以尝试绕过。&lt;br /&gt;
+针对黑名单，可以采取以下方法：a. 更换表述，比如用 2130706433, 017700000001, 或 127.1. 替换 127.0.0.1、b. 注册一个自己的域名来指向想要的 ip 地址、c。使用 URL 加密等技术混淆。&lt;br /&gt;
+针对白名单匹配，可以采用以下方法：a. 使用 @符号在 hostname 前存放证书，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9leHBlY3RlZC1ob3N0OmZha2VwYXNzd29yZEBldmlsLWhvc3Q=&#34;&gt;https://expected-host:fakepassword@evil-host&lt;/span&gt;、b. 使用 #符号来表示 URL 片段，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ldmlsLWhvc3QjZXhwZWN0ZWQtaG9zdCVFMyU4MCU4MWM=&#34;&gt;https://evil-host#expected-host、c&lt;/span&gt;. 根据 DNS 命名规则将指定的输入存放在自己控制的 DNS 名中、d. 使用 URL 加密混淆。&lt;br /&gt;
+有时还可以利用开放重定向漏洞配合目录穿越漏洞来实现网页跳转。&lt;br /&gt;
+有时更改其他标志，比如将 response_mode 改为 fragment 有时也能绕过筛查。&lt;/li&gt;
+&lt;li&gt;一段 payload&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    if (!document.location.hash) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;URL&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;/?&amp;#x27;+document.location.hash.substr (1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
         </item>
