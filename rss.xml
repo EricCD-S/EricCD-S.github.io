@@ -14,7 +14,7 @@
         <lastBuildDate>Thu, 22 Dec 2022 20:44:54 +0800</lastBuildDate>
         <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-2/</guid>
-            <title>BurpLab_2</title>
+            <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/2022/12/22/BurpLab-2/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
@@ -51,6 +51,23 @@
 &lt;h3 id=&#34;brute-forcing-2fa-verification-codes&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#brute-forcing-2fa-verification-codes&#34;&gt;#&lt;/a&gt; Brute-forcing 2FA verification codes&lt;/h3&gt;
 &lt;p&gt;有的登录界面会在登陆时刷新验证码次数，所以可以使用 burp 脚本来重复登录 - 验证这一过程，达到爆破的目的。&lt;/p&gt;
 &lt;h2 id=&#34;vulnerabilities-in-other-authentication-mechanisms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vulnerabilities-in-other-authentication-mechanisms&#34;&gt;#&lt;/a&gt; Vulnerabilities in other authentication mechanisms&lt;/h2&gt;
+&lt;h3 id=&#34;keeping-users-logged-in&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#keeping-users-logged-in&#34;&gt;#&lt;/a&gt; Keeping users logged in&lt;/h3&gt;
+&lt;p&gt;尝试下能否逆向 cookie 或窃取 cookie。&lt;/p&gt;
+&lt;h3 id=&#34;resetting-user-passwords&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#resetting-user-passwords&#34;&gt;#&lt;/a&gt; Resetting user passwords&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;在请求修改密码的包中加入 x-forwarded-host 头指向自己的服务器，然后将账号信息设置为用户的信息，如果用户点击密码重置邮件的链接，其 token 就会转发到我们设置的服务器上去。&lt;/li&gt;
+&lt;li&gt;爆破重置密码的包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;oauth-20-authentication-vulnerabilities&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#oauth-20-authentication-vulnerabilities&#34;&gt;#&lt;/a&gt; OAuth 2.0 authentication vulnerabilities&lt;/h2&gt;
+&lt;h3 id=&#34;vulnerabilities-in-the-client-application&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vulnerabilities-in-the-client-application&#34;&gt;#&lt;/a&gt; Vulnerabilities in the client application&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;没有使用 state 绑定导致攻击者可以通过 CSRF 将自己的邮箱绑定别人的账号。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;vulnerabilities-in-the-oauth-service&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vulnerabilities-in-the-oauth-service&#34;&gt;#&lt;/a&gt; Vulnerabilities in the OAuth service&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 CSRF 获取他人 code，并用得到的 code 进行登录认证。&lt;br /&gt;
+有的服务器会使用白名单来筛选 redirect_uri，可以尝试绕过。&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
