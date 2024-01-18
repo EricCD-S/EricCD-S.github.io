@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>Vegetable Blog</title>
-        <subtitle></subtitle>
+        <subtitle>永远在学习的路上</subtitle>
         <icon>http://ericcd.com/images/favicon.ico</icon>
         <link>http://ericcd.com</link>
         <author>
@@ -546,26 +546,6 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
         </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/title/</guid>
-            <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/title/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一个简单特点&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
-&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
-&lt;li&gt;爆破&lt;/li&gt;
-&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
-&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_4-OS_command_injection</title>
             <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
@@ -591,6 +571,26 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Newline (0x0a or \n)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
  还可以通过以下方式执行命令:&lt;br /&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;`injected command`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(injected command )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <title>BurpLab_3-Directory_traversal</title>
+            <link>http://ericcd.com/title/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个简单特点&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
+&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
+&lt;li&gt;爆破&lt;/li&gt;
+&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
+&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
         </item>
