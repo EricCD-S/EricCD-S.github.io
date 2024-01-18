@@ -13,9 +13,9 @@
         <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
         <lastBuildDate>Tue, 08 Aug 2023 14:42:56 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2023/08/08/SpringBoot/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>SpringBoot</title>
-            <link>http://ericcd.com/2023/08/08/SpringBoot/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
@@ -52,9 +52,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2023/06/26/web-vx/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>web 杂学</title>
-            <link>http://ericcd.com/2023/06/26/web-vx/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Mon, 26 Jun 2023 11:16:13 +0800</pubDate>
@@ -68,9 +68,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2023/05/06/socket/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>常见漏洞</title>
-            <link>http://ericcd.com/2023/05/06/socket/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Sat, 06 May 2023 14:26:13 +0800</pubDate>
@@ -123,88 +123,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-4/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>应急响应基础知识</title>
-            <link>http://ericcd.com/2023/05/01/hvv-4/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;应急响应基础流程&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;#&lt;/a&gt; Linux&lt;/h1&gt;
-&lt;h2 id=&#34;关键目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键目录&#34;&gt;#&lt;/a&gt; 关键目录&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/passwd              用户信息文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/crontab             定时任务文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/anacrontab          异步定时文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/rc.d/rc.local       开机启动项 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/btmp            登录失败日志，使用 lastb 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/cron            定时任务执行日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/lastlog         所有用户登录信息，使用 lastlog 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/secure          验证、授权等日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/wtmp            包含用户登录日志，使用 last 命令查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/utmp            当前登陆系统的用户信息，使用 last 查看 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;检查异常别名：alias&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查计划任务：&lt;br /&gt;
-cat /var/spool/cron/crontabs/*&lt;br /&gt;
-crontab -l&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看创建时间：stat&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查网络连接：netstat -antpl&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查后门账号：cat /etc/passwd&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查进程：top, ps -aux&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查 gpu：nvidia-smi&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;根据 pid 查看对应可执行程序： ls -alh /proc/pid&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;开放端口进程： lsof -i:5678&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看历史命令：history，cat ~/.bash_history&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看当前目录下所有文件并排序：ls -alt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;校验 RPM 软件包：rpm -Va，dpkg -verify&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看系统服务：service --status-all&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;#&lt;/a&gt; Windows&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;查看系统进程：tasklist&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看网络情况：netstat -ant&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看计划任务：任务计划程序&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;任务管理器查看进程和服务&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查注册表&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安全工具检测&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-3/</guid>
-            <title>应急响应基础知识</title>
-            <link>http://ericcd.com/2023/05/01/hvv-3/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
@@ -343,9 +264,88 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2023/04/30/hvv-sky/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <title>应急响应基础知识</title>
+            <link>http://ericcd.com/title/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;应急响应基础流程&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;#&lt;/a&gt; Linux&lt;/h1&gt;
+&lt;h2 id=&#34;关键目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键目录&#34;&gt;#&lt;/a&gt; 关键目录&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/passwd              用户信息文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/crontab             定时任务文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/anacrontab          异步定时文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/rc.d/rc.local       开机启动项 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/btmp            登录失败日志，使用 lastb 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/cron            定时任务执行日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/lastlog         所有用户登录信息，使用 lastlog 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/secure          验证、授权等日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/wtmp            包含用户登录日志，使用 last 命令查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/utmp            当前登陆系统的用户信息，使用 last 查看 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;检查异常别名：alias&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查计划任务：&lt;br /&gt;
+cat /var/spool/cron/crontabs/*&lt;br /&gt;
+crontab -l&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看创建时间：stat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查网络连接：netstat -antpl&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查后门账号：cat /etc/passwd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查进程：top, ps -aux&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查 gpu：nvidia-smi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据 pid 查看对应可执行程序： ls -alh /proc/pid&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放端口进程： lsof -i:5678&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看历史命令：history，cat ~/.bash_history&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看当前目录下所有文件并排序：ls -alt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;校验 RPM 软件包：rpm -Va，dpkg -verify&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看系统服务：service --status-all&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;#&lt;/a&gt; Windows&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;查看系统进程：tasklist&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看网络情况：netstat -ant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看计划任务：任务计划程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;任务管理器查看进程和服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查注册表&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安全工具检测&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>天眼学习</title>
-            <link>http://ericcd.com/2023/04/30/hvv-sky/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Sun, 30 Apr 2023 14:26:13 +0800</pubDate>
@@ -472,9 +472,9 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-2/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_2-Authentication</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-2/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
@@ -545,9 +545,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-3/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-3/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
@@ -565,9 +565,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-4/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_4-OS_command_injection</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-4/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
@@ -595,9 +595,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/BurpLab-5/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_5-Business_logic_vulnerabilities</title>
-            <link>http://ericcd.com/2022/12/22/BurpLab-5/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
@@ -623,9 +623,9 @@ c. Follow multi-stage processes through to completion. Sometimes tampering with 
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/11/30/hvv/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>面经</title>
-            <link>http://ericcd.com/2022/11/30/hvv/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Wed, 30 Nov 2022 14:26:13 +0800</pubDate>
@@ -1150,9 +1150,9 @@ SSTI 就是服务器端模板注入（Server-Side Template Injection）&lt;br /&
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/11/29/leetcode/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>leetcode</title>
-            <link>http://ericcd.com/2022/11/29/leetcode/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="LeetCode" scheme="http://ericcd.com/categories/LeetCode/" />
             <category term="LeetCode" scheme="http://ericcd.com/tags/LeetCode/" />
             <pubDate>Tue, 29 Nov 2022 19:26:56 +0800</pubDate>
@@ -1205,9 +1205,9 @@ unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/11/22/BurpLab/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab</title>
-            <link>http://ericcd.com/2022/11/22/BurpLab/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
@@ -1374,9 +1374,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/11/15/information-collection/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>information-collection</title>
-            <link>http://ericcd.com/2022/11/15/information-collection/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Tue, 15 Nov 2022 21:57:34 +0800</pubDate>
@@ -1422,9 +1422,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/09/20/pikachu/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>pikachu</title>
-            <link>http://ericcd.com/2022/09/20/pikachu/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Tue, 20 Sep 2022 20:21:49 +0800</pubDate>
@@ -1448,9 +1448,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/08/31/linux-command/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>linux-command</title>
-            <link>http://ericcd.com/2022/08/31/linux-command/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="linux" scheme="http://ericcd.com/categories/linux/" />
             <category term="linux" scheme="http://ericcd.com/tags/linux/" />
             <pubDate>Wed, 31 Aug 2022 15:02:26 +0800</pubDate>
@@ -1486,9 +1486,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/08/20/file-download/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>文件包含漏洞可以尝试下载的文件</title>
-            <link>http://ericcd.com/2022/08/20/file-download/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Sat, 20 Aug 2022 16:20:20 +0800</pubDate>
@@ -1498,9 +1498,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/07/23/vulhub-command/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>vulhub 相关命令</title>
-            <link>http://ericcd.com/2022/07/23/vulhub-command/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Sat, 23 Jul 2022 11:45:16 +0800</pubDate>
@@ -1517,9 +1517,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/07/19/aosp-related/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>aosp 配置</title>
-            <link>http://ericcd.com/2022/07/19/aosp-related/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="Android" scheme="http://ericcd.com/categories/Android/" />
             <category term="Android" scheme="http://ericcd.com/tags/Android/" />
             <pubDate>Tue, 19 Jul 2022 19:19:16 +0800</pubDate>
@@ -1548,9 +1548,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/2022/07/17/url-log/</guid>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>web 安全相关网站资源记录</title>
-            <link>http://ericcd.com/2022/07/17/url-log/</link>
+            <link>http://ericcd.com/title/</link>
             <category term="web" scheme="http://ericcd.com/categories/web/" />
             <category term="web" scheme="http://ericcd.com/tags/web/" />
             <pubDate>Sun, 17 Jul 2022 15:14:42 +0800</pubDate>
