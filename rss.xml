@@ -123,6 +123,85 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-4/</guid>
+            <title>应急响应基础知识</title>
+            <link>http://ericcd.com/2023/05/01/hvv-4/</link>
+            <category term="web" scheme="http://ericcd.com/categories/web/" />
+            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;应急响应基础流程&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;#&lt;/a&gt; Linux&lt;/h1&gt;
+&lt;h2 id=&#34;关键目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键目录&#34;&gt;#&lt;/a&gt; 关键目录&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/passwd              用户信息文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/crontab             定时任务文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/anacrontab          异步定时文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/rc.d/rc.local       开机启动项 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/btmp            登录失败日志，使用 lastb 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/cron            定时任务执行日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/lastlog         所有用户登录信息，使用 lastlog 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/secure          验证、授权等日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/wtmp            包含用户登录日志，使用 last 命令查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/utmp            当前登陆系统的用户信息，使用 last 查看 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;检查异常别名：alias&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查计划任务：&lt;br /&gt;
+cat /var/spool/cron/crontabs/*&lt;br /&gt;
+crontab -l&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看创建时间：stat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查网络连接：netstat -antpl&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查后门账号：cat /etc/passwd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查进程：top, ps -aux&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查 gpu：nvidia-smi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根据 pid 查看对应可执行程序： ls -alh /proc/pid&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;开放端口进程： lsof -i:5678&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看历史命令：history，cat ~/.bash_history&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看当前目录下所有文件并排序：ls -alt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;校验 RPM 软件包：rpm -Va，dpkg -verify&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看系统服务：service --status-all&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;#&lt;/a&gt; Windows&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;查看系统进程：tasklist&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看网络情况：netstat -ant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看计划任务：任务计划程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;任务管理器查看进程和服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检查注册表&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安全工具检测&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-3/</guid>
             <title>应急响应基础知识</title>
             <link>http://ericcd.com/2023/05/01/hvv-3/</link>
@@ -259,85 +338,6 @@ public String getA ()&amp;#123;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;操作要点：检查网络连接，以及 IDS 设备上的异常远控告警。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2023/05/01/hvv-4/</guid>
-            <title>应急响应基础知识</title>
-            <link>http://ericcd.com/2023/05/01/hvv-4/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
-            <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;应急响应基础流程&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;linux&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux&#34;&gt;#&lt;/a&gt; Linux&lt;/h1&gt;
-&lt;h2 id=&#34;关键目录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键目录&#34;&gt;#&lt;/a&gt; 关键目录&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/passwd              用户信息文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/crontab             定时任务文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/anacrontab          异步定时文件 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/etc/rc.d/rc.local       开机启动项 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/btmp            登录失败日志，使用 lastb 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/cron            定时任务执行日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/lastlog         所有用户登录信息，使用 lastlog 查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/secure          验证、授权等日志 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/wtmp            包含用户登录日志，使用 last 命令查看 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/var/log/utmp            当前登陆系统的用户信息，使用 last 查看 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;检查异常别名：alias&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查计划任务：&lt;br /&gt;
-cat /var/spool/cron/crontabs/*&lt;br /&gt;
-crontab -l&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看创建时间：stat&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查网络连接：netstat -antpl&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查后门账号：cat /etc/passwd&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查进程：top, ps -aux&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查 gpu：nvidia-smi&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;根据 pid 查看对应可执行程序： ls -alh /proc/pid&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;开放端口进程： lsof -i:5678&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看历史命令：history，cat ~/.bash_history&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看当前目录下所有文件并排序：ls -alt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;校验 RPM 软件包：rpm -Va，dpkg -verify&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看系统服务：service --status-all&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;windows&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows&#34;&gt;#&lt;/a&gt; Windows&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;查看系统进程：tasklist&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看网络情况：netstat -ant&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看计划任务：任务计划程序&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;任务管理器查看进程和服务&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;检查注册表&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安全工具检测&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
