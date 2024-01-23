@@ -16,8 +16,7 @@
             <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>SpringBoot</title>
             <link>http://ericcd.com/title/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <category term="后端开发" scheme="http://ericcd.com/categories/backend/" />
             <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一下后端开发过程中学到的知识&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -468,25 +467,6 @@ crontab -l&lt;/p&gt;
         </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/title/</guid>
-            <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/title/</link>
-            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一个简单特点&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
-&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
-&lt;li&gt;爆破&lt;/li&gt;
-&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
-&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/title/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
@@ -555,6 +535,25 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
 &lt;h2 id=&#34;openid-connect&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#openid-connect&#34;&gt;#&lt;/a&gt; OpenID Connect&lt;/h2&gt;
 &lt;p&gt;考虑到 OpenID 是建立在 OAuth 上，许多前面提到的 OAuth 存在的问题 OpenID 也存在，接下来介绍以下由 OpenID 带来的新问题。&lt;br /&gt;
 1.Unprotected dynamic client registration&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <title>BurpLab_3-Directory_traversal</title>
+            <link>http://ericcd.com/title/</link>
+            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个简单特点&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
+&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
+&lt;li&gt;爆破&lt;/li&gt;
+&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
+&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
+&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
@@ -1143,8 +1142,7 @@ SSTI 就是服务器端模板注入（Server-Side Template Injection）&lt;br /&
             <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>leetcode</title>
             <link>http://ericcd.com/title/</link>
-            <category term="LeetCode" scheme="http://ericcd.com/categories/LeetCode/" />
-            <category term="LeetCode" scheme="http://ericcd.com/tags/LeetCode/" />
+            <category term="算法" scheme="http://ericcd.com/categories/%E7%AE%97%E6%B3%95/" />
             <pubDate>Tue, 29 Nov 2022 19:26:56 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;LeetCode 记录。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -1504,8 +1502,7 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
             <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>aosp 配置</title>
             <link>http://ericcd.com/title/</link>
-            <category term="Android" scheme="http://ericcd.com/categories/Android/" />
-            <category term="Android" scheme="http://ericcd.com/tags/Android/" />
+            <category term="安卓" scheme="http://ericcd.com/categories/android/" />
             <pubDate>Tue, 19 Jul 2022 19:19:16 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;AOSP 配置过程中遇到的问题。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
@@ -1535,8 +1532,7 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
             <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>web 安全相关网站资源记录</title>
             <link>http://ericcd.com/title/</link>
-            <category term="web" scheme="http://ericcd.com/categories/web/" />
-            <category term="web" scheme="http://ericcd.com/tags/web/" />
+            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Sun, 17 Jul 2022 15:14:42 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些学习到的 web 安全相关网站。&lt;br /&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
