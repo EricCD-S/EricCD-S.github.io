@@ -10,8 +10,65 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
-        <lastBuildDate>Tue, 08 Aug 2023 14:42:56 +0800</lastBuildDate>
+        <pubDate>Wed, 24 Jan 2024 19:41:35 +0800</pubDate>
+        <lastBuildDate>Wed, 24 Jan 2024 19:41:35 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <title>SpringBoot3+Vue3</title>
+            <link>http://ericcd.com/title/</link>
+            <category term="后端开发" scheme="http://ericcd.com/categories/backend/" />
+            <pubDate>Wed, 24 Jan 2024 19:41:35 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;黑马程序员笔记&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;基础&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基础&#34;&gt;#&lt;/a&gt; 基础&lt;/h1&gt;
+&lt;h2 id=&#34;springboot-基础&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#springboot-基础&#34;&gt;#&lt;/a&gt; SpringBoot 基础&lt;/h2&gt;
+&lt;h3 id=&#34;配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置文件&#34;&gt;#&lt;/a&gt; 配置文件&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;properties 文件&lt;/li&gt;
+&lt;li&gt;yml 文件&lt;br /&gt;
+ a. 使用 @Value (&amp;quot;${键名}&amp;quot;) 获取配置信息&lt;br /&gt;
+ b. 使用 @ConfigurationProperties (prefix = &amp;quot;&amp;quot;) 获取配置信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;配置-mybatis&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-mybatis&#34;&gt;#&lt;/a&gt; 配置 Mybatis&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;controller -&amp;gt; service -&amp;gt; mapper&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;bean-管理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bean-管理&#34;&gt;#&lt;/a&gt; Bean 管理&lt;/h3&gt;
+&lt;h4 id=&#34;bean-扫描&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bean-扫描&#34;&gt;#&lt;/a&gt; Bean 扫描&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;启动类下的 @ComponentScan 默认扫描所处包下的标签。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;bean-注册&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bean-注册&#34;&gt;#&lt;/a&gt; Bean 注册&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如果注册的 bean 对象来自第三方，便无法使用 @Component 及其衍生注解声明 bean&lt;br /&gt;
+ 使用 @Bean 和 @Import。&lt;br /&gt;
+a. @Bean&lt;br /&gt;
+@Bean 自动将声明方法的返回结果注入容器，建议在配置类中集中创建。通常对象默认的名字是方法名。&lt;br /&gt;
+如果方法内部需要使用到容器中已经存在的 bean 对象，那么只需要在方法参数中声明即可。&lt;/p&gt;
+&lt;p&gt;b. @Import&lt;br /&gt;
+@Import (***.class) 或者导入 ImportSelector 接口实现类。使用自定义注解批量创建。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;public class CommonImportSelector implements ImportSelector&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  public String [] selectImports (AnnotationMetadata importingClassMetadata)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    List&amp;lt;String&amp;gt; imports = new ArrayList&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    InputStream is = CommonImportSelector.class.getClassLoader ().getResourceAsStream (&amp;quot;&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    String line = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    while ((line = br.readLine ()) !=null )&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    imports.add (line);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  br.close ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  return imports.toArray (new String [0]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;注册条件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注册条件&#34;&gt;#&lt;/a&gt; 注册条件&lt;/h4&gt;
+&lt;p&gt;使用 @Conditional 及其衍生注解设置注册生效条件。&lt;/p&gt;
+&lt;h3 id=&#34;自动配置原理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自动配置原理&#34;&gt;#&lt;/a&gt; 自动配置原理&lt;/h3&gt;
+&lt;p&gt;@EnableAutoConfiguration&lt;br /&gt;
+@AutoConfigurationImportSelector&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;提供配置类：CommonConfig&lt;/li&gt;
+&lt;li&gt;提供自动配置类：@AutoConfiguration 和 @Inport (CommonConfig.class)&lt;/li&gt;
+&lt;li&gt;自动配置类的类名添加到配置文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;自定义-starter&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义-starter&#34;&gt;#&lt;/a&gt; 自定义 starter&lt;/h3&gt;
+&lt;p&gt;autoconfigure 模块和 starter 模块&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;autoconfigure 模块：提供自动配置功能（@AutoConfiguration），自定义配置文件 META-INF/spring/xxx,imports。&lt;/li&gt;
+&lt;li&gt;starter 模块：在 pom 中引入自动配置模块。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/title/</guid>
             <title>SpringBoot</title>
@@ -1526,41 +1583,6 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
-            <title>web 安全相关网站资源记录</title>
-            <link>http://ericcd.com/title/</link>
-            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
-            <pubDate>Sun, 17 Jul 2022 15:14:42 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录一些学习到的 web 安全相关网站。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;搜索引擎&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#搜索引擎&#34;&gt;#&lt;/a&gt; 搜索引擎&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuc2hvZGFuLmlvLw==&#34;&gt;https://www.shodan.io/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2Vic2Nhbi5jYy8=&#34;&gt;https://www.webscan.cc/&lt;/span&gt; （同 ip 查询）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jcnQuc2gv&#34;&gt;https://crt.sh/&lt;/span&gt; （子域名查询）&lt;/p&gt;
-&lt;h1 id=&#34;学习资源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#学习资源&#34;&gt;#&lt;/a&gt; 学习资源&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWJzZWMucmVhZHRoZWRvY3MuaW8vemgvbGF0ZXN0L2luZGV4Lmh0bWw=&#34;&gt;https://websec.readthedocs.io/zh/latest/index.html&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;扫描工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#扫描工具&#34;&gt;#&lt;/a&gt; 扫描工具&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ubWFwLm9yZy8=&#34;&gt;https://nmap.org/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZ29sZHNuYWtlbWFuL21hc25tYXBzY2FuLVYxLjA=&#34;&gt;https://github.com/hellogoldsnakeman/masnmapscan-V1.0&lt;/span&gt;  （端口扫描器）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0VuYWJsZVNlY3VyaXR5L3dhZncwMGY=&#34;&gt;https://github.com/EnableSecurity/wafw00f&lt;/span&gt;  （WAF 扫描工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2JpdDR3b28vdGVlbW8=&#34;&gt;https://github.com/bit4woo/teemo&lt;/span&gt; （域名枚举工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Z1enpkYi1wcm9qZWN0L2Z1enpkYg==&#34;&gt;https://github.com/fuzzdb-project/fuzzdb&lt;/span&gt; （Fuzz 工具）&lt;br /&gt;
-dirsearch （目录扫描工具）&lt;/p&gt;
-&lt;h1 id=&#34;相关资源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关资源&#34;&gt;#&lt;/a&gt; 相关资源&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0x1Y2lmZXIxOTkzL2Ntc3ByaW50&#34;&gt;https://github.com/Lucifer1993/cmsprint&lt;/span&gt;  （CMS 指纹库）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL000dGlyL0dpdGh1Yi1Nb25pdG9y&#34;&gt;https://github.com/M4tir/Github-Monitor&lt;/span&gt; （漏洞发布监控工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYm1qb2tlci9wLzkzMjYyNTguaHRtbA==&#34;&gt;https://www.cnblogs.com/bmjoker/p/9326258.html&lt;/span&gt; （sqlmap 思维导图）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1RoZUtpbmdPZkR1Y2svZnV6ekRpY3Rz&#34;&gt;https://github.com/TheKingOfDuck/fuzzDicts&lt;/span&gt; （Fuzz 字典）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3MwbWQzdi9YU1N0cmlrZQ==&#34;&gt;https://github.com/s0md3v/XSStrike&lt;/span&gt; （XSS 绕过工具）&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3lzb3NlcmlhbC5uZXQ=&#34;&gt;ysoserial.net&lt;/span&gt; （java 反序列化工具）&lt;/p&gt;
-&lt;h1 id=&#34;sql-注入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-注入&#34;&gt;#&lt;/a&gt; SQL 注入&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3lvdW5neWFuZ3lhbmcwNC9Ob1NRTEF0dGFjaw==&#34;&gt;https://github.com/youngyangyang04/NoSQLAttack&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NxbG1hcHByb2plY3Qvc3FsbWFw&#34;&gt;https://github.com/sqlmapproject/sqlmap&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NleWUuaW8v&#34;&gt;http://ceye.io/&lt;/span&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0FET09PL0Ruc2xvZ1NxbGluag==&#34;&gt;https://github.com/ADOOO/DnslogSqlinj&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
