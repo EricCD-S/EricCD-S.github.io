@@ -13,9 +13,9 @@
         <pubDate>Wed, 24 Jan 2024 19:41:35 +0800</pubDate>
         <lastBuildDate>Wed, 24 Jan 2024 19:41:35 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2024/01/24/backend/SpringBoot3andVue3/</guid>
             <title>SpringBoot3+Vue3</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2024/01/24/backend/SpringBoot3andVue3/</link>
             <category term="后端开发" scheme="http://ericcd.com/categories/backend/" />
             <pubDate>Wed, 24 Jan 2024 19:41:35 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;黑马程序员笔记&lt;br /&gt;
@@ -70,9 +70,9 @@ a. @Bean&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/08/08/backend/SpringBoot/</guid>
             <title>SpringBoot</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/08/08/backend/SpringBoot/</link>
             <category term="后端开发" scheme="http://ericcd.com/categories/backend/" />
             <pubDate>Tue, 08 Aug 2023 14:42:56 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一下后端开发过程中学到的知识&lt;br /&gt;
@@ -108,9 +108,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/06/26/cybersecurity/web-vx/</guid>
             <title>web 杂学</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/06/26/cybersecurity/web-vx/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Mon, 26 Jun 2023 11:16:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录从公众号看到的 web 杂学。&lt;br /&gt;
@@ -123,9 +123,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/05/06/cybersecurity/socket/</guid>
             <title>常见漏洞</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/05/06/cybersecurity/socket/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Sat, 06 May 2023 14:26:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;一些组件对应的常见漏洞&lt;br /&gt;
@@ -177,9 +177,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/05/01/cybersecurity/hvv-3/</guid>
             <title>应急响应基础知识</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/05/01/cybersecurity/hvv-3/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;应急响应基础知识总结&lt;br /&gt;
@@ -317,9 +317,9 @@ public String getA ()&amp;#123;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/05/01/cybersecurity/hvv-4/</guid>
             <title>应急响应基础知识</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/05/01/cybersecurity/hvv-4/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Mon, 01 May 2023 14:26:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;应急响应基础流程&lt;br /&gt;
@@ -395,9 +395,9 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2023/04/30/cybersecurity/hvv-sky/</guid>
             <title>天眼学习</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2023/04/30/cybersecurity/hvv-sky/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Sun, 30 Apr 2023 14:26:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;天眼相关知识总结&lt;br /&gt;
@@ -523,9 +523,9 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-2/</guid>
             <title>BurpLab_2-Authentication</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-2/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
@@ -595,9 +595,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</guid>
             <title>BurpLab_3-Directory_traversal</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-3/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
@@ -614,9 +614,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</guid>
             <title>BurpLab_4-OS_command_injection</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
@@ -643,9 +643,9 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</guid>
             <title>BurpLab_5-Business_logic_vulnerabilities</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
@@ -670,9 +670,9 @@ c. Follow multi-stage processes through to completion. Sometimes tampering with 
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/11/30/cybersecurity/hvv/</guid>
             <title>面经</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/11/30/cybersecurity/hvv/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Wed, 30 Nov 2022 14:26:13 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;面经总结&lt;br /&gt;
@@ -1196,9 +1196,9 @@ SSTI 就是服务器端模板注入（Server-Side Template Injection）&lt;br /&
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/11/29/algorithm/leetcode/</guid>
             <title>leetcode</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/11/29/algorithm/leetcode/</link>
             <category term="算法" scheme="http://ericcd.com/categories/%E7%AE%97%E6%B3%95/" />
             <pubDate>Tue, 29 Nov 2022 19:26:56 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;LeetCode 记录。&lt;br /&gt;
@@ -1250,9 +1250,9 @@ unordered_map，hash 表的使用；sort 的自定义排序方法。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/11/22/cybersecurity/BurpLab/</guid>
             <title>BurpLab</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/11/22/cybersecurity/BurpLab/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Tue, 22 Nov 2022 20:13:02 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
@@ -1418,9 +1418,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/11/15/cybersecurity/information-collection/</guid>
             <title>information-collection</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/11/15/cybersecurity/information-collection/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Tue, 15 Nov 2022 21:57:34 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些信息搜集工具。&lt;br /&gt;
@@ -1465,9 +1465,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/09/20/cybersecurity/pikachu/</guid>
             <title>pikachu</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/09/20/cybersecurity/pikachu/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Tue, 20 Sep 2022 20:21:49 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些在使用 pikahcu 练习时用到的命令。&lt;br /&gt;
@@ -1490,9 +1490,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/08/31/cybersecurity/linux-command/</guid>
             <title>linux-command</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/08/31/cybersecurity/linux-command/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Wed, 31 Aug 2022 15:02:26 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些 linux 环境下会用到的命令。&lt;br /&gt;
@@ -1527,9 +1527,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/08/20/cybersecurity/file-download/</guid>
             <title>文件包含漏洞可以尝试下载的文件</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/08/20/cybersecurity/file-download/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Sat, 20 Aug 2022 16:20:20 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;记录一些利用文件下载漏洞下载的目标文件。&lt;br /&gt;
@@ -1538,9 +1538,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/07/23/cybersecurity/vulhub-command/</guid>
             <title>vulhub 相关命令</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/07/23/cybersecurity/vulhub-command/</link>
             <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
             <pubDate>Sat, 23 Jul 2022 11:45:16 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;使用 vulhub 时会用到的命令。&lt;br /&gt;
@@ -1556,9 +1556,9 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://ericcd.com/title/</guid>
+            <guid isPermalink="true">http://ericcd.com/2022/07/19/android/aosp-related/</guid>
             <title>aosp 配置</title>
-            <link>http://ericcd.com/title/</link>
+            <link>http://ericcd.com/2022/07/19/android/aosp-related/</link>
             <category term="安卓" scheme="http://ericcd.com/categories/android/" />
             <pubDate>Tue, 19 Jul 2022 19:19:16 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;AOSP 配置过程中遇到的问题。&lt;br /&gt;
