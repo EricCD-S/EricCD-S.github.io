@@ -10,8 +10,23 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Wed, 24 Jan 2024 19:41:35 +0800</pubDate>
-        <lastBuildDate>Wed, 24 Jan 2024 19:41:35 +0800</lastBuildDate>
+        <pubDate>Thu, 25 Jan 2024 10:43:21 +0800</pubDate>
+        <lastBuildDate>Thu, 25 Jan 2024 10:43:21 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://ericcd.com/2024/01/25/backend/java/</guid>
+            <title>java 基础</title>
+            <link>http://ericcd.com/2024/01/25/backend/java/</link>
+            <category term="后端开发" scheme="http://ericcd.com/categories/backend/" />
+            <pubDate>Thu, 25 Jan 2024 10:43:21 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;java 相关知识&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;常用-api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用-api&#34;&gt;#&lt;/a&gt; 常用 API&lt;/h1&gt;
+&lt;h2 id=&#34;string&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#string&#34;&gt;#&lt;/a&gt; String&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;String s1 = &amp;quot;test1&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.charAt (1);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.toCharArray ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;String s2 = &amp;quot;test2&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.equals (s2);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.equalsIgnoreCase (s2);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.substring (0,2);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.substring (1);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.replace (&amp;quot;te&amp;quot;, &amp;quot;et&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.contains (&amp;quot;et&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.startsWith (&amp;quot;et&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;s1.split (&amp;quot; &amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;arraylist&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arraylist&#34;&gt;#&lt;/a&gt; ArrayList&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ArrayList list = new ArrayList ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.add (&amp;quot;1&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.add (&amp;quot;a&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ArrayList&amp;lt;String&amp;gt; slist = new ArrayList ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;slist.add (&amp;quot;a&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.add (1,&amp;quot;b&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.get (1);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.size ();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.remove (1);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.remove (&amp;quot;b&amp;quot;);// 默认删除第一次出现的数据 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;list.set (1,&amp;quot;c&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://ericcd.com/2024/01/24/backend/SpringBoot3andVue3/</guid>
             <title>SpringBoot3+Vue3</title>
@@ -542,6 +557,33 @@ crontab -l&lt;/p&gt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</guid>
+            <title>BurpLab_5-Business_logic_vulnerabilities</title>
+            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</link>
+            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
+            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;excessive-trust-in-client-side-controls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#excessive-trust-in-client-side-controls&#34;&gt;#&lt;/a&gt; Excessive trust in client-side controls&lt;/h1&gt;
+&lt;h1 id=&#34;failing-to-handle-unconventional-input&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#failing-to-handle-unconventional-input&#34;&gt;#&lt;/a&gt; Failing to handle unconventional input&lt;/h1&gt;
+&lt;p&gt;1.Are there any limits that are imposed on the data?&lt;br /&gt;
+2.What happens when you reach those limits?&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzMuSXM=&#34;&gt;3.Is&lt;/span&gt; any transformation or normalization being performed on your input?&lt;br /&gt;
+4. 注意边界值和特殊值&lt;br /&gt;
+ 5. 有后端前端不会检测用户输入的长度，后端也只是做了简单的截断处理，可以摸清后端的阶段规律，自定义一个适当长度的字符串，让它被阶段后成为我们的目标字符串&lt;/p&gt;
+&lt;h1 id=&#34;making-flawed-assumptions-about-user-behavior&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#making-flawed-assumptions-about-user-behavior&#34;&gt;#&lt;/a&gt; Making flawed assumptions about user behavior&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When probing for logic flaws, you should try removing each parameter in turn and observing what effect this has on the response. You should make sure to:&lt;/p&gt;
+&lt;p&gt;a. Only remove one parameter at a time to ensure all relevant code paths are reached.&lt;br /&gt;
+b. Try deleting the name of the parameter as well as the value. The server will typically handle both cases differently.&lt;br /&gt;
+c. Follow multi-stage processes through to completion. Sometimes tampering with a parameter in one step will have an effect on another step further along in the workflow.&lt;/p&gt;
+&lt;h1 id=&#34;domain-specific-flaws&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#domain-specific-flaws&#34;&gt;#&lt;/a&gt; Domain-specific flaws&lt;/h1&gt;
+&lt;p&gt;1。利用优惠码的刷新漏洞重复使用同一个优惠码&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</guid>
             <title>BurpLab_4-OS_command_injection</title>
             <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-4/</link>
@@ -640,33 +682,6 @@ message 是传递的内容，targetOrigin 是可接收的窗口。&lt;br /&gt;
 &lt;h2 id=&#34;openid-connect&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#openid-connect&#34;&gt;#&lt;/a&gt; OpenID Connect&lt;/h2&gt;
 &lt;p&gt;考虑到 OpenID 是建立在 OAuth 上，许多前面提到的 OAuth 存在的问题 OpenID 也存在，接下来介绍以下由 OpenID 带来的新问题。&lt;br /&gt;
 1.Unprotected dynamic client registration&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</guid>
-            <title>BurpLab_5-Business_logic_vulnerabilities</title>
-            <link>http://ericcd.com/2022/12/22/cybersecurity/BurpLab-5/</link>
-            <category term="网络安全" scheme="http://ericcd.com/categories/cybersecurity/" />
-            <pubDate>Thu, 22 Dec 2022 20:44:54 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;记录在做 burp lab 时学会的知识点。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&#34;excessive-trust-in-client-side-controls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#excessive-trust-in-client-side-controls&#34;&gt;#&lt;/a&gt; Excessive trust in client-side controls&lt;/h1&gt;
-&lt;h1 id=&#34;failing-to-handle-unconventional-input&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#failing-to-handle-unconventional-input&#34;&gt;#&lt;/a&gt; Failing to handle unconventional input&lt;/h1&gt;
-&lt;p&gt;1.Are there any limits that are imposed on the data?&lt;br /&gt;
-2.What happens when you reach those limits?&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzMuSXM=&#34;&gt;3.Is&lt;/span&gt; any transformation or normalization being performed on your input?&lt;br /&gt;
-4. 注意边界值和特殊值&lt;br /&gt;
- 5. 有后端前端不会检测用户输入的长度，后端也只是做了简单的截断处理，可以摸清后端的阶段规律，自定义一个适当长度的字符串，让它被阶段后成为我们的目标字符串&lt;/p&gt;
-&lt;h1 id=&#34;making-flawed-assumptions-about-user-behavior&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#making-flawed-assumptions-about-user-behavior&#34;&gt;#&lt;/a&gt; Making flawed assumptions about user behavior&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;When probing for logic flaws, you should try removing each parameter in turn and observing what effect this has on the response. You should make sure to:&lt;/p&gt;
-&lt;p&gt;a. Only remove one parameter at a time to ensure all relevant code paths are reached.&lt;br /&gt;
-b. Try deleting the name of the parameter as well as the value. The server will typically handle both cases differently.&lt;br /&gt;
-c. Follow multi-stage processes through to completion. Sometimes tampering with a parameter in one step will have an effect on another step further along in the workflow.&lt;/p&gt;
-&lt;h1 id=&#34;domain-specific-flaws&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#domain-specific-flaws&#34;&gt;#&lt;/a&gt; Domain-specific flaws&lt;/h1&gt;
-&lt;p&gt;1。利用优惠码的刷新漏洞重复使用同一个优惠码&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1553,36 +1568,6 @@ HTML 中的 input 如果有 name 属性，那就可以通过 get 传值，数据
 &lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# docker-compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&#34;移除环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#移除环境&#34;&gt;#&lt;/a&gt; 移除环境&lt;/h1&gt;
 &lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# docker-compose down -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://ericcd.com/2022/07/19/android/aosp-related/</guid>
-            <title>aosp 配置</title>
-            <link>http://ericcd.com/2022/07/19/android/aosp-related/</link>
-            <category term="安卓" scheme="http://ericcd.com/categories/android/" />
-            <pubDate>Tue, 19 Jul 2022 19:19:16 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;AOSP 配置过程中遇到的问题。&lt;br /&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;br /&gt;
- 环境：Ubuntu 18.04 ， Python3.6&lt;/p&gt;
-&lt;h1 id=&#34;网络问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络问题&#34;&gt;#&lt;/a&gt; 网络问题&lt;/h1&gt;
-&lt;p&gt;设置 Proxy 或更换国内源&lt;/p&gt;
-&lt;h1 id=&#34;repo-安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#repo-安装&#34;&gt;#&lt;/a&gt; repo 安装&lt;/h1&gt;
-&lt;p&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  mkdir ~/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  PATH=~/bin:$PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  curl https://storage.googleapis.com/git-repo-downloads/repo &amp;gt; ~/bin/repo&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;#  chmod a+x ~/bin/repo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&#34;python-版本控制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#python-版本控制&#34;&gt;#&lt;/a&gt; python 版本控制&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;查看 python 版本：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  ls /usr/bin/python*&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;添加 python 版本：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;查看和更换 python 版本：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;#  update-alternatives --config python&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
  ]]></description>
         </item>
     </channel>
